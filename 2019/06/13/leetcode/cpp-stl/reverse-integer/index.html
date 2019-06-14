@@ -4,11 +4,16 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Z字形变换, ChangzeYan | Bolg">
-    <meta name="description" content="Z字母变换题目地址：Z字形变换
-题目描述将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。比如输入字符串为 “LEETCODEISHIRING” 行数为 3 时，排列如下：
-L   C   I   R
-E T O E ">
+    <meta name="keywords" content="整数反转, ycz">
+    <meta name="description" content="整数反转题目地址：整数反转
+题目描述：给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
+示例1：
+输入: 123
+输出: 321示例 2:
+输入: -123
+输出: -321示例 3:
+输入: 120
+输出: 21注">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +21,7 @@ E T O E ">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Z字形变换 | ChangzeYan | Bolg</title>
+    <title>整数反转 | ycz</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -44,7 +49,7 @@ E T O E ">
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">ChangzeYan | Bolg</span>
+                    <span class="logo-span">ycz</span>
                 </a>
             </div>
             
@@ -119,7 +124,7 @@ E T O E ">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">ChangzeYan | Bolg</div>
+        <div class="logo-name">ycz</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -260,13 +265,13 @@ E T O E ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Z字形变换
+                        整数反转
                     </div>
                 </div>
             </div>
@@ -377,8 +382,8 @@ E T O E ">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/" target="_blank">
-                                <span class="chip bg-color">-leetcode</span>
+                            <a href="/tags/leetcode-cpp-stl/" target="_blank">
+                                <span class="chip bg-color">-leetcode -cpp_stl</span>
                             </a>
                         
                     </div>
@@ -417,68 +422,43 @@ E T O E ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Z字母变换"><a href="#Z字母变换" class="headerlink" title="Z字母变换"></a>Z字母变换</h2><p>题目地址：<a href="https://leetcode-cn.com/problems/zigzag-conversion/" target="_blank" rel="noopener">Z字形变换</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。<br>比如输入字符串为 “LEETCODEISHIRING” 行数为 3 时，排列如下：</p>
-<pre><code>L   C   I   R
-E T O E S I I G
-E   D   H   N</code></pre><p>之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：”LCIRETOESIIGEDHN”。<br>示例 1:</p>
-<pre><code>输入: s = &quot;LEETCODEISHIRING&quot;, numRows = 3
-输出: &quot;LCIRETOESIIGEDHN&quot;</code></pre><pre><code>输入: s = &quot;LEETCODEISHIRING&quot;, numRows = 4
-输出: &quot;LDREOEIIECIHNTSG&quot;
-解释:
-L     D     R
-E   O E   I I
-E C   I H   N
-T     S     G</code></pre><h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>画出变换后字母的图形，将每个字母的行号写在它右边</p>
-<pre><code>L1    C1    I1    R1
-E2 T2 O2 E2 S2 I2 I2 G2
-E3    D3    H3    N3</code></pre><p>将每个字母变换后对应的行号与该字母对应：</p>
-<pre><code>LEETCODEISHIRING
-1232123212321232</code></pre><p>便可以得到字母变换后行号的规律</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> Node<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> row<span class="token punctuation">;</span>
-    <span class="token keyword">char</span> c<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+                <h2 id="整数反转"><a href="#整数反转" class="headerlink" title="整数反转"></a>整数反转</h2><p>题目地址：<a href="https://leetcode-cn.com/problems/reverse-integer/" target="_blank" rel="noopener">整数反转</a></p>
+<p>题目描述：<br>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
+<p>示例1：</p>
+<pre><code>输入: 123
+输出: 321</code></pre><p>示例 2:</p>
+<pre><code>输入: -123
+输出: -321</code></pre><p>示例 3:</p>
+<pre><code>输入: 120
+输出: 21</code></pre><p>注意:</p>
+<p>假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。</p>
+<h3 id="cpp"><a href="#cpp" class="headerlink" title="cpp"></a>cpp</h3><p>int 的范围</p>
+<pre><code>[-2^31,2^31-1]</code></pre><p>C中常量INT_MAX和INT_MIN分别表示最大、最小整数，定义在头文件limits.h中。</p>
+<pre class=" language-cpp"><code class="language-cpp">INT_MAX <span class="token operator">=</span> <span class="token function">2147483647</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span><span class="token number">31</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+INT_MIN <span class="token operator">=</span> <span class="token operator">-</span><span class="token function">2147483648</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token operator">^</span><span class="token number">31</span><span class="token punctuation">)</span></code></pre>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>利用x%10循环取出原数最后一位，作为reverse_num的首位</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">long</span> <span class="token keyword">long</span> reverse_num<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//用long long定义反转后的结果</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 不用考虑x的正负，负数的模为负</span>
+    current<span class="token operator">=</span>x<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//每次取出x的最后一位，将其当作反转数的第一位</span>
+    reverse_num<span class="token operator">=</span>reverse_num<span class="token operator">*</span><span class="token number">10</span><span class="token operator">+</span>current<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    string <span class="token function">convert</span><span class="token punctuation">(</span>string s<span class="token punctuation">,</span> <span class="token keyword">int</span> numRows<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>numRows<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> s<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        string result_str<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> ptr<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">bool</span> flag<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> len<span class="token operator">=</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Node nodeList<span class="token punctuation">[</span>len<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            Node n<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-            n<span class="token punctuation">.</span>c<span class="token operator">=</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            n<span class="token punctuation">.</span>row<span class="token operator">=</span>ptr<span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                ptr<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-                ptr<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">long</span> <span class="token keyword">long</span> num<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> current_num<span class="token operator">=</span>x<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>
+            cout<span class="token operator">&lt;&lt;</span>current_num<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+            num<span class="token operator">=</span>num<span class="token operator">*</span><span class="token number">10</span><span class="token operator">+</span>current_num<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>num<span class="token operator">&lt;</span>INT_MIN <span class="token operator">||</span>num<span class="token operator">></span>INT_MAX<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>ptr<span class="token operator">==</span>numRows <span class="token operator">||</span> ptr<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                flag<span class="token operator">=</span><span class="token operator">!</span>flag<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            nodeList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>n<span class="token punctuation">;</span>
+            x<span class="token operator">/</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        string z_character<span class="token punctuation">[</span>numRows<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//        cout&lt;&lt;nodeList[i].row&lt;&lt;" "&lt;&lt;nodeList[i].c&lt;&lt;endl;</span>
-            <span class="token keyword">char</span> c<span class="token operator">=</span>nodeList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>c<span class="token punctuation">;</span>
-            <span class="token keyword">int</span> row<span class="token operator">=</span>nodeList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>row<span class="token punctuation">;</span>
-            z_character<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span>c<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">const</span> string<span class="token operator">&amp;</span> str<span class="token operator">:</span>z_character<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            result_str<span class="token operator">+</span><span class="token operator">=</span>str<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">//    cout&lt;&lt;result_str&lt;&lt;endl;</span>
-        <span class="token keyword">return</span> result_str<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//cout&lt;&lt;num&lt;&lt;endl;</span>
+        <span class="token keyword">return</span> num<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
@@ -636,9 +616,9 @@ E3    D3    H3    N3</code></pre><p>将每个字母变换后对应的行号与�
             </div>
             <br>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《Z字形变换》
+                    《整数反转》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/13/leetcode/zigzag-conversion/" property="cc:attributionName" rel="cc:attributionURL">
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/13/leetcode/cpp-stl/reverse-integer/" property="cc:attributionName" rel="cc:attributionURL">
                 ChangzeYan
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
@@ -681,19 +661,22 @@ E3    D3    H3    N3</code></pre><p>将每个字母变换后对应的行号与�
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/06/13/testpage/">
+                <a href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="testPage">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Z字形变换">
                         
-                        <span class="card-title">testPage</span>
+                        <span class="card-title">Z字形变换</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Z字形变换题目地址：Z字形变换
+题目描述将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。比如输入字符串为 “LEETCODEISHIRING” 行数为 3 时，排列如下：
+L   C   I   R
+E T O E 
                         
                     </div>
                     <div class="publish-info">
@@ -702,11 +685,23 @@ E3    D3    H3    N3</code></pre><p>将每个字母变换后对应的行号与�
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            ChangzeYan
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/leetcode/" class="post-category" target="_blank">
+                                    leetcode
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/leetcode-simple-without-algorithm/" target="_blank">
+                        <span class="chip bg-color">-leetcode -simple_without_algorithm</span>
+                    </a>
+                    
                 </div>
                 
             </div>
