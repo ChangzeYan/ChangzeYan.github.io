@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>阅读：基于概率图模型的互联网广告点击率预测</title>
+      <link href="/2019/06/14/paper/pgm/ji-yu-gai-lu-tu-mo-xing-de-hu-lian-wang-guang-gao-dian-ji-lu-yu-ce/"/>
+      <url>/2019/06/14/paper/pgm/ji-yu-gai-lu-tu-mo-xing-de-hu-lian-wang-guang-gao-dian-ji-lu-yu-ce/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>岳昆, 王朝禄, 朱运磊, 等. 基于概率图模型的互联网广告点击率预测[J]. 华东师范大学学报(自然科学版), <code>2013(3):15-25</code>.</p></blockquote><h2 id="研究内容"><a href="#研究内容" class="headerlink" title="研究内容"></a>研究内容</h2><p>利用BN（贝叶斯网）的概率推理算法定量地分析任意用户之间的相似性，从而针对特定的广告，获得没有历史点击记录的用户与存在历史点击记录的用户之间存在的广告搜索行为的相似性，进而预测没有点击记录的用户对广告的 <code>CTR</code>（广告点击率）</p><ul><li>构建用户相似模型（用户贝叶斯网 <code>UBN</code>）</li><li>用户贝叶斯网近似推理（发现相似用户）和CTR预测（预测未点击用户对广告的点击率）</li><li>在数据集 <code>KDD CUP 2012-Track 2</code> 上进行实验（构建用户贝叶斯网、近似推理/发现相似用户、预测CTR）</li></ul><h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">CTR</span><span class="token punctuation">:</span> 广告点击率<span class="token key atrule">UBN</span><span class="token punctuation">:</span> 用户贝叶斯网</code></pre><h2 id="章节安排"><a href="#章节安排" class="headerlink" title="章节安排"></a>章节安排</h2><ul><li>第一节给出构建用户贝叶斯网（UBN）的定义和构建方法</li><li>第二节给出 <code>UBN</code> 的近似推理算法和相应的 <code>CTR</code> 预测方法</li><li>第三节给出实验结果</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> paper </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -Paper -PGM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>testPage</title>
       <link href="/2019/06/13/testpage/"/>
       <url>/2019/06/13/testpage/</url>
@@ -33,7 +58,7 @@
       
         <tags>
             
-            <tag> -leetcode -simple_without_algorithm </tag>
+            <tag> -Leetcode -simple_without_algorithm </tag>
             
         </tags>
       
@@ -58,7 +83,7 @@
       
         <tags>
             
-            <tag> -leetcode -cpp_stl </tag>
+            <tag> -Leetcode -cpp_stl </tag>
             
         </tags>
       

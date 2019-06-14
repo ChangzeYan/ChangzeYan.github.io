@@ -4,16 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="整数反转, ycz">
-    <meta name="description" content="整数反转题目地址：整数反转
-题目描述：给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
-示例1：
-输入: 123
-输出: 321示例 2:
-输入: -123
-输出: -321示例 3:
-输入: 120
-输出: 21注">
+    <meta name="keywords" content="阅读：基于概率图模型的互联网广告点击率预测, ycz">
+    <meta name="description" content="
+岳昆, 王朝禄, 朱运磊, 等. 基于概率图模型的互联网广告点击率预测[J]. 华东师范大学学报(自然科学版), 2013(3):15-25.
+
+研究内容利用BN（贝叶斯网）的概率推理算法定量地分析任意用户之间的相似性，从而针对特定的广告">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>整数反转 | ycz</title>
+    <title>阅读：基于概率图模型的互联网广告点击率预测 | ycz</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -265,13 +260,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        整数反转
+                        阅读：基于概率图模型的互联网广告点击率预测
                     </div>
                 </div>
             </div>
@@ -382,8 +377,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Leetcode-cpp-stl/" target="_blank">
-                                <span class="chip bg-color">-Leetcode -cpp_stl</span>
+                            <a href="/tags/Paper-PGM/" target="_blank">
+                                <span class="chip bg-color">-Paper -PGM</span>
                             </a>
                         
                     </div>
@@ -394,8 +389,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/leetcode/" class="post-category" target="_blank">
-                                leetcode
+                            <a href="/categories/paper/" class="post-category" target="_blank">
+                                paper
                             </a>
                         
                     </div>
@@ -406,14 +401,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-13
+                    2019-06-14
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        301
+                        308
                     </div>
                     
 
@@ -436,45 +431,22 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="整数反转"><a href="#整数反转" class="headerlink" title="整数反转"></a>整数反转</h2><p>题目地址：<a href="https://leetcode-cn.com/problems/reverse-integer/" target="_blank" rel="noopener">整数反转</a></p>
-<p>题目描述：<br>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
-<p>示例1：</p>
-<pre><code>输入: 123
-输出: 321</code></pre><p>示例 2:</p>
-<pre><code>输入: -123
-输出: -321</code></pre><p>示例 3:</p>
-<pre><code>输入: 120
-输出: 21</code></pre><p>注意:</p>
-<p>假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。</p>
-<h3 id="cpp"><a href="#cpp" class="headerlink" title="cpp"></a>cpp</h3><p>int 的范围</p>
-<pre><code>[-2^31,2^31-1]</code></pre><p>C中常量INT_MAX和INT_MIN分别表示最大、最小整数，定义在头文件limits.h中。</p>
-<pre class=" language-cpp"><code class="language-cpp">INT_MAX <span class="token operator">=</span> <span class="token function">2147483647</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">^</span><span class="token number">31</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-INT_MIN <span class="token operator">=</span> <span class="token operator">-</span><span class="token function">2147483648</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token operator">^</span><span class="token number">31</span><span class="token punctuation">)</span></code></pre>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>利用x%10循环取出原数最后一位，作为reverse_num的首位</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">long</span> <span class="token keyword">long</span> reverse_num<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//用long long定义反转后的结果</span>
-<span class="token keyword">while</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 不用考虑x的正负，负数的模为负</span>
-    current<span class="token operator">=</span>x<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//每次取出x的最后一位，将其当作反转数的第一位</span>
-    reverse_num<span class="token operator">=</span>reverse_num<span class="token operator">*</span><span class="token number">10</span><span class="token operator">+</span>current<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">long</span> <span class="token keyword">long</span> num<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">int</span> current_num<span class="token operator">=</span>x<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>
-            cout<span class="token operator">&lt;&lt;</span>current_num<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-            num<span class="token operator">=</span>num<span class="token operator">*</span><span class="token number">10</span><span class="token operator">+</span>current_num<span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>num<span class="token operator">&lt;</span>INT_MIN <span class="token operator">||</span>num<span class="token operator">></span>INT_MAX<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            x<span class="token operator">/</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">//cout&lt;&lt;num&lt;&lt;endl;</span>
-        <span class="token keyword">return</span> num<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+                <blockquote>
+<p>岳昆, 王朝禄, 朱运磊, 等. 基于概率图模型的互联网广告点击率预测[J]. 华东师范大学学报(自然科学版), <code>2013(3):15-25</code>.</p>
+</blockquote>
+<h2 id="研究内容"><a href="#研究内容" class="headerlink" title="研究内容"></a>研究内容</h2><p>利用BN（贝叶斯网）的概率推理算法定量地分析任意用户之间的相似性，从而针对特定的广告，获得没有历史点击记录的用户与存在历史点击记录的用户之间存在的广告搜索行为的相似性，进而预测没有点击记录的用户对广告的 <code>CTR</code>（广告点击率）</p>
+<ul>
+<li>构建用户相似模型（用户贝叶斯网 <code>UBN</code>）</li>
+<li>用户贝叶斯网近似推理（发现相似用户）和CTR预测（预测未点击用户对广告的点击率）</li>
+<li>在数据集 <code>KDD CUP 2012-Track 2</code> 上进行实验（构建用户贝叶斯网、近似推理/发现相似用户、预测CTR）</li>
+</ul>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">CTR</span><span class="token punctuation">:</span> 广告点击率
+<span class="token key atrule">UBN</span><span class="token punctuation">:</span> 用户贝叶斯网</code></pre>
+<h2 id="章节安排"><a href="#章节安排" class="headerlink" title="章节安排"></a>章节安排</h2><ul>
+<li>第一节给出构建用户贝叶斯网（UBN）的定义和构建方法</li>
+<li>第二节给出 <code>UBN</code> 的近似推理算法和相应的 <code>CTR</code> 预测方法</li>
+<li>第三节给出实验结果</li>
+</ul>
 
             </div>
             <hr>
@@ -630,9 +602,9 @@ INT_MIN <span class="token operator">=</span> <span class="token operator">-</sp
             </div>
             <br>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《整数反转》
+                    《阅读：基于概率图模型的互联网广告点击率预测》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/13/leetcode/cpp-stl/reverse-integer/" property="cc:attributionName" rel="cc:attributionURL">
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/14/paper/pgm/ji-yu-gai-lu-tu-mo-xing-de-hu-lian-wang-guang-gao-dian-ji-lu-yu-ce/" property="cc:attributionName" rel="cc:attributionURL">
                 ChangzeYan
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
@@ -673,47 +645,49 @@ INT_MIN <span class="token operator">=</span> <span class="token operator">-</sp
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/">
+                <a href="/2019/06/14/paper/pgm/ji-yu-gai-lu-tu-mo-xing-de-hu-lian-wang-guang-gao-dian-ji-lu-yu-ce/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Z字形变换">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="阅读：基于概率图模型的互联网广告点击率预测">
                         
-                        <span class="card-title">Z字形变换</span>
+                        <span class="card-title">阅读：基于概率图模型的互联网广告点击率预测</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Z字形变换题目地址：Z字形变换
-题目描述将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。比如输入字符串为 “LEETCODEISHIRING” 行数为 3 时，排列如下：
-L   C   I   R
-E T O E 
+                            
+岳昆, 王朝禄, 朱运磊, 等. 基于概率图模型的互联网广告点击率预测[J]. 华东师范大学学报(自然科学版), 2013(3):15-25.
+
+研究内容利用BN（贝叶斯网）的概率推理算法定量地分析任意用户之间的相似性，从而针对特定的广告
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/leetcode/" class="post-category" target="_blank">
-                                    leetcode
+                            <a href="/categories/paper/" class="post-category" target="_blank">
+                                    paper
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Leetcode-simple-without-algorithm/" target="_blank">
-                        <span class="chip bg-color">-Leetcode -simple_without_algorithm</span>
+                    <a href="/tags/Paper-PGM/" target="_blank">
+                        <span class="chip bg-color">-Paper -PGM</span>
                     </a>
                     
                 </div>
@@ -727,24 +701,24 @@ E T O E
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/12/hello-world/">
+                <a href="/2019/06/13/testpage/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="testPage">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">testPage</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-12
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-13
                             </span>
                         <span class="publish-author">
                             
