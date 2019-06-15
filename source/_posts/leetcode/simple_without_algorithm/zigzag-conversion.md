@@ -4,8 +4,8 @@ date: 2019-06-13 14:54:42
 categories: leetcode
 cover: true
 tags:
-  -Leetcode
-  -simple_without_algorithm
+  - leetcode
+  - simple_without_algorithm
 ---
 ## Z字形变换
 

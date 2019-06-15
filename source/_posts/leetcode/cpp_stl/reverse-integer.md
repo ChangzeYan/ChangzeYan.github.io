@@ -4,8 +4,8 @@ date: 2019-06-13 14:54:42
 categories: leetcode
 cover: true
 tags:
-  -Leetcode
-  -cpp_stl
+  - leetcode
+  - cpp_stl
 ---
 
 ## 整数反转
