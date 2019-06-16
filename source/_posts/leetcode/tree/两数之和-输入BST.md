@@ -5,7 +5,8 @@ date: 2019-06-15 21:24:40
 tags:
   - leetcode
   - tree
-categories: leetcode
+categories:
+  - leetcode
 cover: true
 ---
 

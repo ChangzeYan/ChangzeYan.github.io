@@ -7,7 +7,7 @@ tags:
   - PGM
   - BN
 categories: paper
-cover: ture
+cover: false
 ---
 
 ## 贝叶斯网
