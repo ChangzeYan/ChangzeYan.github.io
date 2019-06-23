@@ -56,6 +56,8 @@ Age:  '1' for (0, 12],  '2' for (12, 18], '3' for (18, 24], '4'  for  (24, 30], 
 ### 需要提交的结果
 一个文本文件，每一行只有一个字段：广告的点击率，并且按照顺序与所给文件的行一一对应。
 
+[标注版论文](/assets/kddcup2012paper_note.pdf)
+
 ### 参考
 [1]杨之之.Kaggle[2] - Predict the click through rate (KDD12 trackl2)[EB/OL].https://blog.csdn.net/u011292007/article/details/36886523 2014-07-09/2019-06-20
 [2]https://www.kaggle.com/c/kddcup2012-track2/overview
