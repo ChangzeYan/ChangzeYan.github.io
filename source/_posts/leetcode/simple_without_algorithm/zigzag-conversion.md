@@ -6,7 +6,7 @@ categories:
 cover: true
 tags:
   - leetcode
-  - simple_without_algorithm
+  - simple
 ---
 ## Z字形变换
 
