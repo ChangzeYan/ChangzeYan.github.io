@@ -1,1 +1,5 @@
 /* Here is your custom css styles. */
+.td{
+    width:3px;
+    overflow:hidden
+}

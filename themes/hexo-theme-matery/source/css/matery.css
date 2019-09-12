@@ -1003,22 +1003,28 @@ article .article-tags .chip {
     list-style-type: circle;
 }
 
+
 #articleContent table, th, td {
     padding: 12px 13px;
     border: 1px solid #dfe2e5;
 }
 
+/* 表格隔行变色 */
 table tr:nth-child(2n), thead {
     background-color: #fafafa;
+}
+/* 鼠标悬浮时表格中该行改变背景色 */
+table tr:hover {
+    background: #efefef;
 }
 
 #articleContent table th {
     background-color: #f2f2f2;
-    min-width: 80px;
+    min-width: 30px;
 }
 
 #articleContent table td {
-    min-width: 80px;
+    min-width: 30px;
 }
 
 #articleContent [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
