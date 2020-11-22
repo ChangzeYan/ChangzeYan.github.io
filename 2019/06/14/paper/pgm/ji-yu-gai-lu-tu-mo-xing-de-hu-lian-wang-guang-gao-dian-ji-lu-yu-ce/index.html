@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>阅读：基于概率图模型的互联网广告点击率预测 | YCZ</title>
+  <meta name="keywords" content=" paper , PGM ">
+  <meta name="description" content="阅读：基于概率图模型的互联网广告点击率预测 | YCZ">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="https://changzeyan.github.io/tags/index.html">
+<meta property="og:site_name" content="YCZ">
+<meta property="og:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-10T05:24:57.494Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.1.0"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value>
+  <input class="theme_blog_path" value>
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>ChangzeYan</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(17)</small></div></li>
+    
+        
+            
+            <li><div data-rel="leetcode">leetcode<small>(13)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="paper">paper<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工作流">工作流<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="17">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>activiti</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cpp_stl</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataStructure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DoublePointer</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>KDD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>leetcode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>paper</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>PGM</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>simple</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>string</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tree</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 工作流 "
+           href="/2020/11/10/others/activiti/gong-zuo-liu-activiti/"
+           data-tag="activiti"
+           data-author="" >
+            <span class="post-title" title="工作流">工作流</span>
+            <span class="post-date" title="2020-11-10 14:22:22">2020/11/10</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/08/26/leetcode/string/kmp/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="KMP">KMP</span>
+            <span class="post-date" title="2019-08-26 16:49:56">2019/08/26</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/07/19/leetcode/simple-without-algorithm/liang-shu-zhi-he/"
+           data-tag="leetcode,simple"
+           data-author="" >
+            <span class="post-title" title="两数之和">两数之和</span>
+            <span class="post-date" title="2019-07-19 15:01:42">2019/07/19</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/23/leetcode/string/zui-chang-gong-gong-qian-zhui/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="最长公共前缀">最长公共前缀</span>
+            <span class="post-date" title="2019-06-23 13:59:58">2019/06/23</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/22/leetcode/simple-without-algorithm/luo-ma-shu-zi-zhuan-zheng-shu/"
+           data-tag="leetcode,DataStructure"
+           data-author="" >
+            <span class="post-title" title="罗马数字转整数">罗马数字转整数</span>
+            <span class="post-date" title="2019-06-22 17:11:34">2019/06/22</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/21/leetcode/simple-without-algorithm/zheng-shu-zhuan-luo-ma-shu-zi/"
+           data-tag="leetcode,DataStructure"
+           data-author="" >
+            <span class="post-title" title="整数转罗马数字">整数转罗马数字</span>
+            <span class="post-date" title="2019-06-21 15:51:02">2019/06/21</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/20/leetcode/simple-without-algorithm/sheng-zui-duo-shui-de-rong-qi/"
+           data-tag="leetcode,DoublePointer"
+           data-author="" >
+            <span class="post-title" title="盛最多水的容器">盛最多水的容器</span>
+            <span class="post-date" title="2019-06-20 19:43:41">2019/06/20</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2019/06/20/paper/kddcup2012-track2/"
+           data-tag="paper,KDD"
+           data-author="" >
+            <span class="post-title" title="KDD-Cup2012-Track2">KDD-Cup2012-Track2</span>
+            <span class="post-date" title="2019-06-20 14:02:44">2019/06/20</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/19/leetcode/string/hui-wen-shu/"
+           data-tag="leetcode,simple,string"
+           data-author="" >
+            <span class="post-title" title="回文数">回文数</span>
+            <span class="post-date" title="2019-06-19 18:57:00">2019/06/19</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/18/leetcode/string/zi-fu-chuan-zhuan-huan-zheng-shu-atoi/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="字符串转换整数 (atoi)">字符串转换整数 (atoi)</span>
+            <span class="post-date" title="2019-06-18 19:34:38">2019/06/18</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/16/leetcode/string/wu-chong-fu-zi-fu-zui-chang-zi-chuan/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="无重复字符最长子串">无重复字符最长子串</span>
+            <span class="post-date" title="2019-06-16 15:43:53">2019/06/16</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/16/leetcode/string/zui-chang-hui-wen-zi-chuan/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="最长回文子串">最长回文子串</span>
+            <span class="post-date" title="2019-06-16 13:35:44">2019/06/16</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/15/leetcode/tree/liang-shu-zhi-he-shu-ru-bst/"
+           data-tag="leetcode,tree"
+           data-author="" >
+            <span class="post-title" title="两数之和-输入BST">两数之和-输入BST</span>
+            <span class="post-date" title="2019-06-15 21:24:40">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2019/06/15/paper/pgm/concept/conceptbayesiannetwork/"
+           data-tag="paper,PGM,BN"
+           data-author="" >
+            <span class="post-title" title="贝叶斯">贝叶斯</span>
+            <span class="post-date" title="2019-06-15 14:45:32">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2019/06/14/paper/pgm/ji-yu-gai-lu-tu-mo-xing-de-hu-lian-wang-guang-gao-dian-ji-lu-yu-ce/"
+           data-tag="paper,PGM"
+           data-author="" >
+            <span class="post-title" title="阅读：基于概率图模型的互联网广告点击率预测">阅读：基于概率图模型的互联网广告点击率预测</span>
+            <span class="post-date" title="2019-06-14 20:17:42">2019/06/14</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
+           data-tag="leetcode,cpp_stl"
+           data-author="" >
+            <span class="post-title" title="整数反转">整数反转</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
+           data-tag="leetcode,simple"
+           data-author="" >
+            <span class="post-title" title="Z字形变换">Z字形变换</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-paper/PGM/基于概率图模型的互联网广告点击率预测" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">阅读：基于概率图模型的互联网广告点击率预测</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="paper">paper</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">paper</a>
+            
+            <a class="color4">PGM</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-11-10 13:24:57'>2019-06-14 20:17</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#研究内容"><span class="toc-text">研究内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#名词解释"><span class="toc-text">名词解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#章节安排"><span class="toc-text">章节安排</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构建用户相似模型"><span class="toc-text">构建用户相似模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义用户和关键词集合"><span class="toc-text">定义用户和关键词集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定义UBN"><span class="toc-text">定义UBN</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="研究内容"><a href="#研究内容" class="headerlink" title="研究内容"></a>研究内容</h2><p>利用BN（贝叶斯网）的概率推理算法定量地分析任意用户之间的相似性，从而针对特定的广告，获得没有历史点击记录的用户与存在历史点击记录的用户之间存在的广告搜索行为的相似性，进而预测没有点击记录的用户对广告的 <code>CTR</code>（广告点击率）</p>
+<ul>
+<li>构建用户相似模型（用户贝叶斯网 <code>UBN</code>）</li>
+<li>用户贝叶斯网近似推理（发现相似用户）和CTR预测（预测未点击用户对广告的点击率）</li>
+<li>在数据集 <code>KDD CUP 2012-Track 2</code> 上进行实验（构建用户贝叶斯网、近似推理/发现相似用户、预测CTR）</li>
+</ul>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">CTR</span><span class="token punctuation">:</span> 广告点击率
+<span class="token key atrule">UBN</span><span class="token punctuation">:</span> 用户贝叶斯网</code></pre>
+<h2 id="章节安排"><a href="#章节安排" class="headerlink" title="章节安排"></a>章节安排</h2><ul>
+<li>第一节给出构建用户贝叶斯网 <code>UBN</code> 的定义和构建方法</li>
+<li>第二节给出 <code>UBN</code> 的近似推理算法和相应的 <code>CTR</code> 预测方法</li>
+<li>第三节给出实验结果</li>
+</ul>
+<h3 id="构建用户相似模型"><a href="#构建用户相似模型" class="headerlink" title="构建用户相似模型"></a>构建用户相似模型</h3><h4 id="定义用户和关键词集合"><a href="#定义用户和关键词集合" class="headerlink" title="定义用户和关键词集合"></a>定义用户和关键词集合</h4><ul>
+<li>用户集合：$U=\{U_1,U_2,\cdots,U_n\}$</li>
+<li>广告关键词集合：$K=\{K_1,K_2,\cdots,K_m\}$</li>
+<li>搜索行为集合：$B=\{B_1,B_2,\cdots,B_n\}$</li>
+</ul>
+<p>用户集合和搜索行为集合等长，$B$ 中的每一个元素代表一个用户的搜索关键词集合。</p>
+<p>搜索行为集合中的<strong>每个元素都是一个集合</strong>，例如：$B_i=\{B_{i1},B_{i2},\cdots<br>,B_{il_i}\}$，表示用户一次搜索对应的关键词集合，称为搜索行为，$B_{ij} \in K$。</p>
+<p>用户 $U_i$ 的搜索内容为： $C_i=&lt; U_i,M_i &gt;$, $M_i=\{B_{ij} | j=1,2,\cdots,l_i \}$。</p>
+<blockquote>
+<p>注：$M_i$ 中， <strong>原文中写的是 <code>i</code> $ =1,2,\cdots,l_i $ ,我理解的是这里应该为<code>j</code>。</strong></p>
+</blockquote>
+<p><strong>例1</strong>：<br>用户 $U_i$ 的搜索行为集合为 $B_i=\{B_{i1},B_{i2},B_{i3},B_{i4}\}$ ，其中 $B_{i1}$ ,$B_{i2}$,$B_{i3}$,$B_{i4}$,对应的关键词分别为：$K_{1}$, $K_{2}$, $K_{3}$, $K_{4}$,则用户 $U_i$ 的搜索内容为 $C_i=&lt; U_i,\{K_{1},K_{2},K_{3},K_{4} \} &gt;$</p>
+<h4 id="定义UBN"><a href="#定义UBN" class="headerlink" title="定义UBN"></a>定义UBN</h4><p><code>用户贝叶斯网</code>：</p>
+<ul>
+<li>节点：<strong>每个节点代表一个用户</strong>，用户集合 $U=\{U_1,U_2,\cdots,U_n\}$ 即节点集合，</li>
+<li>边：有向边集$E$代表用户相似关系。若用户之间有边相连，则代表用户之间存在相似关系。用户相似度用 $sim(U_i,U_j)$ 表示：<br>$$<br>sim(U_i,U_j)=\frac {N(M_i \cap M_j)}{N(M_i \cup M_j)}<br>$$<br>设置相似度阈值 $\varepsilon$ ,若 $sim(U_i,U_j)&gt;\varepsilon$, 则用户 $U_i$ 和用户 $U_j$ 之间存在一条无向边。</li>
+<li>边的方向：针对任意两个有边相连的节点，计算这两个用户的搜索记录中，相同关键词占各自关键词的比例。用户 $U_i$ 对 $U_j$ 的依赖度用 $D(U_i|U_j)$ 表示，用户 $U_j$ 对 $U_i$ 的依赖度用 $D(U_j|U_i)$ 表示。<br>$$<br>D(U_i|U_j)=\frac{N(M_i,M_j)}{N(M_j)},D(U_j|U_i)=\frac{N(M_i,M_j)}{N(M_i)}<br>$$<br>如果 $D(U_i|U_j)&gt;D(U_j|U_i)$,则表示$U_i$对$U_j$兴趣的依赖程度大于$U_j$对$U_i$兴趣的依赖程度。即 $U_j$ 指向 $U_i$，表示 $U_j$ 点击过的广告 $U_i$ 点击的可能性较大。</li>
+</ul>
+<blockquote>
+<p>岳昆, 王朝禄, 朱运磊, 等. 基于概率图模型的互联网广告点击率预测[J]. 华东师范大学学报(自然科学版), <code>2013(3):15-25</code>.</p>
+</blockquote>
+<p><a href="/assets/基于概率图模型的互联网广告点击率预测.pdf">原文：基于概率图模型的互联网广告点击率预测</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

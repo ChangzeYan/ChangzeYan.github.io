@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>整数转罗马数字 | YCZ</title>
+  <meta name="keywords" content=" leetcode , DataStructure ">
+  <meta name="description" content="整数转罗马数字 | YCZ">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="https://changzeyan.github.io/tags/index.html">
+<meta property="og:site_name" content="YCZ">
+<meta property="og:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-10T05:24:57.494Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.1.0"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value>
+  <input class="theme_blog_path" value>
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>ChangzeYan</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(17)</small></div></li>
+    
+        
+            
+            <li><div data-rel="leetcode">leetcode<small>(13)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="paper">paper<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工作流">工作流<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="17">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>activiti</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cpp_stl</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataStructure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DoublePointer</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>KDD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>leetcode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>paper</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>PGM</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>simple</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>string</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tree</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 工作流 "
+           href="/2020/11/10/others/activiti/gong-zuo-liu-activiti/"
+           data-tag="activiti"
+           data-author="" >
+            <span class="post-title" title="工作流">工作流</span>
+            <span class="post-date" title="2020-11-10 14:22:22">2020/11/10</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/08/26/leetcode/string/kmp/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="KMP">KMP</span>
+            <span class="post-date" title="2019-08-26 16:49:56">2019/08/26</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/07/19/leetcode/simple-without-algorithm/liang-shu-zhi-he/"
+           data-tag="leetcode,simple"
+           data-author="" >
+            <span class="post-title" title="两数之和">两数之和</span>
+            <span class="post-date" title="2019-07-19 15:01:42">2019/07/19</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/23/leetcode/string/zui-chang-gong-gong-qian-zhui/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="最长公共前缀">最长公共前缀</span>
+            <span class="post-date" title="2019-06-23 13:59:58">2019/06/23</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/22/leetcode/simple-without-algorithm/luo-ma-shu-zi-zhuan-zheng-shu/"
+           data-tag="leetcode,DataStructure"
+           data-author="" >
+            <span class="post-title" title="罗马数字转整数">罗马数字转整数</span>
+            <span class="post-date" title="2019-06-22 17:11:34">2019/06/22</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/21/leetcode/simple-without-algorithm/zheng-shu-zhuan-luo-ma-shu-zi/"
+           data-tag="leetcode,DataStructure"
+           data-author="" >
+            <span class="post-title" title="整数转罗马数字">整数转罗马数字</span>
+            <span class="post-date" title="2019-06-21 15:51:02">2019/06/21</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/20/leetcode/simple-without-algorithm/sheng-zui-duo-shui-de-rong-qi/"
+           data-tag="leetcode,DoublePointer"
+           data-author="" >
+            <span class="post-title" title="盛最多水的容器">盛最多水的容器</span>
+            <span class="post-date" title="2019-06-20 19:43:41">2019/06/20</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2019/06/20/paper/kddcup2012-track2/"
+           data-tag="paper,KDD"
+           data-author="" >
+            <span class="post-title" title="KDD-Cup2012-Track2">KDD-Cup2012-Track2</span>
+            <span class="post-date" title="2019-06-20 14:02:44">2019/06/20</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/19/leetcode/string/hui-wen-shu/"
+           data-tag="leetcode,simple,string"
+           data-author="" >
+            <span class="post-title" title="回文数">回文数</span>
+            <span class="post-date" title="2019-06-19 18:57:00">2019/06/19</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/18/leetcode/string/zi-fu-chuan-zhuan-huan-zheng-shu-atoi/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="字符串转换整数 (atoi)">字符串转换整数 (atoi)</span>
+            <span class="post-date" title="2019-06-18 19:34:38">2019/06/18</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/16/leetcode/string/wu-chong-fu-zi-fu-zui-chang-zi-chuan/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="无重复字符最长子串">无重复字符最长子串</span>
+            <span class="post-date" title="2019-06-16 15:43:53">2019/06/16</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/16/leetcode/string/zui-chang-hui-wen-zi-chuan/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="最长回文子串">最长回文子串</span>
+            <span class="post-date" title="2019-06-16 13:35:44">2019/06/16</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/15/leetcode/tree/liang-shu-zhi-he-shu-ru-bst/"
+           data-tag="leetcode,tree"
+           data-author="" >
+            <span class="post-title" title="两数之和-输入BST">两数之和-输入BST</span>
+            <span class="post-date" title="2019-06-15 21:24:40">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2019/06/15/paper/pgm/concept/conceptbayesiannetwork/"
+           data-tag="paper,PGM,BN"
+           data-author="" >
+            <span class="post-title" title="贝叶斯">贝叶斯</span>
+            <span class="post-date" title="2019-06-15 14:45:32">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2019/06/14/paper/pgm/ji-yu-gai-lu-tu-mo-xing-de-hu-lian-wang-guang-gao-dian-ji-lu-yu-ce/"
+           data-tag="paper,PGM"
+           data-author="" >
+            <span class="post-title" title="阅读：基于概率图模型的互联网广告点击率预测">阅读：基于概率图模型的互联网广告点击率预测</span>
+            <span class="post-date" title="2019-06-14 20:17:42">2019/06/14</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
+           data-tag="leetcode,cpp_stl"
+           data-author="" >
+            <span class="post-title" title="整数反转">整数反转</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
+           data-tag="leetcode,simple"
+           data-author="" >
+            <span class="post-title" title="Z字形变换">Z字形变换</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-leetcode/simple_without_algorithm/整数转罗马数字" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">整数转罗马数字</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="leetcode">leetcode</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">leetcode</a>
+            
+            <a class="color4">DataStructure</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-11-10 13:24:57'>2019-06-21 15:51</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#整数转罗马数字"><span class="toc-text">整数转罗马数字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#暴力分类讨论"><span class="toc-text">暴力分类讨论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优化暴力分类讨论"><span class="toc-text">优化暴力分类讨论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置映射表，从高位到低位转换"><span class="toc-text">设置映射表，从高位到低位转换</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="整数转罗马数字"><a href="#整数转罗马数字" class="headerlink" title="整数转罗马数字"></a>整数转罗马数字</h2><p>题目地址：<a href="https://leetcode-cn.com/problems/integer-to-roman/" target="_blank" rel="noopener">整数转罗马数字</a></p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。</p>
+<pre class=" language-yaml"><code class="language-yaml">字符          数值
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000</code></pre>
+<p>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。</p>
+<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：</p>
+<ul>
+<li>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。</li>
+<li>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。</li>
+<li>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。</li>
+</ul>
+<p>给定一个整数，将其转为罗马数字。输入确保在 1 到 3999 的范围内。</p>
+<pre class=" language-yaml"><code class="language-yaml">示例 1<span class="token punctuation">:</span>
+
+<span class="token key atrule">输入</span><span class="token punctuation">:</span> <span class="token number">3</span>
+<span class="token key atrule">输出</span><span class="token punctuation">:</span> <span class="token string">"III"</span>
+
+示例 2<span class="token punctuation">:</span>
+
+<span class="token key atrule">输入</span><span class="token punctuation">:</span> <span class="token number">4</span>
+<span class="token key atrule">输出</span><span class="token punctuation">:</span> <span class="token string">"IV"</span>
+
+示例 3<span class="token punctuation">:</span>
+
+<span class="token key atrule">输入</span><span class="token punctuation">:</span> <span class="token number">9</span>
+<span class="token key atrule">输出</span><span class="token punctuation">:</span> <span class="token string">"IX"</span>
+
+示例 4<span class="token punctuation">:</span>
+
+<span class="token key atrule">输入</span><span class="token punctuation">:</span> <span class="token number">58</span>
+<span class="token key atrule">输出</span><span class="token punctuation">:</span> <span class="token string">"LVIII"</span>
+<span class="token key atrule">解释</span><span class="token punctuation">:</span> L = 50<span class="token punctuation">,</span> V = 5<span class="token punctuation">,</span> III = 3.
+
+示例 5<span class="token punctuation">:</span>
+
+<span class="token key atrule">输入</span><span class="token punctuation">:</span> <span class="token number">1994</span>
+<span class="token key atrule">输出</span><span class="token punctuation">:</span> <span class="token string">"MCMXCIV"</span>
+<span class="token key atrule">解释</span><span class="token punctuation">:</span> M = 1000<span class="token punctuation">,</span> CM = 900<span class="token punctuation">,</span> XC = 90<span class="token punctuation">,</span> IV = 4.</code></pre>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>暴力分类讨论：遍历数字的每一位，判断该位是个位、十位、百位还是千位，然后执行相应的转换操作；</li>
+<li>采用<code>数字-字符</code>结构的字典存储关键数字（进位有关）与对应字符的映射关系，然后用给定数字对这些关键数字依次取模，取模结果乘以该关键数字对应的字符</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="暴力分类讨论"><a href="#暴力分类讨论" class="headerlink" title="暴力分类讨论"></a>暴力分类讨论</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">intToRoman</span><span class="token punctuation">(</span>num<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+    string_1 <span class="token operator">=</span> <span class="token string">''</span>
+    string_2 <span class="token operator">=</span> <span class="token string">''</span>
+    string_3 <span class="token operator">=</span> <span class="token string">''</span>
+    string_4 <span class="token operator">=</span> <span class="token string">''</span>
+    index <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">while</span> num<span class="token punctuation">:</span>
+        x <span class="token operator">=</span> num <span class="token operator">%</span> <span class="token number">10</span>
+        num <span class="token operator">//=</span> <span class="token number">10</span>
+        <span class="token comment" spellcheck="true"># 个位</span>
+        <span class="token keyword">if</span> index <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                string_1 <span class="token operator">+=</span> <span class="token string">''</span>
+            <span class="token keyword">elif</span> x <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+                string_1 <span class="token operator">+=</span> <span class="token string">'IV'</span>
+            <span class="token keyword">elif</span> x <span class="token operator">==</span> <span class="token number">9</span><span class="token punctuation">:</span>
+                string_1 <span class="token operator">+=</span> <span class="token string">'IX'</span>
+            <span class="token keyword">elif</span> <span class="token number">1</span> <span class="token operator">&lt;=</span> x <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">:</span>
+                <span class="token keyword">while</span> x<span class="token punctuation">:</span>
+                    string_1 <span class="token operator">+=</span> <span class="token string">'I'</span>
+                    x <span class="token operator">-=</span> <span class="token number">1</span>
+            <span class="token keyword">elif</span> <span class="token number">5</span> <span class="token operator">&lt;=</span> x <span class="token operator">&lt;=</span> <span class="token number">8</span><span class="token punctuation">:</span>
+                x <span class="token operator">-=</span> <span class="token number">5</span>
+                string_1 <span class="token operator">+=</span> <span class="token string">'V'</span>
+                <span class="token keyword">while</span> x<span class="token punctuation">:</span>
+                    string_1 <span class="token operator">+=</span> <span class="token string">'I'</span>
+                    x <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token comment" spellcheck="true"># 十位</span>
+        <span class="token keyword">elif</span> index <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                string_2 <span class="token operator">+=</span> <span class="token string">''</span>
+            <span class="token keyword">elif</span> x <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+                string_2 <span class="token operator">+=</span> <span class="token string">'XL'</span>
+            <span class="token keyword">elif</span> x <span class="token operator">==</span> <span class="token number">9</span><span class="token punctuation">:</span>
+                string_2 <span class="token operator">+=</span> <span class="token string">'XC'</span>
+            <span class="token keyword">elif</span> <span class="token number">1</span> <span class="token operator">&lt;=</span> x <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">:</span>
+                <span class="token keyword">while</span> x<span class="token punctuation">:</span>
+                    string_2 <span class="token operator">+=</span> <span class="token string">'X'</span>
+                    x <span class="token operator">-=</span> <span class="token number">1</span>
+            <span class="token keyword">elif</span> <span class="token number">5</span> <span class="token operator">&lt;=</span> x <span class="token operator">&lt;=</span> <span class="token number">8</span><span class="token punctuation">:</span>
+                x <span class="token operator">-=</span> <span class="token number">5</span>
+                string_2 <span class="token operator">+=</span> <span class="token string">'L'</span>
+                <span class="token keyword">while</span> x<span class="token punctuation">:</span>
+                    string_2 <span class="token operator">+=</span> <span class="token string">'X'</span>
+                    x <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token comment" spellcheck="true"># 百位</span>
+        <span class="token keyword">elif</span> index <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                string_3 <span class="token operator">+=</span> <span class="token string">''</span>
+            <span class="token keyword">elif</span> x <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+                string_3 <span class="token operator">+=</span> <span class="token string">'CD'</span>
+            <span class="token keyword">elif</span> x <span class="token operator">==</span> <span class="token number">9</span><span class="token punctuation">:</span>
+                string_3 <span class="token operator">+=</span> <span class="token string">'CM'</span>
+            <span class="token keyword">elif</span> <span class="token number">1</span> <span class="token operator">&lt;=</span> x <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">:</span>
+                <span class="token keyword">while</span> x<span class="token punctuation">:</span>
+                    string_3 <span class="token operator">+=</span> <span class="token string">'C'</span>
+                    x <span class="token operator">-=</span> <span class="token number">1</span>
+            <span class="token keyword">elif</span> <span class="token number">5</span> <span class="token operator">&lt;=</span> x <span class="token operator">&lt;=</span> <span class="token number">8</span><span class="token punctuation">:</span>
+                x <span class="token operator">-=</span> <span class="token number">5</span>
+                string_3 <span class="token operator">+=</span> <span class="token string">'D'</span>
+                <span class="token keyword">while</span> x<span class="token punctuation">:</span>
+                    string_3 <span class="token operator">+=</span> <span class="token string">'C'</span>
+                    x <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token comment" spellcheck="true"># 千位，只有1，2，3三种情况</span>
+        <span class="token keyword">if</span> index <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+            <span class="token keyword">while</span> x<span class="token punctuation">:</span>
+                string_4 <span class="token operator">+=</span> <span class="token string">'M'</span>
+                x <span class="token operator">-=</span> <span class="token number">1</span>
+        index <span class="token operator">+=</span> <span class="token number">1</span>
+    string <span class="token operator">=</span> string_4 <span class="token operator">+</span> string_3 <span class="token operator">+</span> string_2 <span class="token operator">+</span> string_1
+    <span class="token keyword">print</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> string</code></pre>
+<h4 id="优化暴力分类讨论"><a href="#优化暴力分类讨论" class="headerlink" title="优化暴力分类讨论"></a>优化暴力分类讨论</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">intToRoman2</span><span class="token punctuation">(</span>num<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+    string <span class="token operator">=</span> <span class="token string">''</span>
+    index <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">while</span> num<span class="token punctuation">:</span>
+        x <span class="token operator">=</span> num <span class="token operator">%</span> <span class="token number">10</span>
+        <span class="token keyword">if</span> index <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            string <span class="token operator">=</span> str_of_num<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">'I'</span><span class="token punctuation">,</span> <span class="token string">'V'</span><span class="token punctuation">,</span> <span class="token string">'X'</span><span class="token punctuation">)</span> <span class="token operator">+</span> string
+        <span class="token keyword">elif</span> index <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+            string <span class="token operator">=</span> str_of_num<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">'X'</span><span class="token punctuation">,</span> <span class="token string">'L'</span><span class="token punctuation">,</span> <span class="token string">'C'</span><span class="token punctuation">)</span> <span class="token operator">+</span> string
+        <span class="token keyword">elif</span> index <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span>
+            string <span class="token operator">=</span> str_of_num<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token string">'C'</span><span class="token punctuation">,</span> <span class="token string">'D'</span><span class="token punctuation">,</span> <span class="token string">'M'</span><span class="token punctuation">)</span> <span class="token operator">+</span> string
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            string_4 <span class="token operator">=</span> <span class="token string">''</span>
+            <span class="token keyword">while</span> x<span class="token punctuation">:</span>
+                string_4 <span class="token operator">+=</span> <span class="token string">'M'</span>
+                x <span class="token operator">-=</span> <span class="token number">1</span>
+            string <span class="token operator">=</span> string_4 <span class="token operator">+</span> string
+        num <span class="token operator">//=</span> <span class="token number">10</span>
+        index <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> string
+
+<span class="token comment" spellcheck="true"># 复用分类讨论代码</span>
+<span class="token keyword">def</span> <span class="token function">str_of_num</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    string <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token keyword">if</span> x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        string <span class="token operator">+=</span> <span class="token string">''</span>
+    <span class="token keyword">elif</span> x <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+        string <span class="token operator">+=</span> a <span class="token operator">+</span> b
+    <span class="token keyword">elif</span> x <span class="token operator">==</span> <span class="token number">9</span><span class="token punctuation">:</span>
+        string <span class="token operator">+=</span> a <span class="token operator">+</span> c
+    <span class="token keyword">elif</span> <span class="token number">1</span> <span class="token operator">&lt;=</span> x <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">:</span>
+        <span class="token keyword">while</span> x<span class="token punctuation">:</span>
+            string <span class="token operator">+=</span> a
+            x <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">elif</span> <span class="token number">5</span> <span class="token operator">&lt;=</span> x <span class="token operator">&lt;=</span> <span class="token number">8</span><span class="token punctuation">:</span>
+        x <span class="token operator">-=</span> <span class="token number">5</span>
+        string <span class="token operator">+=</span> b
+        <span class="token keyword">while</span> x<span class="token punctuation">:</span>
+            string <span class="token operator">+=</span> a
+            x <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> string</code></pre>
+<h4 id="设置映射表，从高位到低位转换"><a href="#设置映射表，从高位到低位转换" class="headerlink" title="设置映射表，从高位到低位转换"></a>设置映射表，从高位到低位转换</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">intToRoman3</span><span class="token punctuation">(</span>num<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+    res <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token comment" spellcheck="true"># 数值和字符映射关系</span>
+    num_str_dic <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token number">1000</span><span class="token punctuation">:</span> <span class="token string">'M'</span><span class="token punctuation">,</span>
+        <span class="token number">900</span><span class="token punctuation">:</span> <span class="token string">'CM'</span><span class="token punctuation">,</span>
+        <span class="token number">500</span><span class="token punctuation">:</span> <span class="token string">'D'</span><span class="token punctuation">,</span>
+        <span class="token number">400</span><span class="token punctuation">:</span> <span class="token string">'CD'</span><span class="token punctuation">,</span>
+        <span class="token number">100</span><span class="token punctuation">:</span> <span class="token string">'C'</span><span class="token punctuation">,</span>
+        <span class="token number">90</span><span class="token punctuation">:</span> <span class="token string">'XC'</span><span class="token punctuation">,</span>
+        <span class="token number">50</span><span class="token punctuation">:</span> <span class="token string">'L'</span><span class="token punctuation">,</span>
+        <span class="token number">40</span><span class="token punctuation">:</span> <span class="token string">'XL'</span><span class="token punctuation">,</span>
+        <span class="token number">10</span><span class="token punctuation">:</span> <span class="token string">'X'</span><span class="token punctuation">,</span>
+        <span class="token number">9</span><span class="token punctuation">:</span> <span class="token string">'IX'</span><span class="token punctuation">,</span>
+        <span class="token number">5</span><span class="token punctuation">:</span> <span class="token string">'V'</span><span class="token punctuation">,</span>
+        <span class="token number">4</span><span class="token punctuation">:</span> <span class="token string">'IV'</span><span class="token punctuation">,</span>
+        <span class="token number">1</span><span class="token punctuation">:</span> <span class="token string">'I'</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true"># x 是字典中的健，这里是数字</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> num_str_dic<span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 用num整除 num_str_dic 中的数值，得到的数乘以对应的符号</span>
+        <span class="token comment" spellcheck="true">#（如：2*I=II，如果是0*I，就是""）</span>
+        res <span class="token operator">+=</span> num <span class="token operator">//</span> x <span class="token operator">*</span> num_str_dic<span class="token punctuation">[</span>x<span class="token punctuation">]</span>
+        num <span class="token operator">%=</span> x
+    <span class="token keyword">return</span> res</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>字符串转换整数 (atoi) | YCZ</title>
+  <meta name="keywords" content=" leetcode , string ">
+  <meta name="description" content="字符串转换整数 (atoi) | YCZ">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="https://changzeyan.github.io/tags/index.html">
+<meta property="og:site_name" content="YCZ">
+<meta property="og:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-10T05:24:57.494Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.1.0"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value>
+  <input class="theme_blog_path" value>
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>ChangzeYan</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(17)</small></div></li>
+    
+        
+            
+            <li><div data-rel="leetcode">leetcode<small>(13)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="paper">paper<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工作流">工作流<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="17">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>activiti</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cpp_stl</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataStructure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DoublePointer</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>KDD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>leetcode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>paper</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>PGM</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>simple</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>string</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tree</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 工作流 "
+           href="/2020/11/10/others/activiti/gong-zuo-liu-activiti/"
+           data-tag="activiti"
+           data-author="" >
+            <span class="post-title" title="工作流">工作流</span>
+            <span class="post-date" title="2020-11-10 14:22:22">2020/11/10</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/08/26/leetcode/string/kmp/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="KMP">KMP</span>
+            <span class="post-date" title="2019-08-26 16:49:56">2019/08/26</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/07/19/leetcode/simple-without-algorithm/liang-shu-zhi-he/"
+           data-tag="leetcode,simple"
+           data-author="" >
+            <span class="post-title" title="两数之和">两数之和</span>
+            <span class="post-date" title="2019-07-19 15:01:42">2019/07/19</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/23/leetcode/string/zui-chang-gong-gong-qian-zhui/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="最长公共前缀">最长公共前缀</span>
+            <span class="post-date" title="2019-06-23 13:59:58">2019/06/23</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/22/leetcode/simple-without-algorithm/luo-ma-shu-zi-zhuan-zheng-shu/"
+           data-tag="leetcode,DataStructure"
+           data-author="" >
+            <span class="post-title" title="罗马数字转整数">罗马数字转整数</span>
+            <span class="post-date" title="2019-06-22 17:11:34">2019/06/22</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/21/leetcode/simple-without-algorithm/zheng-shu-zhuan-luo-ma-shu-zi/"
+           data-tag="leetcode,DataStructure"
+           data-author="" >
+            <span class="post-title" title="整数转罗马数字">整数转罗马数字</span>
+            <span class="post-date" title="2019-06-21 15:51:02">2019/06/21</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/20/leetcode/simple-without-algorithm/sheng-zui-duo-shui-de-rong-qi/"
+           data-tag="leetcode,DoublePointer"
+           data-author="" >
+            <span class="post-title" title="盛最多水的容器">盛最多水的容器</span>
+            <span class="post-date" title="2019-06-20 19:43:41">2019/06/20</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2019/06/20/paper/kddcup2012-track2/"
+           data-tag="paper,KDD"
+           data-author="" >
+            <span class="post-title" title="KDD-Cup2012-Track2">KDD-Cup2012-Track2</span>
+            <span class="post-date" title="2019-06-20 14:02:44">2019/06/20</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/19/leetcode/string/hui-wen-shu/"
+           data-tag="leetcode,simple,string"
+           data-author="" >
+            <span class="post-title" title="回文数">回文数</span>
+            <span class="post-date" title="2019-06-19 18:57:00">2019/06/19</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/18/leetcode/string/zi-fu-chuan-zhuan-huan-zheng-shu-atoi/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="字符串转换整数 (atoi)">字符串转换整数 (atoi)</span>
+            <span class="post-date" title="2019-06-18 19:34:38">2019/06/18</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/16/leetcode/string/wu-chong-fu-zi-fu-zui-chang-zi-chuan/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="无重复字符最长子串">无重复字符最长子串</span>
+            <span class="post-date" title="2019-06-16 15:43:53">2019/06/16</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/16/leetcode/string/zui-chang-hui-wen-zi-chuan/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="最长回文子串">最长回文子串</span>
+            <span class="post-date" title="2019-06-16 13:35:44">2019/06/16</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/15/leetcode/tree/liang-shu-zhi-he-shu-ru-bst/"
+           data-tag="leetcode,tree"
+           data-author="" >
+            <span class="post-title" title="两数之和-输入BST">两数之和-输入BST</span>
+            <span class="post-date" title="2019-06-15 21:24:40">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2019/06/15/paper/pgm/concept/conceptbayesiannetwork/"
+           data-tag="paper,PGM,BN"
+           data-author="" >
+            <span class="post-title" title="贝叶斯">贝叶斯</span>
+            <span class="post-date" title="2019-06-15 14:45:32">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 paper "
+           href="/2019/06/14/paper/pgm/ji-yu-gai-lu-tu-mo-xing-de-hu-lian-wang-guang-gao-dian-ji-lu-yu-ce/"
+           data-tag="paper,PGM"
+           data-author="" >
+            <span class="post-title" title="阅读：基于概率图模型的互联网广告点击率预测">阅读：基于概率图模型的互联网广告点击率预测</span>
+            <span class="post-date" title="2019-06-14 20:17:42">2019/06/14</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
+           data-tag="leetcode,cpp_stl"
+           data-author="" >
+            <span class="post-title" title="整数反转">整数反转</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
+           data-tag="leetcode,simple"
+           data-author="" >
+            <span class="post-title" title="Z字形变换">Z字形变换</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-leetcode/string/字符串转换整数-atoi" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">字符串转换整数 (atoi)</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="leetcode">leetcode</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">leetcode</a>
+            
+            <a class="color2">string</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-11-10 13:24:57'>2019-06-18 19:34</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串转换整数-atoi"><span class="toc-text">字符串转换整数 (atoi)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="字符串转换整数-atoi"><a href="#字符串转换整数-atoi" class="headerlink" title="字符串转换整数 (atoi)"></a>字符串转换整数 (atoi)</h2><p>题目地址：<a href="https://leetcode-cn.com/problems/string-to-integer-atoi/" target="_blank" rel="noopener">字符串转换整数 (atoi)</a></p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>请你来实现一个 atoi 函数，使其能将字符串转换成整数。</p>
+<p>首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。</p>
+<p>当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。</p>
+<p>该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。</p>
+<p>注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。</p>
+<p>在任何情况下，若函数不能进行有效的转换时，请返回 0。</p>
+<p>说明：</p>
+<p>假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231,  231 − 1]。如果数值超过这个范围，qing返回  INT_MAX (231 − 1) 或 INT_MIN (−231) 。</p>
+<pre class=" language-yaml"><code class="language-yaml">示例 1<span class="token punctuation">:</span>
+
+<span class="token key atrule">输入</span><span class="token punctuation">:</span> <span class="token string">"42"</span>
+<span class="token key atrule">输出</span><span class="token punctuation">:</span> <span class="token number">42</span>
+
+示例 2<span class="token punctuation">:</span>
+
+<span class="token key atrule">输入</span><span class="token punctuation">:</span> <span class="token string">"   -42"</span>
+<span class="token key atrule">输出</span><span class="token punctuation">:</span> <span class="token number">-42</span>
+<span class="token key atrule">解释</span><span class="token punctuation">:</span> 第一个非空白字符为 '<span class="token punctuation">-</span>'<span class="token punctuation">,</span> 它是一个负号。
+     我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 <span class="token punctuation">-</span>42 。
+
+示例 3<span class="token punctuation">:</span>
+
+<span class="token key atrule">输入</span><span class="token punctuation">:</span> <span class="token string">"4193 with words"</span>
+<span class="token key atrule">输出</span><span class="token punctuation">:</span> <span class="token number">4193</span>
+<span class="token key atrule">解释</span><span class="token punctuation">:</span> 转换截止于数字 '3' ，因为它的下一个字符不为数字。
+
+示例 4<span class="token punctuation">:</span>
+
+<span class="token key atrule">输入</span><span class="token punctuation">:</span> <span class="token string">"words and 987"</span>
+<span class="token key atrule">输出</span><span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token key atrule">解释</span><span class="token punctuation">:</span> 第一个非空字符是 'w'<span class="token punctuation">,</span> 但它不是数字或正、负号。
+     因此无法执行有效的转换。
+
+示例 5<span class="token punctuation">:</span>
+
+<span class="token key atrule">输入</span><span class="token punctuation">:</span> <span class="token string">"-91283472332"</span>
+<span class="token key atrule">输出</span><span class="token punctuation">:</span> <span class="token number">-2147483648</span>
+<span class="token key atrule">解释</span><span class="token punctuation">:</span> 数字 "<span class="token punctuation">-</span>91283472332" 超过 32 位有符号整数范围。
+     因此返回 INT_MIN (−231) 。</code></pre>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p><strong>判断是否为空串</strong>，去除前部空格，<strong>再判断是否为空串</strong>，<strong>判断首字符是否为正负号或者数字</strong>，如果是,则保留符号，不是直接<code>return 0</code>，寻找数字，转换成整数，<strong>判断是否越界</strong></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">myAtoi</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> string <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+
+    <span class="token comment" spellcheck="true"># 去除前部空格</span>
+    i <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token operator">and</span> string<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">' '</span><span class="token punctuation">:</span>
+        i <span class="token operator">+=</span> <span class="token number">1</span>
+    string <span class="token operator">=</span> string<span class="token punctuation">[</span>i<span class="token punctuation">:</span><span class="token punctuation">]</span>
+
+    <span class="token comment" spellcheck="true"># print(string)</span>
+    <span class="token comment" spellcheck="true"># 空白串的情况</span>
+    <span class="token keyword">if</span> string <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+
+    <span class="token keyword">if</span> string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'-'</span> <span class="token operator">or</span> string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'+'</span> <span class="token operator">or</span> <span class="token string">'0'</span> <span class="token operator">&lt;=</span> string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token string">'9'</span><span class="token punctuation">:</span>
+        j <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token comment" spellcheck="true"># 寻找数字</span>
+        <span class="token keyword">while</span> j <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token string">'0'</span> <span class="token operator">&lt;=</span> string<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token string">'9'</span><span class="token punctuation">:</span>
+            j <span class="token operator">+=</span> <span class="token number">1</span>
+        string <span class="token operator">=</span> string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span>j<span class="token punctuation">]</span>
+        num <span class="token operator">=</span> <span class="token number">0</span>
+
+        <span class="token comment" spellcheck="true"># 保存正负号</span>
+        symbol <span class="token operator">=</span> <span class="token string">''</span>
+        <span class="token keyword">if</span> string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'-'</span> <span class="token operator">or</span> string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'+'</span><span class="token punctuation">:</span>
+            symbol <span class="token operator">=</span> string<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            string <span class="token operator">=</span> string<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+
+        <span class="token comment" spellcheck="true"># 转换为整数</span>
+        <span class="token keyword">for</span> s <span class="token keyword">in</span> string<span class="token punctuation">:</span>
+            tmp <span class="token operator">=</span> int<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+            num <span class="token operator">=</span> num <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> tmp
+
+        <span class="token comment" spellcheck="true"># 判断是否越界</span>
+        <span class="token keyword">if</span> symbol <span class="token operator">==</span> <span class="token string">'-'</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> num <span class="token operator">></span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">31</span><span class="token punctuation">:</span>
+                num <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">31</span>
+            num <span class="token operator">=</span> <span class="token operator">-</span>num
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> num <span class="token operator">></span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">31</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
+                num <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">31</span> <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> num
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span></code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
