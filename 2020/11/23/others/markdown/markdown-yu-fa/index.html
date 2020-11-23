@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>KMP | YCZ</title>
-  <meta name="keywords" content=" leetcode , string ">
-  <meta name="description" content="KMP | YCZ">
+  <title>markdown语法 | YCZ</title>
+  <meta name="keywords" content=" markdown ">
+  <meta name="description" content="markdown语法 | YCZ">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 <meta property="og:type" content="website">
@@ -425,9 +425,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-leetcode/string/KMP" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-others/markdown/markdown语法" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">KMP</h1>
+        <h1 class="article-title">markdown语法</h1>
     
     <div class="article-meta">
         
@@ -437,7 +437,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="leetcode">leetcode</a>
+            <a  data-rel="语法">语法</a>
             
         </span>
         
@@ -445,21 +445,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">leetcode</a>
-            
-            <a class="color2">string</a>
+            <a class="color4">markdown</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-11-10 13:24:57'>2019-08-26 16:49</time>
+            发布时间 : <time class="date" title='最后更新: 2020-11-23 11:26:06'>2020-11-23 11:15</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.7k</span>
+        <span>字数:70</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -478,7 +476,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#KMP"><span class="toc-text">KMP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Next数组的含义"><span class="toc-text">Next数组的含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Next数组降低时间复杂度的原理"><span class="toc-text">Next数组降低时间复杂度的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Next数组的求解方法"><span class="toc-text">Next数组的求解方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法1"><span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法2"><span class="toc-text">方法2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#从1开始标号：前两位固定为0、1"><span class="toc-text">从1开始标号：前两位固定为0、1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#从0开始标号：前两位固定为-1、0"><span class="toc-text">从0开始标号：前两位固定为-1、0</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Next数组求解"><span class="toc-text">Next数组求解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KMP-1"><span class="toc-text">KMP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kmp算法的时间复杂度"><span class="toc-text">Kmp算法的时间复杂度</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码块的语言"><span class="toc-text">代码块的语言</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -494,177 +492,75 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><h3 id="Next数组的含义"><a href="#Next数组的含义" class="headerlink" title="Next数组的含义"></a>Next数组的含义</h3><p>记录当前字符<strong>前缀字符串</strong>的最长前缀后缀的长度，记录了模式串在当前位置失配后，模式串指针<em>j</em>指向的下一个位置，即最大相同前缀的下一个字符</p>
-<h3 id="Next数组降低时间复杂度的原理"><a href="#Next数组降低时间复杂度的原理" class="headerlink" title="Next数组降低时间复杂度的原理"></a>Next数组降低时间复杂度的原理</h3><p>参考：</p>
-<ul>
-<li><p><a href="https://blog.csdn.net/TesuZer/article/details/81031351" target="_blank" rel="noopener">Kmp中next数组含义</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">从头到尾彻底理解KMP</a></p>
-</li>
-</ul>
-<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">...</span>ABCDABCX  <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> 目标串S
-   ABCDABCY  <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> 模式串P</code></pre>
-<p>此时，模式串到达字符Y处失配，<strong>证明模式串中Y之前的字符都已匹配成功</strong>，注意到，前缀字符串<em>ABCDABC</em>的共同最长前后缀为<em>ABC</em>，此时，<strong>目标串的前缀<em>ABC</em>和模式串的前缀<em>ABC</em>对应，目标串的后缀<em>ABC</em>和模式串的后缀<em>ABC</em>对应</strong>，失配后，模式串的指针跳到<em>D</em>处</p>
-<pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">...</span>ABCDABCX       <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> 目标串S
-       ABCDABCY   <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> 模式串P</code></pre>
-<p>此时, 模式串中<em>D</em> 之前的字符 <em>ABC</em> 仍是匹配的，因为，<strong>此时目标串的后缀 <em>ABC</em> 和 模式串的前缀 <em>ABC</em> 相匹配</strong>。</p>
-<p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/KMP_1.jpg" alt="Next数组作用图示"></p>
-<h3 id="Next数组的求解方法"><a href="#Next数组的求解方法" class="headerlink" title="Next数组的求解方法"></a>Next数组的求解方法</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><p>根据字符串的首尾相同最长子串</p>
-<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><p>对模式串的标号方式不同，求出的next数组也不相同。模式串如果从0开始标号，求出的next数组比从1标号的next数组每位小1。</p>
-<h5 id="从1开始标号：前两位固定为0、1"><a href="#从1开始标号：前两位固定为0、1" class="headerlink" title="从1开始标号：前两位固定为0、1"></a>从1开始标号：前两位固定为0、1</h5><table>
-    <thead>
-        <tr>
-            <td class="td">标号</td>
-            <td class="td">1</td>
-            <td class="td">2</td>
-            <td class="td">3</td>
-            <td class="td">4</td>
-            <td class="td">5</td>
-            <td class="td">6</td>
-            <td class="td">7</td>
-            <td class="td">8</td>
-            <td class="td">9</td>
-            <td class="td">10</td>
-            <td class="td">11</td>
-            <td class="td">12</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="td">P</td>
-            <td class="td">a</td>
-            <td class="td">b</td>
-            <td class="td">a</td>
-            <td class="td">b</td>
-            <td class="td">a</td>
-            <td class="td">a</td>
-            <td class="td">a</td>
-            <td class="td">b</td>
-            <td class="td">a</td>
-            <td class="td">b</td>
-            <td class="td">a</td>
-            <td class="td">a</td>
-        </tr>
-        <tr>
-            <td class="td">Next</td>
-            <td class="td">0</td>
-            <td class="td">1</td>
-            <td class="td">1</td>
-            <td class="td">2</td>
-            <td class="td">3</td>
-            <td class="td">4</td>
-            <td class="td">2</td>
-            <td class="td">2</td>
-            <td class="td">3</td>
-            <td class="td">4</td>
-            <td class="td">5</td>
-            <td class="td">6</td>
-        </tr>
-    </tbody>
-</table>
-
-<blockquote>
-<p>字符串的前后定义：<code>标号小的为前面</code></p>
-</blockquote>
-<p>求第3位a的next值，看它前一位字符，为b(<strong>后面一直和b比较，b为目标字符</strong>),其next值为1 ——&gt; 找标号为1的字符，为a，不等于b，但是找到第1位了，则将第3位的next置1</p>
-<p>求第4位的next值，看第3位的字符，为a(<strong>后面一直和a比较，a为目标字符</strong>),其next值为<em>1</em> –&gt; 找标号为<em>1</em>的字符，为a，等于a，<strong>以第3位上的next值作为标号的字符等于a</strong>，所以，<strong>第3位</strong> next值<strong>加1</strong>，作为目标位(第4位)的next值</p>
-<p>求第5位的next值，看第4位的字符，为b(<strong>后面一直和b比较，b为目标字符</strong>)，其next值为<em>2</em>  –&gt; 找标号为<em>2</em>的字符，为b，等于b，<strong>以第4位上的next值作为标号的字符等于b</strong>，所以，<strong>第4位</strong> next值<strong>加1</strong>，作为目标位(第5位)的next值</p>
-<p>求第6位的next值，看第5位的字符，为a(<strong>后面一直和a比较，a为目标字符</strong>)，其next值为<em>3</em>  –&gt; 找标号为<em>3</em>的字符，为a，等于a，<strong>以第5位上的next值作为标号的字符等于a</strong>，所以，<strong>第5位</strong> next值<strong>加1</strong>，作为目标位(第5位)的next值</p>
-<p>求第7位的next值，看第6位的字符，为a(<strong>后面一直和a比较，a为目标字符</strong>)，其next值为<em>4</em>  –&gt; 找标号为<em>4</em>的字符，为b，不等于a，<strong>继续寻找</strong>–&gt; 标号为<em>4</em>的next值为 <em>2</em> –&gt; 标号为 <em>2</em> 的字符为b，不等于a，<strong>继续寻找</strong>  –&gt; 标号 <em>2</em> 的next值为 <em>1</em> –&gt; 标号为 <em>1</em> 的字符为 a，等于a， <strong>以第2位上的next值作为标号的字符等于a</strong>，所以，<strong>第2位</strong> next值<strong>加1</strong>，作为目标位(第7位)的next值</p>
-<p>求第8位的next值，看第7位的字符，为a(<strong>后面一直和a比较，a为目标字符</strong>)，其next为 <em>2</em>，–&gt; 标号为 <em>2</em> 的字符为b，不等于a， <strong>继续寻找</strong>，标号 <em>2</em> 的next值为 <em>1</em> –&gt; 标号为 <em>1</em> 的字符为 a，等于a，<strong>以第2位上的next值作为标号的字符等于a</strong>，所以，<strong>第2位</strong> next值<strong>加1</strong>，作为目标位(第8位)的next值</p>
-<p>求第9位的next值，看第8位的字符，为b(<strong>后面一直和b比较，b为目标字符</strong>)，其next值为<em>2</em>  –&gt; 找标号为<em>2</em>的字符，为b，等于b，<strong>以第8位上的next值作为标号的字符等于b</strong>，所以，<strong>第8位</strong> next值<strong>加1</strong>，作为目标位(第9位)的next值</p>
-<p>求第9位的next值，看第8位的字符，为b(<strong>后面一直和b比较，b为目标字符</strong>)，其next值为<em>2</em>  –&gt; 找标号为<em>2</em>的字符，为b，等于b，<strong>以第8位上的next值作为标号的字符等于b</strong>，所以，<strong>第8位</strong> next值<strong>加1</strong>，作为目标位(第9位)的next值</p>
-<p>求第10位的next值，看第9位的字符,为a(<strong>后面一直和a比较，a为目标字符</strong>),其next值为 <em>3</em> –&gt; 找标号为<em>3</em>的字符，为a，等于a，<strong>以第9位上的next值作为标号的字符等于a</strong>，所以，<strong>第9位</strong> next值<strong>加1</strong>，作为目标位(第10位)的next值</p>
-<p>求第11位的next值，看第10位的字符，为b(<strong>后面一直和b比较，b为目标字符</strong>)，其next值为<em>4</em>  –&gt; 找标号为<em>4</em>的字符，为b，等于b，<strong>以第10位上的next值作为标号的字符等于b</strong>，所以，<strong>第10位</strong> next值<strong>加1</strong>，作为目标位(第11位)的next值</p>
-<p>求第12位的next值，看第11位的字符,为a(<strong>后面一直和a比较，a为目标字符</strong>),其next值为 <em>5</em> –&gt; 找标号为<em>5</em>的字符，为a，等于a，<strong>以第11位上的next值作为标号的字符等于a</strong>，所以，<strong>第11位</strong> next值<strong>加1</strong>，作为目标位(第12位)的next值</p>
-<h5 id="从0开始标号：前两位固定为-1、0"><a href="#从0开始标号：前两位固定为-1、0" class="headerlink" title="从0开始标号：前两位固定为-1、0"></a>从0开始标号：前两位固定为-1、0</h5><p>与上面的步骤相同，只是模式串的下标不同：</p>
-<table>
+        <h2 id="代码块的语言"><a href="#代码块的语言" class="headerlink" title="代码块的语言"></a>代码块的语言</h2><table>
 <thead>
 <tr>
-<th align="center">标号</th>
-<th align="center">0</th>
-<th align="center">1</th>
-<th align="center">2</th>
-<th align="center">3</th>
-<th align="center">4</th>
-<th align="center">5</th>
-<th align="center">6</th>
-<th align="center">7</th>
-<th align="center">8</th>
-<th align="center">9</th>
-<th align="center">10</th>
-<th align="center">11</th>
+<th>Shell</th>
+<th>bash,shell</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">P</td>
-<td align="center">a</td>
-<td align="center">b</td>
-<td align="center">a</td>
-<td align="center">b</td>
-<td align="center">a</td>
-<td align="center">a</td>
-<td align="center">a</td>
-<td align="center">b</td>
-<td align="center">a</td>
-<td align="center">b</td>
-<td align="center">a</td>
-<td align="center">a</td>
+<td>C#</td>
+<td>c-sharp,csharp</td>
 </tr>
 <tr>
-<td align="center">Next</td>
-<td align="center">-1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">3</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">3</td>
-<td align="center">4</td>
-<td align="center">5</td>
+<td>CSS</td>
+<td>css</td>
+</tr>
+<tr>
+<td>SASS&amp;SCSS</td>
+<td>sass,scss</td>
+</tr>
+<tr>
+<td>Erlang</td>
+<td>erl,erlang</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>java</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>js,jscript,javascript</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>php</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>py,python</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>ruby,rails,rb</td>
+</tr>
+<tr>
+<td>Scala</td>
+<td>scala</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>sql</td>
+</tr>
+<tr>
+<td>VisualBasic</td>
+<td>vb,vbnet</td>
+</tr>
+<tr>
+<td>XML</td>
+<td>xml,xhtml</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>swift</td>
+</tr>
+<tr>
+<td>GO</td>
+<td>go,golang</td>
 </tr>
 </tbody></table>
-<h3 id="Next数组求解"><a href="#Next数组求解" class="headerlink" title="Next数组求解"></a>Next数组求解</h3><p>根据方法2求next数组的代码如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_next</span><span class="token punctuation">(</span>str_p<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    next_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-    <span class="token comment" spellcheck="true"># j为模式串下标，k为next值</span>
-    j<span class="token punctuation">,</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span>
-    <span class="token comment" spellcheck="true"># next_list 初始化时已经添加了一个-1，所以 判断条件小于 len(str_p)-1</span>
-    <span class="token keyword">while</span> j <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>str_p<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># k==-1 是判断找没找到第一个字符，j一直是当前字符的前一个字符下标</span>
-        <span class="token comment" spellcheck="true"># str_p[j] == str_p[k] 判断 以某个字符的next值为标号的对应的字符与当前位前一位字符是否相同</span>
-        <span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">or</span> str_p<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> str_p<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># 如果相同，该位next+1作为目标位的next值</span>
-            k <span class="token operator">+=</span> <span class="token number">1</span>
-            j <span class="token operator">+=</span> <span class="token number">1</span>
-            next_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>k<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            k <span class="token operator">=</span> next_list<span class="token punctuation">[</span>k<span class="token punctuation">]</span>
-    <span class="token comment" spellcheck="true"># print(next_list)</span>
-    <span class="token keyword">return</span> next_list</code></pre>
-<h3 id="KMP-1"><a href="#KMP-1" class="headerlink" title="KMP"></a>KMP</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">kmp</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    next_list <span class="token operator">=</span> get_next<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
-    i<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
-    <span class="token keyword">while</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">and</span> j <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> j <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">or</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> p<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            i <span class="token operator">+=</span> <span class="token number">1</span>
-            j <span class="token operator">+=</span> <span class="token number">1</span>
-        <span class="token comment" spellcheck="true"># 如果失配，目标串指针i不动，模式串指针j跳到失配位的next值处</span>
-        <span class="token comment" spellcheck="true"># 使得失配位置前缀字符串的后缀对应于模式串的前缀</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            j <span class="token operator">=</span> next_list<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-    <span class="token keyword">if</span> j <span class="token operator">==</span> len<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> i <span class="token operator">-</span> j
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span></code></pre>
-<h3 id="Kmp算法的时间复杂度"><a href="#Kmp算法的时间复杂度" class="headerlink" title="Kmp算法的时间复杂度"></a>Kmp算法的时间复杂度</h3><p>参考：<a href="https://blog.csdn.net/niukai1768/article/details/79579709" target="_blank" rel="noopener">KMP时间复杂度分析</a></p>
-<p>O(m+n)</p>
-<p><a href="https://blog.csdn.net/iamyvette/article/details/77433991" target="_blank" rel="noopener">https://blog.csdn.net/iamyvette/article/details/77433991</a></p>
-<p><a href="https://blog.csdn.net/weixin_38332967/article/details/81944353" target="_blank" rel="noopener">https://blog.csdn.net/weixin_38332967/article/details/81944353</a></p>
-<p><a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">https://blog.csdn.net/v_july_v/article/details/7041827</a></p>
+<p>将网页上的表格转换成md、latex等的工具：<a href="https://tableconvert.com/" target="_blank" rel="noopener">TableConvert</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>

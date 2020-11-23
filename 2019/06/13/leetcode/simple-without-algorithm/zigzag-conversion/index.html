@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://changzeyan.github.io/tags/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="https://changzeyan.github.io/about/index.html">
 <meta property="og:site_name" content="YCZ">
 <meta property="og:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-11-10T05:24:57.494Z">
+<meta property="og:updated_time" content="2020-11-10T05:24:57.460Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="about">
 <meta name="twitter:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 
 
@@ -23,7 +23,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -115,7 +115,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(17)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(18)</small></div></li>
     
         
             
@@ -141,6 +141,14 @@
             
         
     
+        
+            
+            <li><div data-rel="语法">语法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -151,8 +159,8 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="17">
-
+<input type="hidden" id="yelog_site_posts_number" value="18">
+<input type="hidden" id="yelog_site_word_count" value="9.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -226,6 +234,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>paper</a>
             </li>
         
@@ -251,6 +263,14 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 语法 "
+           href="/2020/11/23/others/markdown/markdown-yu-fa/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown语法">markdown语法</span>
+            <span class="post-date" title="2020-11-23 11:15:30">2020/11/23</span>
+        </a>
         
         <a  class="全部文章 工作流 "
            href="/2020/11/10/others/activiti/gong-zuo-liu-activiti/"
@@ -439,6 +459,8 @@
     </div>
     <div class="article-meta">
         
+        <span>字数:402</span>
+        
         
         <span id="busuanzi_container_page_pv">
             阅读 :<span id="busuanzi_value_page_pv">
@@ -619,6 +641,20 @@ E3    D3    H3    N3</code></pre><p>将每个字母变换后对应的行号与�
 
         /*高亮代码块行号*/
         
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
 
         /*访问数量*/
         
@@ -643,6 +679,38 @@ E3    D3    H3    N3</code></pre><p>将每个字母变换后对应的行号与�
 </script>
 
 <!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
 
 <!--自定义样式设置-->
 <style>
