@@ -160,7 +160,7 @@
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="18">
-<input type="hidden" id="yelog_site_word_count" value="10.1k">
+<input type="hidden" id="yelog_site_word_count" value="10.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -338,7 +338,7 @@
         
         <a  class="全部文章 leetcode "
            href="/2019/06/19/leetcode/string/hui-wen-shu/"
-           data-tag="leetcode,string,simple"
+           data-tag="leetcode,simple,string"
            data-author="" >
             <span class="post-title" title="回文数">回文数</span>
             <span class="post-date" title="2019-06-19 18:57:00">2019/06/19</span>
@@ -393,18 +393,18 @@
         </a>
         
         <a  class="全部文章 leetcode "
-           href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
-           data-tag="leetcode,cpp_stl"
-           data-author="" >
-            <span class="post-title" title="整数反转">整数反转</span>
-            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
-        </a>
-        
-        <a  class="全部文章 leetcode "
            href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
            data-tag="leetcode,simple"
            data-author="" >
             <span class="post-title" title="Z字形变换">Z字形变换</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <a  class="全部文章 leetcode "
+           href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
+           data-tag="leetcode,cpp_stl"
+           data-author="" >
+            <span class="post-title" title="整数反转">整数反转</span>
             <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
         </a>
         
@@ -452,12 +452,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-11-25 20:40:12'>2020-11-10 14:22</time>
+            发布时间 : <time class="date" title='最后更新: 2020-11-25 20:58:28'>2020-11-10 14:22</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:880</span>
+        <span>字数:1.2k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -476,7 +476,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#工作流-Activiti"><span class="toc-text">工作流-Activiti</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bpmn插件"><span class="toc-text">bpmn插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Springboot-依赖"><span class="toc-text">Springboot 依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署和执行"><span class="toc-text">部署和执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-Task"><span class="toc-text">Service Task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询当前流程实例已完成任务"><span class="toc-text">查询当前流程实例已完成任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#监听类中注入bean"><span class="toc-text">监听类中注入bean</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#工作流-Activiti"><span class="toc-text">工作流-Activiti</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bpmn插件"><span class="toc-text">bpmn插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Springboot-依赖"><span class="toc-text">Springboot 依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改上述依赖版本创建"><span class="toc-text">修改上述依赖版本创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署和执行"><span class="toc-text">部署和执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service-Task"><span class="toc-text">Service Task</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询当前流程实例已完成任务"><span class="toc-text">查询当前流程实例已完成任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#监听类中注入bean"><span class="toc-text">监听类中注入bean</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -525,7 +525,61 @@
 <pre class=" language-sql"><code class="language-sql">spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>driver<span class="token operator">-</span>class<span class="token operator">-</span>name<span class="token operator">=</span>com<span class="token punctuation">.</span>mysql<span class="token punctuation">.</span>cj<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>Driver
 spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>url<span class="token operator">=</span>jdbc:mysql:<span class="token comment" spellcheck="true">//localhost:3306/db_activiti?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=UTC&amp;nullCatalogMeansCurrent=true&amp;allowPublicKeyRetrieval=true</span>
 spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>username<span class="token operator">=</span>root
-spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>password<span class="token operator">=</span>xxxx</code></pre>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>password<span class="token operator">=</span>xxxx
+
+<span class="token comment" spellcheck="true"># spring boot 整合activiti默认关闭历史表，手动开启历史表如下：</span>
+spring<span class="token punctuation">.</span>activiti<span class="token punctuation">.</span>history<span class="token operator">-</span>level<span class="token operator">=</span>audit
+spring<span class="token punctuation">.</span>activiti<span class="token number">.db</span><span class="token operator">-</span>history<span class="token operator">-</span>used<span class="token operator">=</span><span class="token boolean">true</span>
+
+<span class="token comment" spellcheck="true"># 可选</span>
+<span class="token comment" spellcheck="true">#流程定义bpmn放置路径</span>
+spring<span class="token punctuation">.</span>activiti<span class="token punctuation">.</span>process<span class="token operator">-</span>definition<span class="token operator">-</span>location<span class="token operator">-</span>prefix<span class="token operator">=</span>classpath:<span class="token operator">/</span>process<span class="token operator">/</span>
+<span class="token comment" spellcheck="true">#项目随着spring启动自动部署</span>
+spring<span class="token punctuation">.</span>activiti<span class="token punctuation">.</span><span class="token keyword">check</span><span class="token operator">-</span>process<span class="token operator">-</span>definitions<span class="token operator">=</span><span class="token boolean">true</span>
+</code></pre>
+<h2 id="修改上述依赖版本创建"><a href="#修改上述依赖版本创建" class="headerlink" title="修改上述依赖版本创建"></a>修改上述依赖版本创建</h2><p>启动应用创建表后，运行：</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SET</span> FOREIGN_KEY_CHECKS<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">-- ----------------------------</span>
+<span class="token comment" spellcheck="true">-- 创建用户表</span>
+<span class="token comment" spellcheck="true">-- ----------------------------</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span> <span class="token punctuation">(</span>
+  <span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token keyword">bigint</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'姓名'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>address<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'联系地址'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>username<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">CHARACTER SET</span> utf8mb4 <span class="token keyword">COLLATE</span> utf8mb4_bin <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'账号'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>password<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">CHARACTER SET</span> utf8mb4 <span class="token keyword">COLLATE</span> utf8mb4_bin <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'密码'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>roles<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">CHARACTER SET</span> utf8mb4 <span class="token keyword">COLLATE</span> utf8mb4_bin <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'角色'</span><span class="token punctuation">,</span>
+  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token operator">=</span><span class="token number">5</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">-- ----------------------------</span>
+<span class="token comment" spellcheck="true">-- 填充用户表</span>
+<span class="token comment" spellcheck="true">-- ----------------------------</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'admincn'</span><span class="token punctuation">,</span> <span class="token string">'beijing'</span><span class="token punctuation">,</span> <span class="token string">'admin'</span><span class="token punctuation">,</span> <span class="token string">'$2a$10$gw46pmsOVYO.smHYQ2jH.OoXoe.lGP8OStDkHNs/E74GqZDL5K7ki'</span><span class="token punctuation">,</span> <span class="token string">'ROLE_ACTIVITI_ADMIN'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'bajiecn'</span><span class="token punctuation">,</span> <span class="token string">'shanghang'</span><span class="token punctuation">,</span> <span class="token string">'bajie'</span><span class="token punctuation">,</span> <span class="token string">'$2a$10$gw46pmsOVYO.smHYQ2jH.OoXoe.lGP8OStDkHNs/E74GqZDL5K7ki'</span><span class="token punctuation">,</span> <span class="token string">'ROLE_ACTIVITI_USER,GROUP_activitiTeam,g_bajiewukong'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'3'</span><span class="token punctuation">,</span> <span class="token string">'wukongcn'</span><span class="token punctuation">,</span> <span class="token string">'beijing'</span><span class="token punctuation">,</span> <span class="token string">'wukong'</span><span class="token punctuation">,</span> <span class="token string">'$2a$10$gw46pmsOVYO.smHYQ2jH.OoXoe.lGP8OStDkHNs/E74GqZDL5K7ki'</span><span class="token punctuation">,</span> <span class="token string">'ROLE_ACTIVITI_USER,GROUP_activitiTeam'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span><span class="token keyword">user</span><span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'4'</span><span class="token punctuation">,</span> <span class="token string">'salaboycn'</span><span class="token punctuation">,</span> <span class="token string">'beijing'</span><span class="token punctuation">,</span> <span class="token string">'salaboy'</span><span class="token punctuation">,</span> <span class="token string">'$2a$10$gw46pmsOVYO.smHYQ2jH.OoXoe.lGP8OStDkHNs/E74GqZDL5K7ki'</span><span class="token punctuation">,</span> <span class="token string">'ROLE_ACTIVITI_USER,GROUP_activitiTeam'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">-- ----------------------------</span>
+<span class="token comment" spellcheck="true">-- 修复Activiti7的M4版本缺失字段Bug</span>
+<span class="token comment" spellcheck="true">-- ----------------------------</span>
+<span class="token keyword">alter</span> <span class="token keyword">table</span> ACT_RE_DEPLOYMENT <span class="token keyword">add</span> <span class="token keyword">column</span> PROJECT_RELEASE_VERSION_ <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+<span class="token keyword">alter</span> <span class="token keyword">table</span> ACT_RE_DEPLOYMENT <span class="token keyword">add</span> <span class="token keyword">column</span> VERSION_ <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">-- ----------------------------</span>
+<span class="token comment" spellcheck="true">-- 动态表单数据存储</span>
+<span class="token comment" spellcheck="true">-- ----------------------------</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>formdata<span class="token punctuation">`</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>formdata<span class="token punctuation">`</span> <span class="token punctuation">(</span>
+  <span class="token punctuation">`</span>PROC_DEF_ID_<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>PROC_INST_ID_<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span> <span class="token keyword">CHARACTER SET</span> utf8 <span class="token keyword">COLLATE</span> utf8_general_ci <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>FORM_KEY_<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>Control_ID_<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+  <span class="token punctuation">`</span>Control_VALUE_<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8<span class="token punctuation">;</span>
+</code></pre>
 <h2 id="部署和执行"><a href="#部署和执行" class="headerlink" title="部署和执行"></a>部署和执行</h2><pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EnterpriseRaService</span> <span class="token punctuation">{</span>
     <span class="token annotation punctuation">@Autowired</span>
@@ -569,20 +623,20 @@ spring<span class="token punctuation">.</span>datasource<span class="token punct
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 <p>然后调用startProcessInstanceByKey执行流程，该方法立即返回，流程异步执行。</p>
-<h2 id="查询当前流程实例已完成任务"><a href="#查询当前流程实例已完成任务" class="headerlink" title="查询当前流程实例已完成任务"></a>查询当前流程实例已完成任务</h2><p>其实是查询act_hi_actinst表。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> String <span class="token function">getCurrentTask</span><span class="token punctuation">(</span>String instanceId<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    List<span class="token operator">&lt;</span>HistoricActivityInstance<span class="token operator">></span>list<span class="token operator">=</span>historyService<span class="token punctuation">.</span><span class="token function">createHistoricActivityInstanceQuery</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<h2 id="查询当前流程实例已完成任务"><a href="#查询当前流程实例已完成任务" class="headerlink" title="查询当前流程实例已完成任务"></a>查询当前流程实例已完成任务</h2><p>其实是查询act_hi_actinst表，按照时间排序，返回最后完成的活动。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> String <span class="token function">getLastFinishedTask</span><span class="token punctuation">(</span>String instanceId<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    List<span class="token operator">&lt;</span>HistoricActivityInstance<span class="token operator">></span> list<span class="token operator">=</span>historyService<span class="token punctuation">.</span><span class="token function">createHistoricActivityInstanceQuery</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">processInstanceId</span><span class="token punctuation">(</span>instanceId<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">finished</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">orderByHistoricActivityInstanceStartTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">desc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    String currentTask <span class="token operator">=</span> <span class="token string">"空任务"</span><span class="token punctuation">;</span>
+    String lastFinishedTask <span class="token operator">=</span> <span class="token string">"空任务"</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>list<span class="token operator">!=</span>null <span class="token operator">&amp;&amp;</span> list<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        currentTask<span class="token operator">=</span>list<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getActivityName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        lastFinishedTask<span class="token operator">=</span>list<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getActivityName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span><span class="token punctuation">(</span>HistoricActivityInstance taskInstance<span class="token operator">:</span>list<span class="token punctuation">)</span><span class="token punctuation">{</span>
             System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"已完成："</span><span class="token operator">+</span>taskInstance<span class="token punctuation">.</span><span class="token function">getActivityName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"---------------当前任务为空-------------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> currentTask<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> lastFinishedTask<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <h2 id="监听类中注入bean"><a href="#监听类中注入bean" class="headerlink" title="监听类中注入bean"></a>监听类中注入bean</h2><p>实现JavaDelegate的service task监听类中，采用Autowired注入bean为null，需要BeanFactoryPostProcessor获取。</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>framework<span class="token punctuation">.</span>AopContext<span class="token punctuation">;</span>
@@ -698,7 +752,10 @@ spring<span class="token punctuation">.</span>datasource<span class="token punct
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 <p>然后用SpringUtils.getBean(注入类.class)获取。</p>
-<pre class=" language-java"><code class="language-java">IActivitiGraph activitiGraph<span class="token operator">=</span>SpringUtils<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span>IActivitiGraph<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-java"><code class="language-java">IActivitiGraph activitiGraph<span class="token operator">=</span>SpringUtils<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span>IActivitiGraph<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+代替
+<span class="token annotation punctuation">@Autowired</span>
+IActivitiGraph activitiGraph<span class="token punctuation">;</span></code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
