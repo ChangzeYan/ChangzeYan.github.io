@@ -6,7 +6,7 @@ tags:
   - leetcode
   - tree
 categories:
-  - leetcode
+  - Leetcode
 cover: true
 ---
 

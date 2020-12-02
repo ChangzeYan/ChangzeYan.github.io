@@ -5,7 +5,7 @@ date: 2019-06-18 19:34:38
 tags:
   - leetcode
   - string
-categories: leetcode
+categories: Leetcode
 cover: false
 ---
 

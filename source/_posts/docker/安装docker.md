@@ -1,10 +1,10 @@
 ---
-title: docker
+title: Docker安装与配置
 author: ChangzeYan
 date: 2020-12-02 15:32:43
-tags: 安装与配置
+tags:
 categories:
-  - docker
+  - Docker
 cover:
 ---
 
@@ -165,6 +165,7 @@ windows专业版要在打开或关闭windows功能那里开启Hyper-V功能。
 
 ## 配置远程访问
 参考：[Windows开启Docker远程访问](http://baijiahao.baidu.com/s?id=1652188442217820964&wfr=spider&for=pc)
+
 先勾选：
 ![配置Windows远程访问](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-安装docker-windows开启远程访问.png)
 开启windows防火墙：

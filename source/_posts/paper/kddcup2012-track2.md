@@ -5,7 +5,7 @@ date: 2019-06-20 14:02:44
 tags:
   - paper
   - KDD
-categories: paper
+categories: Paper
 cover: false
 mathjax: True
 ---

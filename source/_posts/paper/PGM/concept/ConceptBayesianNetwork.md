@@ -6,7 +6,7 @@ tags:
   - paper
   - PGM
   - BN
-categories: paper
+categories: Paper
 cover: false
 mathjax: True
 ---
