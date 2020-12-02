@@ -80,4 +80,94 @@ $ sudo yum erase docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
  yum install docker-ce
 ```
 
-##
+## 配置国内镜像
+进入 /etc/docker
+```bash
+sudo tee /etc/docker/daemon.json <<-'EOF'
+```
+
+输入： 网易镜像
+```bash
+{
+    "registry-mirrors":["http://hub-mirror.c.163.com"]
+}
+
+EOF
+```
+重启docker
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+## 开启远程访问
+修改Docker配置文件
+```bash
+ vim /lib/systemd/system/docker.service　
+```
+
+修改ExecStart为：
+```bash
+ExecStart=/usr/bin/dockerd --containerd=/run/containerd/containerd.sock
+```
+![配置远程访问](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-安装docker-远程访问.png)
+
+修改daemon.json
+```bash
+vi /etc/docker/daemon.json
+```
+
+添加键值对
+```bash
+ "hosts": ["0.0.0.0:2375","unix:///var/run/docker.sock"]
+```
+重启docker
+```bash
+systemctl daemon-reload
+systemctl restart docker
+```
+
+## 升级docker
+卸载docker
+```bash
+sudo yum remove $(rpm -qa | grep docker)
+```
+
+下载最新版本docker
+```bash
+curl -fsSL https://get.docker.com/ | sh
+```
+
+重启docker
+```bash
+sudo systemctl restart docker # centos 7
+```
+
+
+再次查看docker版本
+```bash
+$ docker -v
+Docker version 18.09.3, build 774a1f4
+```
+
+
+# windows 安装docker
+
+## 专业版开启Hyper-V功能
+windows专业版要在打开或关闭windows功能那里开启Hyper-V功能。
+
+## 下载docker：
+[官网](https://www.docker.com/get-started)
+
+## 配置国内镜像
+
+![配置国内镜像](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-安装docker-windows国内镜像.png)
+
+## 配置远程访问
+参考：[Windows开启Docker远程访问](http://baijiahao.baidu.com/s?id=1652188442217820964&wfr=spider&for=pc)
+先勾选：
+![配置Windows远程访问](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-安装docker-windows开启远程访问.png)
+开启windows防火墙：
+```bash
+netsh advfirewall firewall add rule name="docker_daemon" dir=in action=allow protocol=TCP localport=2375
+```
