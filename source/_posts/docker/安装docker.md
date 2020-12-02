@@ -63,3 +63,21 @@ $ sudo systemctl enable docker
 ```bash
 $ docker version
 ```
+如果有报错：
+```bash
+Transaction check error:
+  file /usr/bin/docker from install of docker-ce-17.12.0.ce-1.el7.centos.x86_64 conflicts with file from package docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
+  file /usr/bin/docker-containerd from install of docker-ce-17.12.0.ce-1.el7.centos.x86_64 conflicts with file from package docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
+  file /usr/bin/docker-containerd-shim from install of docker-ce-17.12.0.ce-1.el7.centos.x86_64 conflicts with file from package docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
+  file /usr/bin/dockerd from install of docker-ce-17.12.0.ce-1.el7.centos.x86_64 conflicts with file from package docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
+```
+卸载旧版本的包
+```bash
+$ sudo yum erase docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
+```
+再次安装：
+```bash
+ yum install docker-ce
+```
+
+##
