@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>YCZ</title>
+  <title>Git ignore 文件 | YCZ</title>
   <meta name="keywords" content>
-  <meta name="description" content="YCZ">
+  <meta name="description" content="Git ignore 文件 | YCZ">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 <meta property="og:type" content="website">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -457,12 +457,53 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-git/Git ignore文件" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#著作说明"><span class="toc-text">著作说明</span></a></li></ol>
+        <h1 class="article-title">Git ignore 文件</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Git">Git</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-12-02 15:31:49'>2020-11-30 11:14</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:190</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#gitignore"><span class="toc-text">.gitignore</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#忽略正则"><span class="toc-text">忽略正则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#删除github中某个文件夹"><span class="toc-text">删除github中某个文件夹</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -475,15 +516,46 @@
     }
 </style>
 </div>
-            <h1 id="著作说明"><a href="#著作说明" class="headerlink" title="著作说明"></a>著作说明</h1><p>本站博客引用了大量优秀博客的内容，在文章内都用标注，如有侵权，请联系<a href="mailto:750531787@qq.com">750531787@qq.com</a>删除。</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><p>参考：<a href="https://www.cnblogs.com/wangmo/p/7737109.html" target="_blank" rel="noopener">git设置忽略文件和目录</a></p>
+<h2 id="忽略正则"><a href="#忽略正则" class="headerlink" title="忽略正则"></a>忽略正则</h2><p>忽略*.o文件和 *.a文件：</p>
+<pre class=" language-bash"><code class="language-bash">*.<span class="token punctuation">[</span>oa<span class="token punctuation">]</span></code></pre>
+<p>忽略*.b 和 *.B文件，my.b除外</p>
+<pre class=" language-bash"><code class="language-bash">*.<span class="token punctuation">[</span>bB<span class="token punctuation">]</span>
+<span class="token operator">!</span>my.b</code></pre>
+<p>忽略dbg文件和dbg目录</p>
+<pre class=" language-bash"><code class="language-bash">dbg</code></pre>
+<p>只忽略dbg目录，不忽略dbg文件</p>
+<pre class=" language-bash"><code class="language-bash">dbg/</code></pre>
+<p>.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。</p>
+<h1 id="删除github中某个文件夹"><a href="#删除github中某个文件夹" class="headerlink" title="删除github中某个文件夹"></a>删除github中某个文件夹</h1><p>参考：<a href="https://blog.csdn.net/wudinaniya/article/details/77508229" target="_blank" rel="noopener">删除文件夹</a><br>在github上只能删除文件，删除文件夹的方式如下：</p>
+<p>在本地仓库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">rm</span> -r --cached target         <span class="token comment" spellcheck="true"># 删除target文件夹</span>
+<span class="token function">git</span> commit -m <span class="token string">'删除了target文件夹'</span>      <span class="token comment" spellcheck="true"># 提交,添加操作说明</span>
+<span class="token function">git</span> push -u origin master        <span class="token comment" spellcheck="true"># 将本次更改更新到github项目上去</span></code></pre>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -492,11 +564,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>

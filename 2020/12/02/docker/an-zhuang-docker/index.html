@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>YCZ</title>
+  <title>Docker安装与配置 | YCZ</title>
   <meta name="keywords" content>
-  <meta name="description" content="YCZ">
+  <meta name="description" content="Docker安装与配置 | YCZ">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 <meta property="og:type" content="website">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -457,12 +457,53 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-docker/安装docker" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#著作说明"><span class="toc-text">著作说明</span></a></li></ol>
+        <h1 class="article-title">Docker安装与配置</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Docker">Docker</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-12-02 20:25:10'>2020-12-02 15:32</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:740</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux上的安装与配置"><span class="toc-text">Linux上的安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置国内镜像"><span class="toc-text">配置国内镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启远程访问"><span class="toc-text">开启远程访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#升级docker"><span class="toc-text">升级docker</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows-安装docker"><span class="toc-text">windows 安装docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#专业版开启Hyper-V功能"><span class="toc-text">专业版开启Hyper-V功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载docker："><span class="toc-text">下载docker：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置国内镜像-1"><span class="toc-text">配置国内镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置远程访问"><span class="toc-text">配置远程访问</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -475,15 +516,101 @@
     }
 </style>
 </div>
-            <h1 id="著作说明"><a href="#著作说明" class="headerlink" title="著作说明"></a>著作说明</h1><p>本站博客引用了大量优秀博客的内容，在文章内都用标注，如有侵权，请联系<a href="mailto:750531787@qq.com">750531787@qq.com</a>删除。</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux上的安装与配置"><a href="#Linux上的安装与配置" class="headerlink" title="Linux上的安装与配置"></a>Linux上的安装与配置</h1><p>参考：<a href="https://www.cnblogs.com/yufeng218/p/8370670.html" target="_blank" rel="noopener">CentOS7上安装docker</a></p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>Docker 要求 CentOS 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的CentOS 版本是否支持 Docker 。<br>1、通过 uname -r 命令查看你当前的内核版本（若不满足要求可以先升级内核）</p>
+<pre class=" language-bash"><code class="language-bash"> <span class="token function">uname</span> -r</code></pre>
+<p>2、使用 root 权限登录 Centos。确保 yum 包更新到最新。</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> yum update</code></pre>
+<p>3、卸载旧版本的docker(如果安装过旧版本的话)</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> yum remove docker  docker-common docker-selinux docker-engine</code></pre>
+<p>4、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> yum <span class="token function">install</span> -y yum-utils device-mapper-persistent-data lvm2</code></pre>
+<p>5、设置yum源</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</code></pre>
+<p>可以查看所有仓库中所有docker版本，并选择特定版本安装</p>
+<pre class=" language-bash"><code class="language-bash">$ yum list docker-ce --showduplicates <span class="token operator">|</span> <span class="token function">sort</span> -r</code></pre>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>由于repo中默认只开启stable仓库，故这里安装的是最新稳定版</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> docker-ce</code></pre>
+<p>或者安装指定的版本：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token operator">&lt;</span>FQPN<span class="token operator">></span>
+<span class="token comment" spellcheck="true"># 例如：sudo yum install docker-ce-17.12.0.ce</span></code></pre>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>启动并加入开机启动</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> systemctl start docker
+$ <span class="token function">sudo</span> systemctl <span class="token function">enable</span> docker</code></pre>
+<p>验证安装是否成功(有client和service两部分表示docker安装启动都成功了)</p>
+<pre class=" language-bash"><code class="language-bash">$ docker version</code></pre>
+<p>如果有报错：</p>
+<pre class=" language-bash"><code class="language-bash">Transaction check error:
+  <span class="token function">file</span> /usr/bin/docker from <span class="token function">install</span> of docker-ce-17.12.0.ce-1.el7.centos.x86_64 conflicts with <span class="token function">file</span> from package docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
+  <span class="token function">file</span> /usr/bin/docker-containerd from <span class="token function">install</span> of docker-ce-17.12.0.ce-1.el7.centos.x86_64 conflicts with <span class="token function">file</span> from package docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
+  <span class="token function">file</span> /usr/bin/docker-containerd-shim from <span class="token function">install</span> of docker-ce-17.12.0.ce-1.el7.centos.x86_64 conflicts with <span class="token function">file</span> from package docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64
+  <span class="token function">file</span> /usr/bin/dockerd from <span class="token function">install</span> of docker-ce-17.12.0.ce-1.el7.centos.x86_64 conflicts with <span class="token function">file</span> from package docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64</code></pre>
+<p>卸载旧版本的包</p>
+<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> yum erase docker-common-2:1.12.6-68.gitec8512b.el7.centos.x86_64</code></pre>
+<p>再次安装：</p>
+<pre class=" language-bash"><code class="language-bash"> yum <span class="token function">install</span> docker-ce</code></pre>
+<h2 id="配置国内镜像"><a href="#配置国内镜像" class="headerlink" title="配置国内镜像"></a>配置国内镜像</h2><p>进入 /etc/docker</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">tee</span> /etc/docker/daemon.json <span class="token operator">&lt;&lt;</span>-<span class="token string">'EOF'</span></code></pre>
+<p>输入： 网易镜像</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">{</span>
+    <span class="token string">"registry-mirrors"</span>:<span class="token punctuation">[</span><span class="token string">"http://hub-mirror.c.163.com"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+EOF</code></pre>
+<p>重启docker</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl daemon-reload
+<span class="token function">sudo</span> systemctl restart docker</code></pre>
+<h2 id="开启远程访问"><a href="#开启远程访问" class="headerlink" title="开启远程访问"></a>开启远程访问</h2><p>修改Docker配置文件</p>
+<pre class=" language-bash"><code class="language-bash"> vim /lib/systemd/system/docker.service　</code></pre>
+<p>修改ExecStart为：</p>
+<pre class=" language-bash"><code class="language-bash">ExecStart<span class="token operator">=</span>/usr/bin/dockerd --containerd<span class="token operator">=</span>/run/containerd/containerd.sock</code></pre>
+<p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-%E5%AE%89%E8%A3%85docker-%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE.png" alt="配置远程访问"></p>
+<p>修改daemon.json</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">vi</span> /etc/docker/daemon.json</code></pre>
+<p>添加键值对</p>
+<pre class=" language-bash"><code class="language-bash"> <span class="token string">"hosts"</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token string">"0.0.0.0:2375"</span>,<span class="token string">"unix:///var/run/docker.sock"</span><span class="token punctuation">]</span></code></pre>
+<p>重启docker</p>
+<pre class=" language-bash"><code class="language-bash">systemctl daemon-reload
+systemctl restart docker</code></pre>
+<h2 id="升级docker"><a href="#升级docker" class="headerlink" title="升级docker"></a>升级docker</h2><p>卸载docker</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> yum remove <span class="token variable"><span class="token variable">$(</span>rpm -qa <span class="token operator">|</span> <span class="token function">grep</span> docker<span class="token variable">)</span></span></code></pre>
+<p>下载最新版本docker</p>
+<pre class=" language-bash"><code class="language-bash">curl -fsSL https://get.docker.com/ <span class="token operator">|</span> sh</code></pre>
+<p>重启docker</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> systemctl restart docker <span class="token comment" spellcheck="true"># centos 7</span></code></pre>
+<p>再次查看docker版本</p>
+<pre class=" language-bash"><code class="language-bash">$ docker -v
+Docker version 18.09.3, build 774a1f4</code></pre>
+<h1 id="windows-安装docker"><a href="#windows-安装docker" class="headerlink" title="windows 安装docker"></a>windows 安装docker</h1><h2 id="专业版开启Hyper-V功能"><a href="#专业版开启Hyper-V功能" class="headerlink" title="专业版开启Hyper-V功能"></a>专业版开启Hyper-V功能</h2><p>windows专业版要在打开或关闭windows功能那里开启Hyper-V功能。</p>
+<h2 id="下载docker："><a href="#下载docker：" class="headerlink" title="下载docker："></a>下载docker：</h2><p><a href="https://www.docker.com/get-started" target="_blank" rel="noopener">官网</a></p>
+<h2 id="配置国内镜像-1"><a href="#配置国内镜像-1" class="headerlink" title="配置国内镜像"></a>配置国内镜像</h2><p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-%E5%AE%89%E8%A3%85docker-windows%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F.png" alt="配置国内镜像"></p>
+<h2 id="配置远程访问"><a href="#配置远程访问" class="headerlink" title="配置远程访问"></a>配置远程访问</h2><p>参考：<a href="http://baijiahao.baidu.com/s?id=1652188442217820964&wfr=spider&for=pc" target="_blank" rel="noopener">Windows开启Docker远程访问</a></p>
+<p>先勾选：<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-%E5%AE%89%E8%A3%85docker-windows%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE.png" alt="配置Windows远程访问"><br>开启windows防火墙：</p>
+<pre class=" language-bash"><code class="language-bash">netsh advfirewall firewall add rule name<span class="token operator">=</span><span class="token string">"docker_daemon"</span> dir<span class="token operator">=</span>in action<span class="token operator">=</span>allow protocol<span class="token operator">=</span>TCP localport<span class="token operator">=</span>2375</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -492,11 +619,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
