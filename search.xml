@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Git命令</title>
+      <link href="2020/12/03/git/git-ming-ling/"/>
+      <url>2020/12/03/git/git-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h1 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h1><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看添加到git的文件</span><span class="token function">git</span> ls-files</code></pre><h2 id="添加文件不成功"><a href="#添加文件不成功" class="headerlink" title="添加文件不成功"></a>添加文件不成功</h2><p>git add出现 “fatal: in unpopulated submodule XXX” 错误<br>在本地仓库如果克隆了其他远程仓库，该远程仓库就会git add失败，解决：</p><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">rm</span> -rf --cached xxxx<span class="token punctuation">(</span>文件夹的名称<span class="token punctuation">)</span><span class="token function">git</span> add xxxx/*</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker安装与配置</title>
       <link href="2020/12/02/docker/an-zhuang-docker/"/>
       <url>2020/12/02/docker/an-zhuang-docker/</url>
@@ -299,9 +318,9 @@
             
             <tag> leetcode </tag>
             
-            <tag> string </tag>
-            
             <tag> simple </tag>
+            
+            <tag> string </tag>
             
         </tags>
       
@@ -517,9 +536,9 @@
       
         <tags>
             
-            <tag> simple </tag>
-            
             <tag> Leetcode </tag>
+            
+            <tag> simple </tag>
             
         </tags>
       
