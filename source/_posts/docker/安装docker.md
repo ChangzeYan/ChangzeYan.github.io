@@ -103,7 +103,7 @@ sudo systemctl restart docker
 ## 开启远程访问
 修改Docker配置文件
 ```bash
- vim /lib/systemd/system/docker.service　
+ vi /lib/systemd/system/docker.service　
 ```
 
 修改ExecStart为：
