@@ -172,7 +172,7 @@ public class ActivitiResolver implements GraphQLQueryResolver {
 运行程序，访问http://ip:port/graphiql：
 ![graphiql测试接口](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/graphiql.png)
 打开右侧的query，会看到接口文档，有接口名称，参数和返回值类型
-可以根据自己需要的返回值定义访问形式，图中只返回result的msg属性，如果需要返回result的code属性，写为：
+可以根据自己需要的返回值定义访问形式，上图中只返回result的msg属性（**按需返回**），如果需要返回result的code属性，写为：
 ```bash
 currentTask(processInstanceId:"e00ca85a-360e-11eb-9ca6-809599575c52"){
   result{
@@ -182,6 +182,7 @@ currentTask(processInstanceId:"e00ca85a-360e-11eb-9ca6-809599575c52"){
   processTaskId
 }
 ```
+然后点击左上角的运行按钮即可运行接口。
 
 ## 返回自定义对象列表
 如果需要返回自定义的对象列表，以上面定义的completedTaskList为例：
