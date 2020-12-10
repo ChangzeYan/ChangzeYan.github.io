@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://changzeyan.github.io/categories/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="https://changzeyan.github.io/about/index.html">
 <meta property="og:site_name" content="YCZ">
 <meta property="og:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-11-10T05:24:57.488Z">
+<meta property="og:updated_time" content="2020-11-10T05:24:57.460Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="about">
 <meta name="twitter:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 
 
@@ -115,11 +115,11 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(24)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(25)</small></div></li>
     
         
             
-            <li><div data-rel="Docker">Docker<small>(1)</small></div>
+            <li><div data-rel="Docker">Docker<small>(2)</small></div>
                 
             </li>
             
@@ -191,8 +191,8 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="24">
-<input type="hidden" id="yelog_site_word_count" value="13.4k">
+<input type="hidden" id="yelog_site_posts_number" value="25">
+<input type="hidden" id="yelog_site_word_count" value="13.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -299,12 +299,24 @@
                 <i class="iconfont icon-tag"></i><a>语法</a>
             </li>
         
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>部署</a>
+            </li>
+        
     </div>
 
 </div>
 
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 Docker "
+           href="/2020/12/10/docker/idea-bu-shu-springboot-xiang-mu-dao-docker/"
+           data-tag="部署"
+           data-author="" >
+            <span class="post-title" title="idea部署springboot项目到docker">idea部署springboot项目到docker</span>
+            <span class="post-date" title="2020-12-10 18:22:44">2020/12/10</span>
+        </a>
         
         <a  class="全部文章 Windows "
            href="/2020/12/08/windows/windows-cmd/"
@@ -380,7 +392,7 @@
         
         <a  class="全部文章 Leetcode "
            href="/2019/07/19/leetcode/simple-without-algorithm/liang-shu-zhi-he/"
-           data-tag="simple,leetcode"
+           data-tag="leetcode,simple"
            data-author="" >
             <span class="post-title" title="两数之和">两数之和</span>
             <span class="post-date" title="2019-07-19 15:01:42">2019/07/19</span>
@@ -428,7 +440,7 @@
         
         <a  class="全部文章 Leetcode "
            href="/2019/06/19/leetcode/string/hui-wen-shu/"
-           data-tag="simple,leetcode,string"
+           data-tag="leetcode,simple,string"
            data-author="" >
             <span class="post-title" title="回文数">回文数</span>
             <span class="post-date" title="2019-06-19 18:57:00">2019/06/19</span>
@@ -483,18 +495,18 @@
         </a>
         
         <a  class="全部文章 Leetcode "
-           href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
-           data-tag="Leetcode,simple"
-           data-author="" >
-            <span class="post-title" title="Z字形变换">Z字形变换</span>
-            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
-        </a>
-        
-        <a  class="全部文章 Leetcode "
            href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
            data-tag="leetcode,cpp_stl"
            data-author="" >
             <span class="post-title" title="整数反转">整数反转</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
+           data-tag="simple,Leetcode"
+           data-author="" >
+            <span class="post-title" title="Z字形变换">Z字形变换</span>
             <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
         </a>
         
@@ -535,7 +547,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-08 22:18:32'>2020-12-08 22:01</time>
+            发布时间 : <time class="date" title='最后更新: 2020-12-09 19:10:24'>2020-12-08 22:01</time>
         
     </div>
     <div class="article-meta">
@@ -597,9 +609,12 @@
 </li>
 <li>防止因网络堵塞造成服务器忙等，造成资源浪费的情况。<ul>
 <li>如果是两次的话，考虑这样一种情形，客户端第一次发送的连接请求因网络堵塞而没有到达服务器，当到达了超时重传时间后，客户端仍没有收到服务器的确认报文，就会发送第二次连接请求，这时服务端收到了该请求，并发送了确认信息，这时候连接建立；</li>
-<li>过一段时间后，被网络堵塞的第一次连接请求也到达了服务端，服务器接收后就发送了确认信息，此时建立了连接并为该链接分配了资源，等待客户端发送信息，而客户端并不会处理这个连接，因为它已经通过超时重传建立了连接并处理了自己信息，所以服务端就会忙等，造成了服务端的资源浪费。<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2>通信结束后，通信双方都可释放连接。释放前，A、B双方都处于连接已建立状态，假设A主动关闭TCP连接。<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/tcp-free-conn.png" alt="TCP三次握手建立连接"></li>
+<li>过一段时间后，被网络堵塞的第一次连接请求也到达了服务端，服务器接收后就发送了确认信息，此时建立了连接并为该链接分配了资源，等待客户端发送信息，而客户端并不会处理这个连接，因为它已经通过超时重传建立了连接并处理了自己信息，所以服务端就会忙等，造成了服务端的资源浪费。</li>
 </ul>
 </li>
+</ul>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p>通信结束后，通信双方都可释放连接。释放前，A、B双方都处于连接已建立状态，假设A主动关闭TCP连接。<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/tcp-free-conn.png" alt="TCP三次握手建立连接"></p>
+<ul>
 <li>A把final报文段首部的终止控制位FIN置1，其序号seq=u，此时A进入终止等待1状态。Final报文段即使不携带数据，也要消耗一个序号。</li>
 <li>B收到Final报文段后发出确认，ACK置1，确认号是ack=u+1，序号是v。然后B进入关闭等待状态。此时TCP连接处于半关闭状态，即A没有数据要发送，但是B发送的数据A仍要接收，B到A方向的连接没有关闭。A收到来自B的确认后进入终止等待2状态，等待B发送连接释放报文段。</li>
 <li>当B发送完数据之后，向A发送Final报文段，FIN置1，ACK置1，序号为w，确认号u+1。此时B进入最后确认状态。</li>
