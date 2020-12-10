@@ -3,7 +3,7 @@ title: idea部署springboot项目到docker
 author: ChangzeYan
 date: 2020-12-10 18:22:44
 tags: 部署
-categories: docker
+categories: Docker
 cover:
 ---
 
