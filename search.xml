@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Hithesis 工大论文模板</title>
+      <link href="/2020/12/14/write/latex/hithesis/hithesis-gong-da-lun-wen-mo-ban/"/>
+      <url>/2020/12/14/write/latex/hithesis/hithesis-gong-da-lun-wen-mo-ban/</url>
+      
+        <content type="html"><![CDATA[<h1 id="中期报告"><a href="#中期报告" class="headerlink" title="中期报告"></a>中期报告</h1><h2 id="hithesis"><a href="#hithesis" class="headerlink" title="hithesis"></a>hithesis</h2><p>模板下载地址：<a href="https://github.com/dustincys/hithesis" target="_blank" rel="noopener">hithesis</a></p><p>将zip包下载解压，根目录为：</p><p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/hithesis-zip.png" alt="解压后的目录"></p><h3 id="生成样式文件"><a href="#生成样式文件" class="headerlink" title="生成样式文件"></a>生成样式文件</h3><p>然后在根目录下执行（在github项目介绍中）：</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># windows:</span>lualatex hithesis.ins<span class="token comment" spellcheck="true"># mac/linux</span>latex hithesis.ins<span class="token comment" spellcheck="true"># make</span><span class="token function">make</span> cls</code></pre><p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/hithesis-%E7%94%9F%E6%88%90%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6.png" alt="生成的样式文件"></p><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>生成好格式后，进入到示例文件夹中</p><pre class=" language-bash"><code class="language-bash">examples├── hitart│   ├── reportplus  %深圳校区博士中期报告│   └── reports     %除去深圳校区博士中期报告的一校三区本硕博开题、中期报告└── hitbook    ├── chinese     %一校三区本硕博毕业论文以及博后出站报告    └── english     %一校三区本硕博英文版毕业论文</code></pre><p>在hitart/reports目录下执行：</p><pre class=" language-bash"><code class="language-bash">xelatex -shell-escape report.texbibtex reportxelatex -shell-escape report.texxelatex -shell-escape report.tex</code></pre><p>或者用vscode打开该目录，直接执行。</p><p>最后生成的开题中期报告格式不太正确：</p><p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/hithesis-%E4%B8%AD%E6%9C%9F%E6%A0%B7%E5%BC%8F.png" alt="hithesis生成的样式-本部硕士中期"><br>因此换用hithesis-alpha。</p><h2 id="hithesis-alpha"><a href="#hithesis-alpha" class="headerlink" title="hithesis-alpha"></a>hithesis-alpha</h2><p>下载地址：<a href="https://github.com/Regulust/hithesis-alpha#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="noopener">hithesis-alpha</a></p><h3 id="生成样式文件-1"><a href="#生成样式文件-1" class="headerlink" title="生成样式文件"></a>生成样式文件</h3><p>同hithesis一样，在根目录下运行：</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># windows:</span>lualatex hithesis.ins<span class="token comment" spellcheck="true"># mac/linux</span>latex hithesis.ins</code></pre><h3 id="编译-1"><a href="#编译-1" class="headerlink" title="编译"></a>编译</h3><p>用vscode直接打开根目录，编辑main.tex，修改documentclass的参数：</p><pre class=" language-bash"><code class="language-bash">\documentclass<span class="token punctuation">[</span>newtxmath<span class="token operator">=</span>true,newgeometry<span class="token operator">=</span>two,capcenterlast<span class="token operator">=</span>true,subcapcenterlast<span class="token operator">=</span>true,openright<span class="token operator">=</span>false,absupper<span class="token operator">=</span>true,type<span class="token operator">=</span>master,stage<span class="token operator">=</span>zhongqi,campus<span class="token operator">=</span>harbin<span class="token punctuation">]</span><span class="token punctuation">{</span>hithesis<span class="token punctuation">}</span></code></pre><p>生成的样式如下：</p><p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/hithesis-alpha-%E6%A0%B7%E5%BC%8F.png" alt="hithesis-alpha生成的样式-本部硕士中期"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Latex </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Graphql的使用</title>
       <link href="/2020/12/10/graphql/graphql-de-shi-yong/"/>
       <url>/2020/12/10/graphql/graphql-de-shi-yong/</url>
