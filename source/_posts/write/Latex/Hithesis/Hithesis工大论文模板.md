@@ -55,7 +55,7 @@ xelatex -shell-escape report.tex
 
 最后生成的开题中期报告格式不太正确：
 
-![生成的样式-本部硕士中期](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/hithesis-中期样式.png)
+![hithesis生成的样式-本部硕士中期](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/hithesis-中期样式.png)
 因此换用hithesis-alpha。
 
 ## hithesis-alpha
@@ -80,4 +80,11 @@ type=master,stage=zhongqi,campus=harbin]{hithesis}
 ```
 生成的样式如下：
 
-![生成的样式-本部硕士中期](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/hithesis-alpha-样式.png)
+![hithesis-alpha生成的样式-本部硕士中期](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/hithesis-alpha-样式.png)
+
+# 学位论文
+使用 hithesis的example/hitbook即可。
+在thesis.tex中修改：
+```bash
+\documentclass[fontset=fandol,type=master,campus=harbin]{hithesisbook}
+```
