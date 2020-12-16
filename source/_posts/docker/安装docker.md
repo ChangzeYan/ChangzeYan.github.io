@@ -127,6 +127,15 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
+**开启远程访问后可以在远程主机操作docker**
+要求：操作和被操作的主机都要安装docker
+```bash
+# 查看镜像
+docker -H IP:2375 images
+# 查看运行中的容器
+docker -H IP:2375 ps
+```
+
 ## 升级docker
 卸载docker
 ```bash

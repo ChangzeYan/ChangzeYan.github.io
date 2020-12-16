@@ -43,6 +43,17 @@ nltk.download('punkt')
     - 'D:\\nltk_data'
     - 'E:\\nltk_data'
 ```
+linux中的目录是：
+```bash
+Searched in:
+    - '/home/hadoopcj/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+    - '/home/hadoopcj/nltk_data'
+    - ''
+```
 
 然后进入到"D:\\nltk_data\\tokenizers"目录，将punkt.zip解压即可。
 
