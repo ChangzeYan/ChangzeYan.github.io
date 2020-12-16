@@ -1,5 +1,5 @@
 ---
-title: 部署flask应用到docker
+title: 部署Flask应用到Docker
 author: ChangzeYan
 date: 2020-12-16 13:04:27
 tags: Flask
@@ -76,13 +76,20 @@ COPY指令和ADD指令都可以将主机上的资源复制或加入到容器镜�
 # 构建镜像
 将项目上传到docker服务器，进入工程目录，执行：
 ```bash
+# 最后还有一个点
 docker build -t org_struct_pre:latest .
-```
-如果远程开启了远程访问，在本地可以部署，不用将项目上传至服务器：
-```bash
+# 如果远程开启了远程访问，在本地可以部署，不用将项目上传至服务器，执行：
 docker -H IP:2375 build -t org_struct_pre:latest .
 ```
-运行：
+
+运行容器：
 ```bash
 docker run -d -p 5001:5001 --name org_struct_pre（容器名） org_struct_pre(镜像名)
 ```
+进入容器：
+```bash
+docker exec -it 7a31796e9cb2 /bin/bash
+```
+进入到/usr/local/lib目录，可以看到所有词典。可以正常使用nltk：
+
+![容器中使用nltk](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/部署flask-docker-nltk.png)
