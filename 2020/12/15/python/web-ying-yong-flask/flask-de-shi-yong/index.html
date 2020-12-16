@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>两数之和-输入BST | YCZ</title>
-  <meta name="keywords" content=" leetcode , tree ">
-  <meta name="description" content="两数之和-输入BST | YCZ">
+  <title>flask的使用 | YCZ</title>
+  <meta name="keywords" content=" Flask ">
+  <meta name="description" content="flask的使用 | YCZ">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 <meta property="og:type" content="website">
@@ -533,9 +533,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-leetcode/tree/两数之和-输入BST" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Python/web应用-flask/flask的使用" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">两数之和-输入BST</h1>
+        <h1 class="article-title">flask的使用</h1>
     
     <div class="article-meta">
         
@@ -545,7 +545,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a data-rel="Leetcode">Leetcode</a>
+            <a data-rel="Python">Python</a>
             
         </span>
         
@@ -553,21 +553,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">leetcode</a>
-            
-            <a class="color5">tree</a>
+            <a class="color1">Flask</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title="最后更新: 2020-12-02 20:26:59">2019-06-15 21:24</time>
+            发布时间 : <time class="date" title="最后更新: 2020-12-16 14:04:48">2020-12-15 22:21</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:319</span>
+        <span>字数:647</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -586,7 +584,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#两数之和-输入BST"><span class="toc-text">两数之和-输入BST</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#structure"><span class="toc-text">structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装flask"><span class="toc-text">安装flask</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hello-world"><span class="toc-text">hello world</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Flask结合graphql"><span class="toc-text">Flask结合graphql</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装："><span class="toc-text">安装：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#然后编写query-和schema："><span class="toc-text">然后编写query 和schema：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行"><span class="toc-text">运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数传递和获取"><span class="toc-text">参数传递和获取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#info参数"><span class="toc-text">info参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#返回值"><span class="toc-text">返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#返回基本类型"><span class="toc-text">返回基本类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#返回列表"><span class="toc-text">返回列表</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -602,59 +600,168 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="两数之和-输入BST"><a href="#两数之和-输入BST" class="headerlink" title="两数之和-输入BST"></a>两数之和-输入BST</h2><p>题目地址：<a href="https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/" target="_blank" rel="noopener">两数之和-输入BST</a></p>
-<h3 id="structure"><a href="#structure" class="headerlink" title="structure"></a>structure</h3><pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">BST</span><span class="token punctuation">:</span> 二叉搜索树，每个节点的值大于其任意左侧子节点的值，小于其任意右节点的值</code></pre>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉搜索树和一个目标结果，如果 <code>BST</code> 中存在两个元素且它们的和等于给定的目标结果，则返回 <code>true</code>。</p>
-<p>案例 1:</p>
-<pre class=" language-c"><code class="language-c">输入<span class="token punctuation">:</span>
-    <span class="token number">5</span>
-   <span class="token operator">/</span> \
-  <span class="token number">3</span>   <span class="token number">6</span>
- <span class="token operator">/</span> \   \
-<span class="token number">2</span>   <span class="token number">4</span>   <span class="token number">7</span>
+        <h1 id="安装flask"><a href="#安装flask" class="headerlink" title="安装flask"></a>安装flask</h1><pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> flask</code></pre>
+<p>其他可能用到的包（非必须）：</p>
+<pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> sqlalchemy graphene flask-graphql flask-sqlalchemy graphene-sqlalchemy
+<span class="token comment" spellcheck="true"># MySQL</span>
+pip <span class="token function">install</span> mysqlclient
+<span class="token comment" spellcheck="true"># PostgreSQL</span>
+pip <span class="token function">install</span> psycopg2-binary</code></pre>
+<h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h1><pre class=" language-py"><code class="language-py">from flask import Flask
 
-Target <span class="token operator">=</span> <span class="token number">9</span>
+app = Flask(__name__)
 
-输出<span class="token punctuation">:</span> True</code></pre>
-<p>案例 2:</p>
-<pre class=" language-c"><code class="language-c">输入<span class="token punctuation">:</span>
-    <span class="token number">5</span>
-   <span class="token operator">/</span> \
-  <span class="token number">3</span>   <span class="token number">6</span>
- <span class="token operator">/</span> \   \
-<span class="token number">2</span>   <span class="token number">4</span>   <span class="token number">7</span>
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
 
-Target <span class="token operator">=</span> <span class="token number">28</span>
+if __name__ == '__main__':
+    app.run()</code></pre>
+<p>打开浏览器访问<a href="http://127.0.0.1:5000/，浏览页面上将出现Hello" target="_blank" rel="noopener">http://127.0.0.1:5000/，浏览页面上将出现Hello</a> World!。</p>
+<h1 id="Flask结合graphql"><a href="#Flask结合graphql" class="headerlink" title="Flask结合graphql"></a>Flask结合graphql</h1><h2 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h2><pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> graphene flask-graphql</code></pre>
+<h2 id="然后编写query-和schema："><a href="#然后编写query-和schema：" class="headerlink" title="然后编写query 和schema："></a>然后编写query 和schema：</h2><pre class=" language-py"><code class="language-py">from flask import Flask
+from graphene import ObjectType, String, Schema, Int,Field
+from flask_graphql import GraphQLView
 
-输出<span class="token punctuation">:</span> False</code></pre>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>构建树的中序遍历（<code>BST</code>的中序遍历为<strong>递增序列</strong>） <code>list</code>，设置两个指针，分别指向 <code>list</code> 的首尾，若首尾指针之和小于 <code>Target</code> ，则首指针后移一位；若首尾指针之和大于 <code>Target</code> ，则尾指针前移一位；若首尾指针之和等于 <code>Target</code> 则做出标记，退出循环。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>tree_li <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 
-    <span class="token comment" spellcheck="true"># 中序遍历</span>
-    <span class="token keyword">def</span> <span class="token function">ergodic_tree</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> root <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>ergodic_tree<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
-            self<span class="token punctuation">.</span>tree_li<span class="token punctuation">.</span>append<span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
-            self<span class="token punctuation">.</span>ergodic_tree<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+class User(ObjectType):
+    id = Int()
+    name = String()
 
-    <span class="token keyword">def</span> <span class="token function">findTarget</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>ergodic_tree<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 设置首尾指针</span>
-        i<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>tree_li<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
-        <span class="token comment" spellcheck="true"># 设置是否存在Target标志</span>
-        flag <span class="token operator">=</span> <span class="token boolean">False</span>
-        <span class="token keyword">while</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">:</span>
-            sum <span class="token operator">=</span> self<span class="token punctuation">.</span>tree_li<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>tree_li<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-            <span class="token keyword">if</span> sum <span class="token operator">==</span> k<span class="token punctuation">:</span>
-                flag <span class="token operator">=</span> <span class="token boolean">True</span>
-                <span class="token keyword">break</span>
-            <span class="token keyword">elif</span> sum <span class="token operator">&lt;</span> k<span class="token punctuation">:</span>
-                i <span class="token operator">+=</span> <span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                j <span class="token operator">-=</span> <span class="token number">1</span>
-        <span class="token keyword">return</span> flag</code></pre>
+
+class Result(ObjectType):
+    code = Int()
+    msg = String()
+
+
+class Query(ObjectType):
+    # this defines a Field `hello` in our Schema with a single Argument `name`
+    hello = String(name=String(default_value="stranger"))
+    goodbye = Field(Result)
+
+    # our Resolver method takes the GraphQL context (root, info) as well as
+    # Argument (name) for the Field and returns data for the query Response
+    # resolve需要加上固定前缀resolve_
+    def resolve_hello(root, info, name):
+        return f'Hello: {name} !'
+
+    def resolve_goodbye(root, info):
+        return Result(1, "success")
+
+    users = List(User, id=Int(required=True))
+    user = Field(User, id=Int(required=True))
+
+
+    def resolve_user(self, info, id):
+        """返回单个实例对象"""
+        return User(id=id, name='zhangsan')
+
+
+    def resolve_users(self, info, id):
+        """返回列表对象"""
+        return [User(id=id, name='lisi')]
+
+
+
+schema = Schema(query=Query)
+
+
+# app = Flask(__name__)
+# app.add_url_rule('/graphql', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True))
+
+
+def create_app():
+    app = Flask(__name__)
+    app.add_url_rule('/graphql', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True))
+
+    # Optional, for adding batch query support (used in Apollo-Client)
+    # app.add_url_rule('/graphql/batch', view_func=GraphQLView.as_view('graphql', schema=schema, batch=True))
+
+    @app.route("/")
+    def hello_world():
+        return "Hello World!"
+
+    return app
+
+
+if __name__ == '__main__':
+    app = create_app()
+    # 默认端口号5000
+    app.run()
+    # 指定端口号5001
+    # app.run(port=5001)
+</code></pre>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>打开：<a href="http://127.0.0.1:5000/graphql" target="_blank" rel="noopener">http://127.0.0.1:5000/graphql</a></p>
+<p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/flask-graphql-%E8%BF%90%E8%A1%8C.png" alt="graphiql测试"></p>
+<h2 id="参数传递和获取"><a href="#参数传递和获取" class="headerlink" title="参数传递和获取"></a>参数传递和获取</h2><p>参考：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/gaojy/p/11678191.html" target="_blank" rel="noopener">详解Python Graphql</a></li>
+<li><a href="https://haofly.net/python-graphql/" target="_blank" rel="noopener">Python使用graphene-sqlalchemy提供GraphQL接口</a></li>
+</ul>
+<pre class=" language-py"><code class="language-py">class NER_RESULT(ObjectType):
+    word_list = List(String)
+
+
+class Query(ObjectType):
+    # 返回值，参数
+    ner = Field(NER_RESULT, text=String())
+
+    # 设置传入参数列表，args
+    def resolve_ner(self, info, **args):
+        text = args['text']
+        print(text)
+        words = word_tokenize(text)
+        print(words)
+        key_words = [word.strip() for word in open("key_words.txt", "r", encoding="utf-8").readlines()]
+        word_list = []
+        ner_result = NER_RESULT(word_list)
+        return ner_result</code></pre>
+<p>访问：</p>
+<pre class=" language-bash"><code class="language-bash">query<span class="token punctuation">{</span>
+     ner<span class="token punctuation">(</span>text:<span class="token string">"When Jobs arrived back at Apple, it had a conventional structure for a company of its size and scope."</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    wordList
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="info参数"><a href="#info参数" class="headerlink" title="info参数"></a>info参数</h3><p>info表示请求的上下文，可以在查询语中添加context：</p>
+<pre class=" language-py"><code class="language-py">class Query(ObjectType):
+     hello = String(name=String(default_value="gaojy", required=True))
+     @staticmethod
+     def resolve_hello(root, info, name):
+        # 通过info可获取上下文内容
+        print(info.context.get('company'))
+        return f"hello word -- {name}"
+
+
+schema = Schema(query=Query, mutation=MyMutations)
+
+if __name__ == '__main__':
+    query_string = '''{ hello(name:"gaojiayi") }'''
+    # 1 execute中添加context
+    result = schema.execute(query_string, context={'company': 'baidu'})
+    print(result.data['hello'])</code></pre>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><h3 id="返回基本类型"><a href="#返回基本类型" class="headerlink" title="返回基本类型"></a>返回基本类型</h3><pre class=" language-py"><code class="language-py">class Query(graphene.ObjectType):
+    add = graphene.Int(
+        description='calculate a + b then return the result.',
+        a=graphene.Int(),
+        b=graphene.Int())
+
+    @staticmethod
+    def resolve_add(obj, info, a=0, b=0, **kwargs):
+        return a + b</code></pre>
+<p>请求：</p>
+<pre class=" language-bash"><code class="language-bash">requests.post<span class="token punctuation">(</span><span class="token string">'http://localhost:5000/graphql'</span>, json<span class="token operator">=</span><span class="token punctuation">{</span>
+    <span class="token string">'query'</span><span class="token keyword">:</span> <span class="token string">'{add(a: 4, b: 5)}'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<h3 id="返回列表"><a href="#返回列表" class="headerlink" title="返回列表"></a>返回列表</h3><pre class=" language-py"><code class="language-py">class Query(graphene.ObjectType):
+    rand = graphene.List(
+        graphene.Int,
+        description='get some random numbers from 0 to 100',
+        count=graphene.Int(),
+    )
+
+    @staticmethod
+    def resolve_rand(obj, info, count=1, **kwargs):
+        return [random.randint(0, 100) for i in range(count)]</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 750531787@qq.com </span>
