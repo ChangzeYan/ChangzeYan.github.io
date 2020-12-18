@@ -55,7 +55,7 @@ Searched in:
     - ''
 ```
 
-然后进入到"D:\\nltk_data\\tokenizers"目录，将punkt.zip解压即可。
+然后进入到"D:\\nltk_data\\tokenizers"目录，**将punkt.zip解压** 即可。
 
 ![packages文件夹内容](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/nlp依赖环境安装-nltk-punkt.png)
 
@@ -126,3 +126,14 @@ print(pos_tag)
 t=nltk.pos_tag(['news'])
 print(t)
 ```
+
+# Nltk的语料库
+语料库在D:\\nltk_data\\corpora下：
+
+参考：[NLTK文本语料库](https://www.cnblogs.com/itdyb/p/5899616.html)
+- 古腾堡语料库：gutenberg，包含古腾堡项目电子文本档案的一小部分文本。该项目目前大约有36000本免费的电子图书。
+- 网络聊天语料库：webtext、nps_chat；这部分代表的是非正式的语言，包括Firefox交流论坛、在纽约无意听到的对话、《加勒比海盗》电影剧本。个人广告以及葡萄酒的评论。
+- 布朗语料库：brown；布朗语意库是第一个百万词集的英语电子语料库，有布朗大学于1961年创建，包含500多个不同来源的文本，按照文本类型，如新闻、社评等分类。布朗语料库是一个研究文体之间系统性差异的资源。
+- 路透社语料库：reuters；路透社语料库包括10788个新闻文档，共计130万字。这些文档分成了90个主题，按照‘训练’和‘测试’分为两组。因此，编号为‘test/14826’的文档属于测试组。这样分割是为了方便运用训练和测试算法的自动检验文档的主题。
+- 就职演说语料库：inaugural；是55个文本的集合，每个文本都是一个总统的演讲。这个集合的显著特征就是时间维度。
+- 标注文本语料库和其他语言语料库

@@ -1,5 +1,5 @@
 ---
-title: Flask的使用
+title: Flask-GraphQL的使用
 author: ChangzeYan
 date: 2020-12-15 22:21:25
 tags: Flask
@@ -136,7 +136,8 @@ class NER_RESULT(ObjectType):
 
 
 class Query(ObjectType):
-    # 返回值，参数
+    # Feild表示返回一个非基本类型的对象，第一个参数表示返回值类型
+    # 后面的是ner方法需要的参数
     ner = Field(NER_RESULT, text=String())
 
     # 设置传入参数列表，args

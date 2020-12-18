@@ -13,18 +13,19 @@ pip install pymongo
 ```
 
 # 获取连接
-无密码：
+
 ```py
+# 无密码：
 mongo_client = MongoClient(host='localhost', port=27017)
 
 # 使用管理员的用户名和密码
 myclient = pymongo.MongoClient('mongodb://root:123456@localhost:27017/')
 ```
 
-有密码：
+使用数据库密码：
 ```py
 mongo_client = MongoClient(host='ip', port=34843)
-db = mongo_client.hit_wz_mongodb
+db = mongo_client.my_mongodb
 db.authenticate('username', 'xxxxx')
-collection = db.indeedindeex
+collection = db.student
 ```
