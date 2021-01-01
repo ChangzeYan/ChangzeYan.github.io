@@ -88,3 +88,10 @@ type=master,stage=zhongqi,campus=harbin]{hithesis}
 ```bash
 \documentclass[fontset=fandol,type=master,campus=harbin]{hithesisbook}
 ```
+
+
+# Hithesis中的格式
+将“文献[x]”中的\[x\]表示为正常的文本，而不是引用格式上标：
+```bash
+\inlinecite{key}
+```

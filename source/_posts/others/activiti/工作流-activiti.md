@@ -108,7 +108,33 @@ CREATE TABLE `formdata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ```
+
+## spring security
+spring-activiti自动集成了spring boot security，访问应用的用户名是：user，启动时会在控制台生成密码：
+```java
+2020-12-26 20:59:29.582  INFO 11832 --- [           main] .s.s.UserDetailsServiceAutoConfiguration :
+
+Using generated security password: b241ae9b-ba60-44a9-8c0d-b5ca45349ed6
+
+```
+去掉密码：在启动类前加注解：
+```java
+@SpringBootApplication(exclude = {org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
+        org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration.class})
+public class ActivitiSpringbootDemoApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ActivitiSpringbootDemoApplication.class, args);
+    }
+
+}
+```
+
 ## 部署和执行
+> 部署的bpmn文件一定要是bpmn格式的文件，不能是xml格式的
+
+部署流程会影响的表：act_re_deployment、act_re_procdef、act_ge_bytearray，如果其中任意一个表中没有写入，则没有部署成功。
+
 ```java
 @Service
 public class EnterpriseRaService {
@@ -118,6 +144,7 @@ public class EnterpriseRaService {
     @Autowired
     private RuntimeService runtimeService;
 
+    // 部署流程：
     public String deploy(){
         Deployment deployment=repositoryService.createDeployment()
                 .addClasspathResource("processes/analyse1.bpmn")
@@ -126,6 +153,7 @@ public class EnterpriseRaService {
         return deployment.getId();
     }
 
+    // 执行流程
     public String startProcess(){
         ProcessInstance instance=runtimeService.startProcessInstanceByKey("process_analyse");
         return instance.getId();
@@ -136,28 +164,37 @@ public class EnterpriseRaService {
 ## Service Task
 参考：[自动服务任务](https://www.pianshen.com/article/1950323381/)
 [服务任务](https://www.cnblogs.com/dengjiahai/p/6942376.html)
-service task需要在bpmn文件中配置与之关联的执行类，async设置为true表示startProcessInstanceByKey方法立即返回，然后异步执行service task；
+service task需要在bpmn文件中配置与之关联的执行类，类名要写全名，即package.类名，async设置为true表示startProcessInstanceByKey方法立即返回，然后异步执行service task；
 ```xml
  <bpmn2:serviceTask id="Activity_0z1g1ix" name="crawl" activiti:async="true" activiti:class="com.example.cloudactiviti.listener.CrawlListener">
 ```
 与之关联的类实现JavaDelegate接口：
 ```java
+package com.example.cloudactiviti.listener;
+
+import org.activiti.engine.delegate.DelegateExecution;
+import org.activiti.engine.delegate.JavaDelegate;
+import org.springframework.stereotype.Component;
+
 @Component
 public class CrawlListener implements JavaDelegate {
+    @Component
+    public class CrawlListener implements JavaDelegate {
 
-    @Override
-    public void execute(DelegateExecution delegateExecution) {
-        System.out.println("----------------------");
-        System.out.println("-----模拟爬虫-------");
-        try {
-            for (int i = 0; i < 10; i++) {
-                System.out.println(i);
-                Thread.sleep(1000);
+        @Override
+        public void execute(DelegateExecution delegateExecution) {
+            System.out.println("----------------------");
+            System.out.println("-----模拟事务-------");
+            try {
+                for (int i = 0; i < 10; i++) {
+                    System.out.println(i);
+                    Thread.sleep(1000);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("end");
         }
-        System.out.println("end");
     }
 }
 ```
@@ -180,6 +217,56 @@ public String getLastFinishedTask(String instanceId){
         System.out.println("---------------当前任务为空-------------------");
     }
     return lastFinishedTask;
+}
+```
+
+## 查询正在执行的任务节点id
+```java
+public String getCurrentTask(String instanceId){
+    List<Execution> executionList=runtimeService.createExecutionQuery().processInstanceId(instanceId)
+            .list();
+    String currentTask="已结束";
+    if(executionList==null || executionList.size()<1){
+        return currentTask;
+    }else{
+        Execution execution=executionList.get(1);
+        // 获取正在执行的活动id
+        currentTask=execution.getActivityId();
+        if(currentTask.equals("Activity_0z1g1ix")){
+            currentTask="crawl";
+        }else if(currentTask.equals("Activity_1rgp0z1")){
+            currentTask="analyse";
+        }
+    }
+    return currentTask;
+}
+```
+
+## 参数的设置和获取
+在启动Activiti流程实例的时候，设置参数字典：
+```java
+public String startProcess(String a,String b){
+
+    Map<String,Object> mapVariables = new HashMap<>();
+    mapVariables.put("strA",a);
+    mapVariables.put("strB",b);
+
+    ProcessInstance instance=
+            runtimeService.startProcessInstanceByKey("process_analyse",mapVariables);
+
+    return instance.getId();
+}
+```
+然后就可以在JavaDelegate类中获取参数：
+```java
+@Component
+public class CrawlListener implements JavaDelegate {
+
+    public void execute(DelegateExecution delegateExecution) {
+        String taskId = delegateExecution.getVariable("strA",String.class);
+        String userId = delegateExecution.getVariable("strB",String.class);
+
+    }
 }
 ```
 
