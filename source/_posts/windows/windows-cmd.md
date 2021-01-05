@@ -18,3 +18,10 @@ netstat -ano|findstr "4000"
 taskkill /pid "PID" /F
 ```
 如果出现：“无法终止 PID 为 xxx 的进程”，用管理员方式打开cmd，再次终止进程。
+
+
+## 打开防火墙端口
+在管理员模式下，打开2375端口，支持远程访问：
+```bash
+netsh advfirewall firewall add rule name="docker_daemon" dir=in action=allow protocol=TCP localport=2375
+```

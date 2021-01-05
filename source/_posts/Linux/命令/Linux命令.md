@@ -26,3 +26,21 @@ shift+:进入命令模式，在冒号后面写命令。
 ```bash
 :%s#linuxidc.com#linuxidc.net#gc
 ```
+
+
+# 防火墙
+```bash
+#查看状态
+firewall-cmd --state 
+# 开启防火墙
+systemctl start firewalld.service 
+# 关闭防火墙
+systemctl stop firewalld.service  
+# 重启
+firewall-cmd --reload  
+
+#禁止firewall开机启动
+systemctl disable firewalld.service
+#开机启用 
+systemctl enable firewalld  
+```

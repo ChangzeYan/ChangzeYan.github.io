@@ -167,6 +167,11 @@ windows专业版要在打开或关闭windows功能那里开启Hyper-V功能。
 
 ## 下载docker：
 [官网](https://www.docker.com/get-started)
+安装后，配置环境变量，将:
+```bash
+C:\\Program Files\\Docker\\Docker\\resources
+```
+添加到path中。
 
 ## 配置国内镜像
 
@@ -177,7 +182,8 @@ windows专业版要在打开或关闭windows功能那里开启Hyper-V功能。
 
 先勾选：
 ![配置Windows远程访问](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-安装docker-windows开启远程访问.png)
-开启windows防火墙：
+开启windows防火墙，在管理员模式下：
+
 ```bash
 netsh advfirewall firewall add rule name="docker_daemon" dir=in action=allow protocol=TCP localport=2375
 ```

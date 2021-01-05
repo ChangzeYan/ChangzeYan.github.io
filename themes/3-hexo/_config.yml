@@ -100,7 +100,7 @@ miit:
 reward: true
 # true 开启打赏功能
 
-searchAll: false
+searchAll: true
 # true 启用全文搜索
 # 开启此功能需要下面操作：
 # 1. 在 hexo 根目录 执行 npm install hexo-generator-search --save 安装插件
@@ -232,20 +232,15 @@ comment:
   type: gitalk  # 评论系统：gitalk、disqus、gitment、utteranc、livere,注意：使用时，在下方对应位置进行配置
   comment_count: true  # 文章标题下方显示评论数 目前仅支持 gitalk 和 disqus
   ## 使用说明 https://yelog.org//2020/05/23/3-hexo-comment/
+
 # 各评论系统配置 ↓↓
-
-disqus:
-  shortname:
-  # disqus评论系统， 2016年9月被GFW认证，大陆不能使用。
-  # 获取shortname：https://help.disqus.com/customer/en/portal/articles/466208-what-s-a-shortname-
-
-
 gitalk:
-  githubID: Chagnze
-  repo: ChagnzeYan.github.io
-  ClientID:
-  ClientSecret:
+  githubID: ChangzeYan
+  repo: ChangzeYan.github.io
+  ClientID: 4a217f5606793b34cf31
+  ClientSecret: 9b070321c04c1f287ce0a4026c045049336f2248
   adminUser: ChangzeYan
+  owner: ChangzeYan
   distractionFreeMode: true
   language: zh-CN
   perPage: 10
@@ -259,6 +254,14 @@ gitalk:
 # distractionFreeMode: 全屏遮罩效果
 # language: 语言：支持：en / zh-CN / zh-TW 三种
 # perPage: 每次加载的数据大小，默认10，最大100
+
+disqus:
+  shortname:
+  # disqus评论系统， 2016年9月被GFW认证，大陆不能使用。
+  # 获取shortname：https://help.disqus.com/customer/en/portal/articles/466208-what-s-a-shortname-
+
+
+
 
 
 gitment:

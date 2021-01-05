@@ -112,12 +112,13 @@ CREATE TABLE `formdata` (
 ## spring security
 spring-activiti自动集成了spring boot security，访问应用的用户名是：user，启动时会在控制台生成密码：
 ```java
-2020-12-26 20:59:29.582  INFO 11832 --- [           main] .s.s.UserDetailsServiceAutoConfiguration :
+2020-12-26 20:59:29.582  INFO 11832 --- [       main] .s.s.UserDetailsServiceAutoConfiguration :
 
 Using generated security password: b241ae9b-ba60-44a9-8c0d-b5ca45349ed6
 
 ```
 去掉密码：在启动类前加注解：
+
 ```java
 @SpringBootApplication(exclude = {org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
         org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration.class})
