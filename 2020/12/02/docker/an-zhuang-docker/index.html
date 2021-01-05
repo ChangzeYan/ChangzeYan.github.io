@@ -115,11 +115,11 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(42)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(44)</small></div></li>
     
         
             
-            <li><div data-rel="Docker">Docker<small>(3)</small></div>
+            <li><div data-rel="Docker">Docker<small>(4)</small></div>
                 
             </li>
             
@@ -167,7 +167,7 @@
     
         
             
-            <li><div data-rel="Linux">Linux<small>(1)</small></div>
+            <li><div data-rel="Linux">Linux<small>(2)</small></div>
                 
             </li>
             
@@ -239,8 +239,8 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="42">
-<input type="hidden" id="yelog_site_word_count" value="21.8k">
+<input type="hidden" id="yelog_site_posts_number" value="44">
+<input type="hidden" id="yelog_site_word_count" value="23.3k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -324,6 +324,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>KDD</a>
             </li>
         
@@ -383,6 +387,10 @@
                 <i class="iconfont icon-tag"></i><a>部署</a>
             </li>
         
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>镜像</a>
+            </li>
+        
     </div>
 
 </div>
@@ -393,6 +401,22 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 Linux "
+           href="/2021/01/05/linux/kafka/da-jian-kafka-ji-qun/"
+           data-tag="Kafka"
+           data-author="" >
+            <span class="post-title" title="搭建kafka集群">搭建kafka集群</span>
+            <span class="post-date" title="2021-01-05 10:27:18">2021/01/05</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/2021/01/04/docker/an-zhuang-jing-xiang/"
+           data-tag="镜像"
+           data-author="" >
+            <span class="post-title" title="安装镜像">安装镜像</span>
+            <span class="post-date" title="2021-01-04 18:35:42">2021/01/04</span>
+        </a>
         
         <a  class="全部文章 Npm "
            href="/2021/01/01/npm/npm/"
@@ -715,18 +739,18 @@
         </a>
         
         <a  class="全部文章 Leetcode "
-           href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
-           data-tag="leetcode,cpp_stl"
-           data-author="" >
-            <span class="post-title" title="整数反转">整数反转</span>
-            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
-        </a>
-        
-        <a  class="全部文章 Leetcode "
            href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
            data-tag="Leetcode,simple"
            data-author="" >
             <span class="post-title" title="Z字形变换">Z字形变换</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
+           data-tag="leetcode,cpp_stl"
+           data-author="" >
+            <span class="post-title" title="整数反转">整数反转</span>
             <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
         </a>
         
@@ -767,12 +791,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-16 20:56:12'>2020-12-02 15:32</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-04 18:57:46'>2020-12-02 15:32</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:795</span>
+        <span>字数:823</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -878,10 +902,12 @@ docker -H IP:2375 <span class="token function">ps</span></code></pre>
 <pre class=" language-bash"><code class="language-bash">$ docker -v
 Docker version 18.09.3, build 774a1f4</code></pre>
 <h1 id="windows-安装docker"><a href="#windows-安装docker" class="headerlink" title="windows 安装docker"></a>windows 安装docker</h1><h2 id="专业版开启Hyper-V功能"><a href="#专业版开启Hyper-V功能" class="headerlink" title="专业版开启Hyper-V功能"></a>专业版开启Hyper-V功能</h2><p>windows专业版要在打开或关闭windows功能那里开启Hyper-V功能。</p>
-<h2 id="下载docker："><a href="#下载docker：" class="headerlink" title="下载docker："></a>下载docker：</h2><p><a href="https://www.docker.com/get-started" target="_blank" rel="noopener">官网</a></p>
+<h2 id="下载docker："><a href="#下载docker：" class="headerlink" title="下载docker："></a>下载docker：</h2><p><a href="https://www.docker.com/get-started" target="_blank" rel="noopener">官网</a><br>安装后，配置环境变量，将:</p>
+<pre class=" language-bash"><code class="language-bash">C:\\Program Files\\Docker\\Docker\\resources</code></pre>
+<p>添加到path中。</p>
 <h2 id="配置国内镜像-1"><a href="#配置国内镜像-1" class="headerlink" title="配置国内镜像"></a>配置国内镜像</h2><p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-%E5%AE%89%E8%A3%85docker-windows%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F.png" alt="配置国内镜像"></p>
 <h2 id="配置远程访问"><a href="#配置远程访问" class="headerlink" title="配置远程访问"></a>配置远程访问</h2><p>参考：<a href="http://baijiahao.baidu.com/s?id=1652188442217820964&wfr=spider&for=pc" target="_blank" rel="noopener">Windows开启Docker远程访问</a></p>
-<p>先勾选：<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-%E5%AE%89%E8%A3%85docker-windows%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE.png" alt="配置Windows远程访问"><br>开启windows防火墙：</p>
+<p>先勾选：<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/docker-%E5%AE%89%E8%A3%85docker-windows%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE.png" alt="配置Windows远程访问"><br>开启windows防火墙，在管理员模式下：</p>
 <pre class=" language-bash"><code class="language-bash">netsh advfirewall firewall add rule name<span class="token operator">=</span><span class="token string">"docker_daemon"</span> dir<span class="token operator">=</span>in action<span class="token operator">=</span>allow protocol<span class="token operator">=</span>TCP localport<span class="token operator">=</span>2375</code></pre>
 
       

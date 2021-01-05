@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>搭建kafka集群 | YCZ</title>
+  <meta name="keywords" content=" Kafka ">
+  <meta name="description" content="搭建kafka集群 | YCZ">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="https://changzeyan.github.io/about/index.html">
+<meta property="og:site_name" content="YCZ">
+<meta property="og:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-11-10T05:24:57.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.1.0"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value>
+  <input class="theme_blog_path" value>
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>ChangzeYan</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(44)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Docker">Docker<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Git">Git<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Graphql">Graphql<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Java">Java<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Latex">Latex<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Leetcode">Leetcode<small>(14)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Linux">Linux<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Markdown">Markdown<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Npm">Npm<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Paper">Paper<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Python">Python<small>(10)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Windows">Windows<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工作流">工作流<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="计算机网络">计算机网络<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="44">
+<input type="hidden" id="yelog_site_word_count" value="23.3k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>activiti</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cmd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Collection</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Conda</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cpp_stl</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataStructure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DoublePointer</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Flask</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>KDD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>leetcode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Leetcode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>NLP</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>paper</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>PGM</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>simple</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>string</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tree</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Tree</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>命令</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作Mongo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>概述</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>语法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>部署</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>镜像</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 Linux "
+           href="/2021/01/05/linux/kafka/da-jian-kafka-ji-qun/"
+           data-tag="Kafka"
+           data-author="" >
+            <span class="post-title" title="搭建kafka集群">搭建kafka集群</span>
+            <span class="post-date" title="2021-01-05 10:27:18">2021/01/05</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/2021/01/04/docker/an-zhuang-jing-xiang/"
+           data-tag="镜像"
+           data-author="" >
+            <span class="post-title" title="安装镜像">安装镜像</span>
+            <span class="post-date" title="2021-01-04 18:35:42">2021/01/04</span>
+        </a>
+        
+        <a  class="全部文章 Npm "
+           href="/2021/01/01/npm/npm/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="Hexo 命令">Hexo 命令</span>
+            <span class="post-date" title="2021-01-01 20:48:33">2021/01/01</span>
+        </a>
+        
+        <a  class="全部文章 Java "
+           href="/2020/12/19/java/java-ji-he-kuang-jia/java-ji-he-kuang-jia/"
+           data-tag="Collection"
+           data-author="" >
+            <span class="post-title" title="Java集合框架">Java集合框架</span>
+            <span class="post-date" title="2020-12-19 20:24:04">2020/12/19</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/17/python/python-yu-fa/python-import/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title="Python-import">Python-import</span>
+            <span class="post-date" title="2020-12-17 21:45:46">2020/12/17</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2020/12/17/leetcode/tree/zi-dian-shu/"
+           data-tag="Tree"
+           data-author="" >
+            <span class="post-title" title="字典树">字典树</span>
+            <span class="post-date" title="2020-12-17 21:04:44">2020/12/17</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/17/python/nlp/wen-ben-xiang-si-du/"
+           data-tag="NLP"
+           data-author="" >
+            <span class="post-title" title="文本相似度">文本相似度</span>
+            <span class="post-date" title="2020-12-17 20:30:46">2020/12/17</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/16/python/mongo/cao-zuo-mongo/"
+           data-tag="操作Mongo"
+           data-author="" >
+            <span class="post-title" title="Python-操作mongo">Python-操作mongo</span>
+            <span class="post-date" title="2020-12-16 22:10:04">2020/12/16</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/2020/12/16/docker/docker-ming-ling/"
+           data-tag="命令"
+           data-author="" >
+            <span class="post-title" title="Docker命令">Docker命令</span>
+            <span class="post-date" title="2020-12-16 21:02:03">2020/12/16</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/12/16/linux/ming-ling/linux-ming-ling/"
+           data-tag="命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令">Linux命令</span>
+            <span class="post-date" title="2020-12-16 20:06:32">2020/12/16</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/16/python/web-ying-yong-flask/bu-shu-flask-ying-yong-dao-docker/"
+           data-tag="Flask"
+           data-author="" >
+            <span class="post-title" title="部署Flask应用到Docker">部署Flask应用到Docker</span>
+            <span class="post-date" title="2020-12-16 13:04:27">2020/12/16</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/16/python/python-yu-fa/han-shu/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title="Python-函数">Python-函数</span>
+            <span class="post-date" title="2020-12-16 10:46:54">2020/12/16</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/15/python/web-ying-yong-flask/flask-graphql-de-shi-yong/"
+           data-tag="Flask"
+           data-author="" >
+            <span class="post-title" title="Flask-GraphQL的使用">Flask-GraphQL的使用</span>
+            <span class="post-date" title="2020-12-15 22:21:25">2020/12/15</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/15/python/python-yu-fa/rong-qi/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title="Python-容器">Python-容器</span>
+            <span class="post-date" title="2020-12-15 21:01:14">2020/12/15</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/15/python/python-yu-fa/wen-jian/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title="Python-文件操作">Python-文件操作</span>
+            <span class="post-date" title="2020-12-15 20:50:20">2020/12/15</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/15/python/nlp/nlp-ying-wen-chu-li-gong-ju-nltk/"
+           data-tag="NLP"
+           data-author="" >
+            <span class="post-title" title="nlp-nltk使用">nlp-nltk使用</span>
+            <span class="post-date" title="2020-12-15 19:17:58">2020/12/15</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/15/python/conda/an-zhuang-huan-jing-bao/"
+           data-tag="Conda"
+           data-author="" >
+            <span class="post-title" title="Conda Pip 安装环境包">Conda Pip 安装环境包</span>
+            <span class="post-date" title="2020-12-15 13:24:09">2020/12/15</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2020/12/14/write/latex/hithesis/hithesis-gong-da-lun-wen-mo-ban/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hithesis 工大论文模板">Hithesis 工大论文模板</span>
+            <span class="post-date" title="2020-12-14 19:58:50">2020/12/14</span>
+        </a>
+        
+        <a  class="全部文章 Graphql "
+           href="/2020/12/10/graphql/graphql-de-shi-yong/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graphql的使用">Graphql的使用</span>
+            <span class="post-date" title="2020-12-10 20:20:08">2020/12/10</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/2020/12/10/docker/bu-shu-springboot-xiang-mu-dao-docker/"
+           data-tag="部署"
+           data-author="" >
+            <span class="post-title" title="部署springboot项目到docker">部署springboot项目到docker</span>
+            <span class="post-date" title="2020-12-10 18:22:44">2020/12/10</span>
+        </a>
+        
+        <a  class="全部文章 Windows "
+           href="/2020/12/08/windows/windows-cmd/"
+           data-tag="cmd"
+           data-author="" >
+            <span class="post-title" title="windows cmd">windows cmd</span>
+            <span class="post-date" title="2020-12-08 22:31:00">2020/12/08</span>
+        </a>
+        
+        <a  class="全部文章 计算机网络 "
+           href="/2020/12/08/ji-suan-ji-wang-luo/chuan-shu-ceng/tcp-he-udp-xie-yi/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TCP和UDP协议">TCP和UDP协议</span>
+            <span class="post-date" title="2020-12-08 22:01:43">2020/12/08</span>
+        </a>
+        
+        <a  class="全部文章 计算机网络 "
+           href="/2020/12/08/ji-suan-ji-wang-luo/osi-qi-ceng-xie-yi/"
+           data-tag="概述"
+           data-author="" >
+            <span class="post-title" title="OSI七层协议">OSI七层协议</span>
+            <span class="post-date" title="2020-12-08 21:16:05">2020/12/08</span>
+        </a>
+        
+        <a  class="全部文章 Git "
+           href="/2020/12/03/git/git-ming-ling/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git命令">Git命令</span>
+            <span class="post-date" title="2020-12-03 10:51:18">2020/12/03</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/2020/12/02/docker/an-zhuang-docker/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker安装与配置">Docker安装与配置</span>
+            <span class="post-date" title="2020-12-02 15:32:43">2020/12/02</span>
+        </a>
+        
+        <a  class="全部文章 Git "
+           href="/2020/11/30/git/git-ignore-wen-jian/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git ignore 文件">Git ignore 文件</span>
+            <span class="post-date" title="2020-11-30 11:14:45">2020/11/30</span>
+        </a>
+        
+        <a  class="全部文章 Markdown "
+           href="/2020/11/23/write/markdown/markdown-yu-fa/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title="markdown语法">markdown语法</span>
+            <span class="post-date" title="2020-11-23 11:15:30">2020/11/23</span>
+        </a>
+        
+        <a  class="全部文章 工作流 "
+           href="/2020/11/10/others/activiti/gong-zuo-liu-activiti/"
+           data-tag="activiti"
+           data-author="" >
+            <span class="post-title" title="工作流">工作流</span>
+            <span class="post-date" title="2020-11-10 14:22:22">2020/11/10</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/08/26/leetcode/string/kmp/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="KMP">KMP</span>
+            <span class="post-date" title="2019-08-26 16:49:56">2019/08/26</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/07/19/leetcode/simple-without-algorithm/liang-shu-zhi-he/"
+           data-tag="leetcode,simple"
+           data-author="" >
+            <span class="post-title" title="两数之和">两数之和</span>
+            <span class="post-date" title="2019-07-19 15:01:42">2019/07/19</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/23/leetcode/string/zui-chang-gong-gong-qian-zhui/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="最长公共前缀">最长公共前缀</span>
+            <span class="post-date" title="2019-06-23 13:59:58">2019/06/23</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/22/leetcode/simple-without-algorithm/luo-ma-shu-zi-zhuan-zheng-shu/"
+           data-tag="leetcode,DataStructure"
+           data-author="" >
+            <span class="post-title" title="罗马数字转整数">罗马数字转整数</span>
+            <span class="post-date" title="2019-06-22 17:11:34">2019/06/22</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/21/leetcode/simple-without-algorithm/zheng-shu-zhuan-luo-ma-shu-zi/"
+           data-tag="leetcode,DataStructure"
+           data-author="" >
+            <span class="post-title" title="整数转罗马数字">整数转罗马数字</span>
+            <span class="post-date" title="2019-06-21 15:51:02">2019/06/21</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/20/leetcode/simple-without-algorithm/sheng-zui-duo-shui-de-rong-qi/"
+           data-tag="leetcode,DoublePointer"
+           data-author="" >
+            <span class="post-title" title="盛最多水的容器">盛最多水的容器</span>
+            <span class="post-date" title="2019-06-20 19:43:41">2019/06/20</span>
+        </a>
+        
+        <a  class="全部文章 Paper "
+           href="/2019/06/20/paper/kddcup2012-track2/"
+           data-tag="paper,KDD"
+           data-author="" >
+            <span class="post-title" title="KDD-Cup2012-Track2">KDD-Cup2012-Track2</span>
+            <span class="post-date" title="2019-06-20 14:02:44">2019/06/20</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/19/leetcode/string/hui-wen-shu/"
+           data-tag="leetcode,simple,string"
+           data-author="" >
+            <span class="post-title" title="回文数">回文数</span>
+            <span class="post-date" title="2019-06-19 18:57:00">2019/06/19</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/18/leetcode/string/zi-fu-chuan-zhuan-huan-zheng-shu-atoi/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="字符串转换整数 (atoi)">字符串转换整数 (atoi)</span>
+            <span class="post-date" title="2019-06-18 19:34:38">2019/06/18</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/16/leetcode/string/wu-chong-fu-zi-fu-zui-chang-zi-chuan/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="无重复字符最长子串">无重复字符最长子串</span>
+            <span class="post-date" title="2019-06-16 15:43:53">2019/06/16</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/16/leetcode/string/zui-chang-hui-wen-zi-chuan/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="最长回文子串">最长回文子串</span>
+            <span class="post-date" title="2019-06-16 13:35:44">2019/06/16</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/15/leetcode/tree/liang-shu-zhi-he-shu-ru-bst/"
+           data-tag="leetcode,tree"
+           data-author="" >
+            <span class="post-title" title="两数之和-输入BST">两数之和-输入BST</span>
+            <span class="post-date" title="2019-06-15 21:24:40">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 Paper "
+           href="/2019/06/15/paper/pgm/concept/conceptbayesiannetwork/"
+           data-tag="paper,PGM,BN"
+           data-author="" >
+            <span class="post-title" title="贝叶斯">贝叶斯</span>
+            <span class="post-date" title="2019-06-15 14:45:32">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 Paper "
+           href="/2019/06/14/paper/pgm/ji-yu-gai-lu-tu-mo-xing-de-hu-lian-wang-guang-gao-dian-ji-lu-yu-ce/"
+           data-tag="paper,PGM"
+           data-author="" >
+            <span class="post-title" title="阅读：基于概率图模型的互联网广告点击率预测">阅读：基于概率图模型的互联网广告点击率预测</span>
+            <span class="post-date" title="2019-06-14 20:17:42">2019/06/14</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
+           data-tag="Leetcode,simple"
+           data-author="" >
+            <span class="post-title" title="Z字形变换">Z字形变换</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
+           data-tag="leetcode,cpp_stl"
+           data-author="" >
+            <span class="post-title" title="整数反转">整数反转</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Linux/kafka/搭建kafka集群" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">搭建kafka集群</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Linux">Linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">Kafka</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-01-05 17:01:49'>2021-01-05 10:27</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:1.2k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建zookeeper集群"><span class="toc-text">搭建zookeeper集群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载和解压"><span class="toc-text">下载和解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置环境变量"><span class="toc-text">配置环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动zookeeper"><span class="toc-text">启动zookeeper</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper命令"><span class="toc-text">zookeeper命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建Kafka"><span class="toc-text">搭建Kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载"><span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置-1"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka命令"><span class="toc-text">kafka命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装中的问题"><span class="toc-text">安装中的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解决"><span class="toc-text">解决</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三台服务器都修改"><span class="toc-text">三台服务器都修改</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="搭建zookeeper集群"><a href="#搭建zookeeper集群" class="headerlink" title="搭建zookeeper集群"></a>搭建zookeeper集群</h1><p>参考：<a href="https://www.cnblogs.com/lenmom/p/10290045.html" target="_blank" rel="noopener">centos7安装zookeeper3.4.12集群</a></p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>三台服务器，已经做了ssh免密登录，都安装了jdk8</p>
+<pre class=" language-bash"><code class="language-bash">master: 192.168.244.5
+slave1: 192.168.244.6
+slave2: 192.168.244.7</code></pre>
+<h2 id="下载和解压"><a href="#下载和解压" class="headerlink" title="下载和解压"></a>下载和解压</h2><p><a href="http://archive.apache.org/dist/zookeeper/" target="_blank" rel="noopener">zookeeper历史版本</a><br>本次使用版本：zookeeper-3.4.12.tar.gz<br>在三台服务器都建立 /opt/software目录</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p /opt/software</code></pre>
+<p>将安装包上传到master服务器，解压：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -xzvf zookeeper-3.4.12.tar.gz -C  /opt/software</code></pre>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">mv</span> /opt/software/zookeeper-3.4.12/conf/zoo_sample.cfg  /opt/software/zookeeper-3.4.12/conf/zoo.cfg  
+
+<span class="token function">vi</span> /opt/software/zookeeper-3.4.12/conf/zoo.cfg</code></pre>
+<p>注释掉dataDir=/tmp/zookeeper，然后在文件末尾添加：</p>
+<pre class=" language-bash"><code class="language-bash">dataDir<span class="token operator">=</span>/opt/software/zookeeper-3.4.12/data
+dataLogDir<span class="token operator">=</span>/opt/software/zookeeper-3.4.12/log
+<span class="token comment" spellcheck="true"># 主机名可以用对应ip代替</span>
+server.1<span class="token operator">=</span>master:2888:3888
+server.2<span class="token operator">=</span>slave1:2888:3888
+server.3<span class="token operator">=</span>slave2:2888:3888</code></pre>
+<p>创建myid文件：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p /opt/software/zookeeper-3.4.12/data  <span class="token comment" spellcheck="true">#创建数据目录，该目录在zoo.cfg中配置</span>
+<span class="token function">cd</span> /opt/software/zookeeper-3.4.12/data <span class="token comment" spellcheck="true">#上面配置的zookeeper数据保存目录</span>
+<span class="token function">touch</span> myid   <span class="token comment" spellcheck="true">#创建myid文件</span>
+<span class="token keyword">echo</span> <span class="token string">"1"</span><span class="token operator">>></span>myid   <span class="token comment" spellcheck="true">#往myid中写入1，对应server.X={IP}:2888:3888 中的x数字</span></code></pre>
+<p>将上面在master机器上配置好的zookeeper复制到slave1,slave2两台机器上去：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">scp</span> -r /opt/software/zookeeper-3.4.12/ slave1:/opt/software/  
+<span class="token function">scp</span> -r /opt/software/zookeeper-3.4.12/ slave2:/opt/software/</code></pre>
+<p>修改slave1,slave2机器上/opt/software/zookeeper-3.4.12/data/myid为对应的值：<br>slave1中：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/software/zookeeper-3.4.12/data
+<span class="token function">rm</span> -f ./myid
+<span class="token keyword">echo</span> <span class="token string">"2"</span><span class="token operator">>></span>myid</code></pre>
+<p>slave2中：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /opt/software/zookeeper-3.4.12/data
+<span class="token function">rm</span> -f ./myid
+<span class="token keyword">echo</span> <span class="token string">"3"</span><span class="token operator">>></span>myid   <span class="token comment" spellcheck="true">#往myid中写入3，对应server.X={IP}:2888:3888 中的x数字,此处为3</span></code></pre>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><pre class=" language-bash"><code class="language-bash">vim /etc/profile</code></pre>
+<p>在PATH后添加：:$ZK_HOME/bin</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">export</span> ZK_HOME<span class="token operator">=</span>/opt/software/zookeeper-3.4.12
+<span class="token function">export</span> PATH<span class="token operator">=</span>XXXXXXX:<span class="token variable">$ZK_HOME</span>/bin</code></pre>
+<p>使环境变量生效：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile</code></pre>
+<p>三台服务器都配置环境变量。</p>
+<h2 id="启动zookeeper"><a href="#启动zookeeper" class="headerlink" title="启动zookeeper"></a>启动zookeeper</h2><p>三台服务器都执行：</p>
+<pre class=" language-bash"><code class="language-bash">zkServer.sh start</code></pre>
+<h2 id="zookeeper命令"><a href="#zookeeper命令" class="headerlink" title="zookeeper命令"></a>zookeeper命令</h2><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动ZK服务      </span>
+sh zkServer.sh start
+
+<span class="token comment" spellcheck="true"># 查看ZK服务状态: </span>
+sh zkServer.sh status
+<span class="token comment" spellcheck="true"># 停止ZK服务: </span>
+sh zkServer.sh stop
+<span class="token comment" spellcheck="true"># 重启ZK服务</span>
+sh zkServer.sh restart
+<span class="token comment" spellcheck="true"># 客户端连接zookeeper</span>
+zkCli.sh -server master:2181</code></pre>
+<h1 id="搭建Kafka"><a href="#搭建Kafka" class="headerlink" title="搭建Kafka"></a>搭建Kafka</h1><p>参考：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/ifme/p/13929928.html" target="_blank" rel="noopener">Centos7搭建kafka集群</a></li>
+<li><a href="https://www.cnblogs.com/xiaohan970121/p/12357199.html" target="_blank" rel="noopener">centos7搭建kafka集群</a></li>
+</ul>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="http://archive.apache.org/dist/kafka" target="_blank" rel="noopener">历史版本</a><br>本文选择kafka_2.13-2.4.0.tgz。<br>上传到master /opt/software下，解压：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf kafka_2.12-2.6.0.tgz</code></pre>
+<h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h2><p>修改server.properties:</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">vi</span> /opt/software/kafka_2.13-2.4.0/config/server.properties
+
+<span class="token comment" spellcheck="true"># 修改如下内容</span>
+// 依次增长的整数，0、1、2，集群中Broker的唯一id
+broker.id：0
+advertised.listeners<span class="token operator">=</span>PLAINTEXT://192.168.244.5:9092
+zookeeper.connect<span class="token operator">=</span>192.168.244.5:2181,192.168.244.6:2181,192.168.244.7:2181</code></pre>
+<p>修改/opt/software/kafka_2.13-2.4.0/config/zookeeper.properties中的dataDir：</p>
+<pre class=" language-bash"><code class="language-bash">dataDir<span class="token operator">=</span>/opt/software/zookeeper-3.4.12/data</code></pre>
+<p>分发到其他两个节点：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">scp</span> -r /opt/software/kafka_2.13-2.4.0/  slave1:/opt/software/
+<span class="token function">scp</span> -r /opt/software/kafka_2.13-2.4.0/  slave2:/opt/software/</code></pre>
+<p>修改其它节点配置文件</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#slave1节点</span>
+<span class="token function">vi</span> /opt/software/kafka_2.13-2.4.0/config/server.properties
+
+<span class="token comment" spellcheck="true"># The id of the broker. This must be set to a unique integer for each broker.</span>
+broker.id<span class="token operator">=</span>1
+advertised.listeners<span class="token operator">=</span>PLAINTEXT://192.168.244.6:9092
+
+<span class="token comment" spellcheck="true">#slave2节点</span>
+<span class="token function">vi</span> /opt/software/kafka_2.13-2.4.0/config/server.properties
+
+<span class="token comment" spellcheck="true"># The id of the broker. This must be set to a unique integer for each broker.</span>
+broker.id<span class="token operator">=</span>2
+advertised.listeners<span class="token operator">=</span>PLAINTEXT://192.168.244.7:9092</code></pre>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>三台服务器在/opt/software/kafka_2.13-2.4.0/bin/下：</p>
+<pre class=" language-bash"><code class="language-bash">./kafka-server-start.sh -daemon <span class="token punctuation">..</span>/config/server.properties</code></pre>
+<h2 id="kafka命令"><a href="#kafka命令" class="headerlink" title="kafka命令"></a>kafka命令</h2><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动kafka</span>
+kafka-server-start.sh -daemon <span class="token punctuation">..</span>/config/server.properties
+
+<span class="token comment" spellcheck="true"># 停止</span>
+./kafka-server-stop.sh
+
+<span class="token comment" spellcheck="true"># 查看topic</span>
+sh kafka-topics.sh --list --zookeeper master:2181,slave1:2181,slave2:2181
+
+<span class="token comment" spellcheck="true"># 创建topic</span>
+sh kafka-topics.sh --create --zookeeper master:2181,slave1:2181,slave2:2181 --replication-factor 1 --partitions 1 --topic <span class="token function">test</span>
+
+<span class="token comment" spellcheck="true"># 发送消息</span>
+kafka-console-producer.sh --broker-list master:9092,slave1:9092,slave2:9092 --topic <span class="token function">test</span>
+
+<span class="token comment" spellcheck="true"># 接收消息</span>
+kafka-console-consumer.sh --bootstrap-server  master:9092,slave1:9092,slave2:9092 --topic <span class="token function">test</span> --from-beginning</code></pre>
+<h2 id="安装中的问题"><a href="#安装中的问题" class="headerlink" title="安装中的问题"></a>安装中的问题</h2><p>master中原来安装过单机版kafka，启动时报错（在/opt/software/kafka_2.13-2.4.0/logs/server.log中）：</p>
+<pre class=" language-bash"><code class="language-bash">ERROR Fatal error during KafkaServer startup. Prepare to <span class="token function">shutdown</span> <span class="token punctuation">(</span>kafka.server.KafkaServer<span class="token punctuation">)</span> kafka.common.InconsistentClusterIdException: The Cluster ID Reu8ClK3TTywPiNLIQIm1w doesn't match stored clusterId Some<span class="token punctuation">(</span>BaPSk1bCSsKFxQQ4717R6Q<span class="token punctuation">)</span> <span class="token keyword">in</span> meta.properties. The broker is trying to <span class="token function">join</span> the wrong cluster. Configured zookeeper.connect may be wrong. at kafka.server.KafkaServer.startup<span class="token punctuation">(</span>KafkaServer.scala:220<span class="token punctuation">)</span> at kafka.server.KafkaServerStartable.startup<span class="token punctuation">(</span>KafkaServerStartable.scala:44<span class="token punctuation">)</span> at kafka.Kafka$.main<span class="token punctuation">(</span>Kafka.scala:84<span class="token punctuation">)</span> at kafka.Kafka.main<span class="token punctuation">(</span>Kafka.scala<span class="token punctuation">)</span></code></pre>
+<p>参考：<a href="https://stackoverflow.com/questions/59481878/unable-to-start-kafka-with-zookeeper-kafka-common-inconsistentclusteridexceptio" target="_blank" rel="noopener">kafka.common.InconsistentClusterIdException)
+</a></p>
+<p>原因是两个kafka占用了同一个kafka日志目录（存放topic的目录）。</p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><ol>
+<li><p>停止三台服务器中zookeeper和kafka。</p>
+</li>
+<li><p>删除 三个服务器以下内容：</p>
+<pre class=" language-bash"><code class="language-bash">/opt/software/kafka_2.13-2.4.0/logs 下所有内容
+/opt/software/zookeeper-3.4.12/log 下所有内容
+/opt/software/zookeeper-3.4.12/data 下除了myid外所有内容</code></pre>
+</li>
+<li><p>在三台服务器下新建kafka日志目录：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> -p /opt/software/kafka_2.13-2.4.0/kafka-logs</code></pre>
+</li>
+<li><p>修改/opt/software/kafka_2.13-2.4.0/config/server.properties中配置的kafka日志目录：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">vi</span> /opt/software/kafka_2.13-2.4.0/config/server.properties
+</code></pre>
+</li>
+</ol>
+<h1 id="三台服务器都修改"><a href="#三台服务器都修改" class="headerlink" title="三台服务器都修改"></a>三台服务器都修改</h1><p>log.dirs=/opt/software/kafka_2.13-2.4.0/kafka-logs<br>```<br>然后重新启动zookeeper和kafka。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 750531787@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2017 ChangzeYan
+</p>
+<!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
