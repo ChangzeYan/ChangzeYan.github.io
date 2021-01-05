@@ -190,7 +190,9 @@ kafka-console-producer.sh --broker-list master:9092,slave1:9092,slave2:9092 --to
 kafka-console-consumer.sh --bootstrap-server  master:9092,slave1:9092,slave2:9092 --topic test --from-beginning
 ```
 
-## 安装中的问题
+# 安装中的问题
+
+## kafka无法启动
 master中原来安装过单机版kafka，启动时报错（在/opt/software/kafka_2.13-2.4.0/logs/server.log中）：
 
 ```bash
@@ -223,3 +225,35 @@ vi /opt/software/kafka_2.13-2.4.0/config/server.properties
 log.dirs=/opt/software/kafka_2.13-2.4.0/kafka-logs
 ```
 然后重新启动zookeeper和kafka。
+
+## zookeeper ConnectException
+启动zookeeper后发现/opt/software/zookeeper-3.4.12/data/zookeeper.out中报错：
+
+![Connection refused](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/zookeeper_connection_err.png)
+
+### 解决
+参考：[WARN [WorkerSender[myid=1]:QuorumCnxManager@584] - Cannot open channel to 2 at election address /x.x.x.x:3888](https://www.cnblogs.com/chuijingjing/p/10907244.html)
+
+如果是刚启动zookeeper报出这个错误，然后不再不错，那就是正常现象。是由于有的节点启动，而有的节点还没有启动，这段时间已经启动的节点就会去努力寻找没有启动的节点，就会报出这样的错误。这是一种正常现象，无需多虑。
+
+如果启动很长时间之后还在报错，可以尝试：
+修改每个节点的zoo.cfg文件中的相对应的server.x=0.0.0.0:2888:3888
+
+
+```bash
+# master:
+server.1=0.0.0.0:2888:3888
+server.2=slave1:2888:3888
+server.3=slave2:2888:3888
+
+# slave1:
+server.1=master:2888:3888
+server.2=0.0.0.0:2888:3888
+server.3=slave2:2888:3888
+
+# slave2:
+server.1=master:2888:3888
+server.2=slave1:2888:3888
+server.3=0.0.0.0:2888:3888
+
+```
