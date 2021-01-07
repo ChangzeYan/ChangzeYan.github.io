@@ -170,6 +170,7 @@ advertised.listeners=PLAINTEXT://192.168.244.7:9092
 ```
 
 ## kafka命令
+由于配置了环境变量，所以可以直接执行：
 ```bash
 # 启动kafka
 kafka-server-start.sh -daemon ../config/server.properties
@@ -178,10 +179,10 @@ kafka-server-start.sh -daemon ../config/server.properties
 ./kafka-server-stop.sh
 
 # 查看topic
-sh kafka-topics.sh --list --zookeeper master:2181,slave1:2181,slave2:2181
+kafka-topics.sh --list --zookeeper master:2181,slave1:2181,slave2:2181
 
-# 创建topic
-sh kafka-topics.sh --create --zookeeper master:2181,slave1:2181,slave2:2181 --replication-factor 1 --partitions 1 --topic test
+# 创建topic，replication-factor设置副本的数量，不能超过broker数量
+kafka-topics.sh --create --zookeeper master:2181,slave1:2181,slave2:2181 --replication-factor 1 --partitions 1 --topic test
 
 # 发送消息
 kafka-console-producer.sh --broker-list master:9092,slave1:9092,slave2:9092 --topic test
@@ -196,8 +197,9 @@ kafka-console-consumer.sh --bootstrap-server  master:9092,slave1:9092,slave2:909
 master中原来安装过单机版kafka，启动时报错（在/opt/software/kafka_2.13-2.4.0/logs/server.log中）：
 
 ```bash
-ERROR Fatal error during KafkaServer startup. Prepare to shutdown (kafka.server.KafkaServer) kafka.common.InconsistentClusterIdException: The Cluster ID Reu8ClK3TTywPiNLIQIm1w doesn't match stored clusterId Some(BaPSk1bCSsKFxQQ4717R6Q) in meta.properties. The broker is trying to join the wrong cluster. Configured zookeeper.connect may be wrong. at kafka.server.KafkaServer.startup(KafkaServer.scala:220) at kafka.server.KafkaServerStartable.startup(KafkaServerStartable.scala:44) at kafka.Kafka$.main(Kafka.scala:84) at kafka.Kafka.main(Kafka.scala)
+ERROR Fatal error during KafkaServer startup. Prepare to shutdown (kafka.server.KafkaServer) kafka.common.InconsistentClusterIdException: The Cluster ID Reu8ClK3TTywPiNLIQIm1w doesn\'t match stored clusterId Some(BaPSk1bCSsKFxQQ4717R6Q) in meta.properties. The broker is trying to join the wrong cluster. Configured zookeeper.connect may be wrong. at kafka.server.KafkaServer.startup(KafkaServer.scala:220) at kafka.server.KafkaServerStartable.startup(KafkaServerStartable.scala:44) at kafka.Kafka$.main(Kafka.scala:84) at kafka.Kafka.main(Kafka.scala)
 ```
+
 参考：[kafka.common.InconsistentClusterIdException)
 ](https://stackoverflow.com/questions/59481878/unable-to-start-kafka-with-zookeeper-kafka-common-inconsistentclusteridexceptio)
 
@@ -217,13 +219,14 @@ ERROR Fatal error during KafkaServer startup. Prepare to shutdown (kafka.server.
 ```bash
 mkdir -p /opt/software/kafka_2.13-2.4.0/kafka-logs
 ```
-4. 修改/opt/software/kafka_2.13-2.4.0/config/server.properties中配置的kafka日志目录：
+
+4. 修改/opt/software/kafka_2.13-2.4.0/config/server.properties中配置的kafka日志目录，三台服务器都需要修改：
+
 ```bash
 vi /opt/software/kafka_2.13-2.4.0/config/server.properties
-
-# 三台服务器都修改
 log.dirs=/opt/software/kafka_2.13-2.4.0/kafka-logs
 ```
+
 然后重新启动zookeeper和kafka。
 
 ## zookeeper ConnectException
