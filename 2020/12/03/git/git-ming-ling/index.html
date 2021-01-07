@@ -115,7 +115,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(46)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(49)</small></div></li>
     
         
             
@@ -151,7 +151,15 @@
     
         
             
-            <li><div data-rel="Latex">Latex<small>(2)</small></div>
+            <li><div data-rel="Kafka">Kafka<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Latex">Latex<small>(4)</small></div>
                 
             </li>
             
@@ -239,8 +247,8 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="46">
-<input type="hidden" id="yelog_site_word_count" value="23.6k">
+<input type="hidden" id="yelog_site_posts_number" value="49">
+<input type="hidden" id="yelog_site_word_count" value="24.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -328,11 +336,23 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java-Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Kafka</a>
             </li>
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>KDD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Latex-pic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Latex-table</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -409,6 +429,30 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 Kafka "
+           href="/2021/01/07/linux/kafka/java-connectkafka/"
+           data-tag="Java-Kafka"
+           data-author="" >
+            <span class="post-title" title="Java-ConnectKafka">Java-ConnectKafka</span>
+            <span class="post-date" title="2021-01-07 09:58:00">2021/01/07</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2021/01/06/write/latex/latex-table/"
+           data-tag="Latex-table"
+           data-author="" >
+            <span class="post-title" title="latex-table">latex-table</span>
+            <span class="post-date" title="2021-01-06 11:37:01">2021/01/06</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2021/01/06/write/latex/latex-pic/"
+           data-tag="Latex-pic"
+           data-author="" >
+            <span class="post-title" title="latex-pic">latex-pic</span>
+            <span class="post-date" title="2021-01-06 10:06:37">2021/01/06</span>
+        </a>
         
         <a  class="全部文章 Java "
            href="/2021/01/05/java/java-io/"
@@ -708,7 +752,7 @@
         
         <a  class="全部文章 Leetcode "
            href="/2019/06/19/leetcode/string/hui-wen-shu/"
-           data-tag="leetcode,simple,string"
+           data-tag="leetcode,string,simple"
            data-author="" >
             <span class="post-title" title="回文数">回文数</span>
             <span class="post-date" title="2019-06-19 18:57:00">2019/06/19</span>
@@ -772,7 +816,7 @@
         
         <a  class="全部文章 Leetcode "
            href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
-           data-tag="Leetcode,simple"
+           data-tag="simple,Leetcode"
            data-author="" >
             <span class="post-title" title="Z字形变换">Z字形变换</span>
             <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
@@ -815,12 +859,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-12-03 22:53:37'>2020-12-03 10:51</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-07 18:19:29'>2020-12-03 10:51</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:75</span>
+        <span>字数:234</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -839,7 +883,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#查看"><span class="toc-text">查看</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加文件不成功"><span class="toc-text">添加文件不成功</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关联远程仓库并上传"><span class="toc-text">关联远程仓库并上传</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看"><span class="toc-text">查看</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加文件不成功"><span class="toc-text">添加文件不成功</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -855,7 +899,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h1><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看添加到git的文件</span>
+        <h1 id="关联远程仓库并上传"><a href="#关联远程仓库并上传" class="headerlink" title="关联远程仓库并上传"></a>关联远程仓库并上传</h1><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> init
+将本地项目工作区的所有文件添加到暂存区
+<span class="token function">git</span> add <span class="token keyword">.</span>
+
+<span class="token comment" spellcheck="true"># 可选</span>
+<span class="token punctuation">{</span>
+    <span class="token function">git</span> config user.email <span class="token string">"2155513297@qq.com"</span>
+    <span class="token function">git</span> config user.name <span class="token string">"Winds-Y"</span>
+<span class="token punctuation">}</span>    
+
+<span class="token function">git</span> commit -m <span class="token string">"firstCommit"</span>  <span class="token punctuation">(</span>若有修改或添加文件执行<span class="token punctuation">)</span>
+关联远程仓库：origin 为远程仓库名
+<span class="token function">git</span> remote add origin  https://github.com/Yahtz/TryBmob.git（远程仓库地址）
+<span class="token comment" spellcheck="true"># 多用户：</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true"># git remote add origin git@ChangzeYan:ChangzeYan/test.git</span>
+    <span class="token comment" spellcheck="true"># git remote add origin git@Winds-Y:Winds-Y/test.git</span>
+<span class="token punctuation">}</span>
+<span class="token function">git</span> push -u origin master 
+（若远程仓库有readme.md等本地仓库没有的文件，需要先pull）
+（git pull origin master --allow-unrelated-histories）
+或者
+（git pull --rebase origin master）
+然后再push</code></pre>
+<h1 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h1><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查看添加到git的文件</span>
 <span class="token function">git</span> ls-files</code></pre>
 <h2 id="添加文件不成功"><a href="#添加文件不成功" class="headerlink" title="添加文件不成功"></a>添加文件不成功</h2><p>git add出现 “fatal: in unpopulated submodule XXX” 错误<br>在本地仓库如果克隆了其他远程仓库，该远程仓库就会git add失败，解决：</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">rm</span> -rf --cached xxxx<span class="token punctuation">(</span>文件夹的名称<span class="token punctuation">)</span>

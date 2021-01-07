@@ -115,7 +115,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(46)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(49)</small></div></li>
     
         
             
@@ -151,7 +151,15 @@
     
         
             
-            <li><div data-rel="Latex">Latex<small>(2)</small></div>
+            <li><div data-rel="Kafka">Kafka<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Latex">Latex<small>(4)</small></div>
                 
             </li>
             
@@ -239,8 +247,8 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="46">
-<input type="hidden" id="yelog_site_word_count" value="23.6k">
+<input type="hidden" id="yelog_site_posts_number" value="49">
+<input type="hidden" id="yelog_site_word_count" value="24.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -328,11 +336,23 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java-Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Kafka</a>
             </li>
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>KDD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Latex-pic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Latex-table</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -409,6 +429,30 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 Kafka "
+           href="/2021/01/07/linux/kafka/java-connectkafka/"
+           data-tag="Java-Kafka"
+           data-author="" >
+            <span class="post-title" title="Java-ConnectKafka">Java-ConnectKafka</span>
+            <span class="post-date" title="2021-01-07 09:58:00">2021/01/07</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2021/01/06/write/latex/latex-table/"
+           data-tag="Latex-table"
+           data-author="" >
+            <span class="post-title" title="latex-table">latex-table</span>
+            <span class="post-date" title="2021-01-06 11:37:01">2021/01/06</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2021/01/06/write/latex/latex-pic/"
+           data-tag="Latex-pic"
+           data-author="" >
+            <span class="post-title" title="latex-pic">latex-pic</span>
+            <span class="post-date" title="2021-01-06 10:06:37">2021/01/06</span>
+        </a>
         
         <a  class="全部文章 Java "
            href="/2021/01/05/java/java-io/"
@@ -708,7 +752,7 @@
         
         <a  class="全部文章 Leetcode "
            href="/2019/06/19/leetcode/string/hui-wen-shu/"
-           data-tag="leetcode,simple,string"
+           data-tag="leetcode,string,simple"
            data-author="" >
             <span class="post-title" title="回文数">回文数</span>
             <span class="post-date" title="2019-06-19 18:57:00">2019/06/19</span>
@@ -772,7 +816,7 @@
         
         <a  class="全部文章 Leetcode "
            href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
-           data-tag="Leetcode,simple"
+           data-tag="simple,Leetcode"
            data-author="" >
             <span class="post-title" title="Z字形变换">Z字形变换</span>
             <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
@@ -822,12 +866,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-06 09:41:58'>2021-01-05 10:27</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-06 10:55:10'>2021-01-05 10:27</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.4k</span>
+        <span>字数:1.5k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -953,17 +997,18 @@ broker.id<span class="token operator">=</span>2
 advertised.listeners<span class="token operator">=</span>PLAINTEXT://192.168.244.7:9092</code></pre>
 <h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>三台服务器在/opt/software/kafka_2.13-2.4.0/bin/下：</p>
 <pre class=" language-bash"><code class="language-bash">./kafka-server-start.sh -daemon <span class="token punctuation">..</span>/config/server.properties</code></pre>
-<h2 id="kafka命令"><a href="#kafka命令" class="headerlink" title="kafka命令"></a>kafka命令</h2><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动kafka</span>
+<h2 id="kafka命令"><a href="#kafka命令" class="headerlink" title="kafka命令"></a>kafka命令</h2><p>由于配置了环境变量，所以可以直接执行：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动kafka</span>
 kafka-server-start.sh -daemon <span class="token punctuation">..</span>/config/server.properties
 
 <span class="token comment" spellcheck="true"># 停止</span>
 ./kafka-server-stop.sh
 
 <span class="token comment" spellcheck="true"># 查看topic</span>
-sh kafka-topics.sh --list --zookeeper master:2181,slave1:2181,slave2:2181
+kafka-topics.sh --list --zookeeper master:2181,slave1:2181,slave2:2181
 
-<span class="token comment" spellcheck="true"># 创建topic</span>
-sh kafka-topics.sh --create --zookeeper master:2181,slave1:2181,slave2:2181 --replication-factor 1 --partitions 1 --topic <span class="token function">test</span>
+<span class="token comment" spellcheck="true"># 创建topic，replication-factor设置副本的数量，不能超过broker数量</span>
+kafka-topics.sh --create --zookeeper master:2181,slave1:2181,slave2:2181 --replication-factor 1 --partitions 1 --topic <span class="token function">test</span>
 
 <span class="token comment" spellcheck="true"># 发送消息</span>
 kafka-console-producer.sh --broker-list master:9092,slave1:9092,slave2:9092 --topic <span class="token function">test</span>
