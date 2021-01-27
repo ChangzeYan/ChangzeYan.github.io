@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Latex-pic | YCZ</title>
-  <meta name="keywords" content=" Latex-pic ">
-  <meta name="description" content="Latex-pic | YCZ">
+  <title>部署Flask应用到Docker | YCZ</title>
+  <meta name="keywords" content=" Flask , Python ">
+  <meta name="description" content="部署Flask应用到Docker | YCZ">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 <meta property="og:type" content="website">
@@ -863,9 +863,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-write/Latex/latex-pic" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Docker/部署flask应用到docker" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Latex-pic</h1>
+        <h1 class="article-title">部署Flask应用到Docker</h1>
     
     <div class="article-meta">
         
@@ -875,7 +875,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Latex">Latex</a>
+            <a  data-rel="Docker">Docker</a>
             
         </span>
         
@@ -883,19 +883,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">Latex-pic</a>
+            <a class="color1">Flask</a>
+            
+            <a class="color2">Python</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-27 10:02:51'>2021-01-06 10:06</time>
+            发布时间 : <time class="date" title='最后更新: 2021-01-27 10:04:26'>2020-12-16 13:04</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:422</span>
+        <span>字数:571</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -914,7 +916,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置图片存放路径"><span class="toc-text">设置图片存放路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入图片"><span class="toc-text">插入图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两张图片横着放"><span class="toc-text">两张图片横着放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四张图片两两并列排放"><span class="toc-text">四张图片两两并列排放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九张图片"><span class="toc-text">九张图片</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#导出与项目有关的依赖"><span class="toc-text">导出与项目有关的依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装pipreqs"><span class="toc-text">安装pipreqs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导出项目依赖包"><span class="toc-text">导出项目依赖包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编写Dockerfile"><span class="toc-text">编写Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#copy和add的区别"><span class="toc-text">copy和add的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构建镜像"><span class="toc-text">构建镜像</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -930,108 +932,61 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="设置图片存放路径"><a href="#设置图片存放路径" class="headerlink" title="设置图片存放路径"></a>设置图片存放路径</h2><p>设置存放图片的根路径<br>导包：</p>
-<pre><code>\usepackage{graphicx}</code></pre><p>使用：<br>在根目录下建立figures目录，将图片存放在该目录中，以后直接引用图片名称即可，不用扩展名：</p>
-<pre><code>\graphicspath{{figures/}} </code></pre><h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>isNumberDFA是图片名，不用加扩展名：</p>
-<pre><code>\begin{figure}[htb]
-    \centering
-    \includegraphics[width=1\textwidth]{isNumberDFA}
-    \caption{DFA状态转移图}
-    \label{isNumberDFA}
-\end{figure}</code></pre><h2 id="两张图片横着放"><a href="#两张图片横着放" class="headerlink" title="两张图片横着放"></a>两张图片横着放</h2><pre><code>\begin{figure}[htb]
-    \centering
-    \subfigure[冠状树]{
-        \begin{minipage}[b]{0.4\textwidth}
-            \includegraphics[width=1\textwidth]{isNumberDFA}
-        \end{minipage}
-    }
-    \subfigure[龙曲线]{
-        \begin{minipage}[b]{0.4\textwidth}
-            \includegraphics[width=1\textwidth]{status-table-DFA}
-        \end{minipage}
-    }
-    \caption{DFA状态转移图}
-    \label{isNumberDFA}
+        <h1 id="导出与项目有关的依赖"><a href="#导出与项目有关的依赖" class="headerlink" title="导出与项目有关的依赖"></a>导出与项目有关的依赖</h1><h2 id="安装pipreqs"><a href="#安装pipreqs" class="headerlink" title="安装pipreqs"></a>安装pipreqs</h2><pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> pipreqs</code></pre>
+<h2 id="导出项目依赖包"><a href="#导出项目依赖包" class="headerlink" title="导出项目依赖包"></a>导出项目依赖包</h2><p>进入到项目根目录，如果用conda装的python，需要切换到项目的python环境：</p>
+<pre class=" language-bash"><code class="language-bash">activate python36</code></pre>
+<p>然后执行：</p>
+<pre class=" language-bash"><code class="language-bash">pipreqs ./</code></pre>
+<p>成功后在项目根目录下生成requirements.txt文件。</p>
+<p>如果报下面错误：</p>
+<p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/flask%E9%83%A8%E7%BD%B2%E5%88%B0docker-%E5%AE%89%E8%A3%85pipreqs.png" alt="安装pipreqs"><br>按照路径提示，修改pipreqs.py文件：<br>将第74行中的</p>
+<pre class=" language-py"><code class="language-py">encoding=encoding
+改为：
+encoding='utf-8'</code></pre>
+<p>再次执行 pipreqs ./</p>
+<p>新环境下安装</p>
+<pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> -r requirements.txt</code></pre>
+<h1 id="编写Dockerfile"><a href="#编写Dockerfile" class="headerlink" title="编写Dockerfile"></a>编写Dockerfile</h1><p>项目目录结构：</p>
+<pre class=" language-bash"><code class="language-bash">D:.
+│- Dockerfile
+│- requirements.txt
+│- nltk_data
+└─NER
+        key_words.txt
+        main.py
+        __init__.py</code></pre>
+<p>Dockerfile：</p>
+<pre class=" language-bash"><code class="language-bash">FROM python:3.6
+<span class="token comment" spellcheck="true"># 暴露5001端口</span>
+EXPOSE 5001
+<span class="token comment" spellcheck="true"># 将NER目录下（不包括NER目录）所有内容复制到 /usr/src/app目录下</span>
+ADD  ./NER /usr/src/app
+<span class="token comment" spellcheck="true"># 将nltk所需的词典加入到容器的/usr/local/lib/nltk_data目录下</span>
+ADD ./nltk_data /usr/local/lib/nltk_data
+<span class="token comment" spellcheck="true"># WORKDIR设置将要安装应用程序的默认目录,在Dockerfile中的任何剩余命令执行以及运行容器时，其当前目录都会为这个默认目录</span>
+WORKDIR /usr/src/app
+<span class="token comment" spellcheck="true"># COPY将文件从你的机器复制到容器文件系统，后面的点就代表上面设置的目录</span>
+COPY requirements.txt <span class="token keyword">.</span>
+<span class="token comment" spellcheck="true"># 安装依赖</span>
+RUN  pip <span class="token function">install</span> -r ./requirements.txt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+<span class="token comment" spellcheck="true"># 启动应用</span>
+CMD <span class="token punctuation">[</span><span class="token string">"python"</span>,<span class="token string">"/usr/src/app/main.py"</span><span class="token punctuation">]</span></code></pre>
+<h2 id="copy和add的区别"><a href="#copy和add的区别" class="headerlink" title="copy和add的区别"></a>copy和add的区别</h2><p>COPY指令和ADD指令都可以将主机上的资源复制或加入到容器镜像中，COPY指令和ADD指令的唯一区别在于是否支持从远程URL获取资源。COPY指令只能从执行docker build所在的主机上读取资源并复制到镜像中。而ADD指令还支持通过URL从远程服务器读取资源并复制到镜像中。</p>
+<h1 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h1><p>将项目上传到docker服务器，进入工程目录，执行：</p>
+<blockquote>
+<p>注意：镜像名不能有大写字母</p>
+</blockquote>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 最后还有一个点</span>
+docker build -t org_struct_pre:latest <span class="token keyword">.</span>
+<span class="token comment" spellcheck="true"># 如果远程开启了远程访问，在本地可以部署，不用将项目上传至服务器，执行：</span>
+docker -H IP:2375 build -t org_struct_pre:latest <span class="token keyword">.</span></code></pre>
+<p>运行容器：</p>
+<pre class=" language-bash"><code class="language-bash">docker run -itd -p 5001:5001 --name org_struct_pre（容器名） org_struct_pre<span class="token punctuation">(</span>镜像名<span class="token punctuation">)</span></code></pre>
+<p>进入容器：</p>
+<pre class=" language-bash"><code class="language-bash">docker <span class="token function">exec</span> -it 7a31796e9cb2 /bin/bash</code></pre>
+<p>进入到/usr/local/lib目录，可以看到所有词典。可以正常使用nltk：</p>
+<p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/%E9%83%A8%E7%BD%B2flask-docker-nltk.png" alt="容器中使用nltk"></p>
 
-\end{figure}</code></pre><h2 id="四张图片两两并列排放"><a href="#四张图片两两并列排放" class="headerlink" title="四张图片两两并列排放"></a>四张图片两两并列排放</h2><p>空行表示换行。</p>
-<pre><code>\begin{figure}[H]
-    \centering
-    \begin{minipage}{7cm}
-        \includegraphics[width=1\textwidth]{./pic/info1}
-        \label{1}
-    \end{minipage}
-    \begin{minipage}{7cm}
-        \includegraphics[width=1\textwidth]{./pic/info2}
-        \label{2}
-    \end{minipage}
-
-    % 空一行会分两行排版
-    \begin{minipage}{7cm}
-        \includegraphics[width=\textwidth]{./pic/info3}
-        \label{3}
-    \end{minipage}
-    \begin{minipage}{7cm}
-        \includegraphics[width=\textwidth]{./pic/info4}
-        \label{4}
-    \end{minipage}
-    \caption{填写信息}
-\end{figure}</code></pre><h2 id="九张图片"><a href="#九张图片" class="headerlink" title="九张图片"></a>九张图片</h2><pre><code>\begin{figure}[htb]
-    \centering
-    \subfigure[冠状树]{
-        \label{xx}
-        \begin{minipage}[b]{0.3\textwidth}
-            \includegraphics[width=1\textwidth]{runcoronaltree}
-        \end{minipage}
-    }
-    \subfigure[龙曲线]{
-        \label{xx}
-        \begin{minipage}[b]{0.3\textwidth}
-            \includegraphics[width=1\textwidth]{rundragon}
-        \end{minipage}
-    }
-    \subfigure[丢勒五边形]{
-        \label{xx}
-        \begin{minipage}[b]{0.3\textwidth}
-            \includegraphics[width=1\textwidth]{rundurer}
-        \end{minipage}
-    }
-
-    \subfigure[蕨类植物]{
-        \label{fern0}
-        \begin{minipage}[b]{0.3\textwidth}
-            \includegraphics[width=1\textwidth]{runfern0} 
-        \end{minipage}
-    }
-    \subfigure[鱼群]{
-        \begin{minipage}[b]{0.3\textwidth}
-            \includegraphics[width=1\textwidth]{runfish} 
-        \end{minipage}
-    }
-    \subfigure[树]{
-        \begin{minipage}[b]{0.3\textwidth}
-            \includegraphics[width=1\textwidth]{runtree}
-        \end{minipage}
-    }
-
-    \subfigure[c曲线]{
-        \begin{minipage}[b]{0.3\textwidth}
-            \includegraphics[width=1\textwidth]{runc} 
-        \end{minipage}
-    }
-    \subfigure[枫树]{
-        \begin{minipage}[b]{0.3\textwidth}
-            \includegraphics[width=1\textwidth]{runmapletree} 
-        \end{minipage}
-    }
-    \subfigure[Sierpinski三角形]{
-        \begin{minipage}[b]{0.3\textwidth}
-            \includegraphics[width=1\textwidth]{runsierpinski}
-        \end{minipage}
-    }
-    \caption{程序运行结果}
-    \label{runresult}
-
-\end{figure}</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 changzeyan@foxmail.com </span>
     </div>
