@@ -89,7 +89,7 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 输入： 网易镜像
 ```bash
 {
-    "registry-mirrors":["http://hub-mirror.c.163.com"]
+    "registry-mirrors":["http://hub-mirror.c.163.com","https://almtd3fa.mirror.aliyuncs.com"]
 }
 
 EOF
@@ -117,7 +117,7 @@ ExecStart=/usr/bin/dockerd --containerd=/run/containerd/containerd.sock
 vi /etc/docker/daemon.json
 ```
 
-添加键值对
+添加键值对,2375为默认端口,也可以指定为任意端口
 ```bash
  "hosts": ["0.0.0.0:2375","unix:///var/run/docker.sock"]
 ```

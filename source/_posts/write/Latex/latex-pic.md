@@ -1,5 +1,5 @@
 ---
-title: latex-pic
+title: Latex-pic
 author: ChangzeYan
 date: 2021-01-06 10:06:37
 tags: Latex-pic

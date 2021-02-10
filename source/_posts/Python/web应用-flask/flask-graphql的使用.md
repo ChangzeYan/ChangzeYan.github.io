@@ -35,6 +35,16 @@ if __name__ == '__main__':
 ```
 打开浏览器访问http://127.0.0.1:5000/，浏览页面上将出现Hello World!。
 
+## Flask打开远程访问
+> 部署到服务器(或者docker)的时候一定要打开,否则访问不到服务.
+```python
+if __name__ == '__main__':
+    app = create_app()
+    # host=0.0.0.0即打开远程访问
+    # 将服务端口改为4704
+    app.run(host='0.0.0.0',port=4704)
+```
+
 
 # Flask结合graphql
 
@@ -136,9 +146,14 @@ class NER_RESULT(ObjectType):
 
 
 class Query(ObjectType):
-    # Feild表示返回一个非基本类型的对象，第一个参数表示返回值类型
-    # 后面的是ner方法需要的参数
+    # ner是方法名
+    # Feild表示返回一个非基本类型的对象，
+    # 第一个参数NER_RESULT表示方法的返回值类型
+    # 后面的是方法需要的参数
     ner = Field(NER_RESULT, text=String())
+
+    # 如果需要两个参数:
+    # ner = Field(NER_RESULT, id=String(),text=String())
 
     # 设置传入参数列表，args
     def resolve_ner(self, info, **args):
@@ -213,4 +228,10 @@ class Query(graphene.ObjectType):
     @staticmethod
     def resolve_rand(obj, info, count=1, **kwargs):
         return [random.randint(0, 100) for i in range(count)]
+```
+
+
+# 后台运行 Python脚本
+```python
+nohup python -u ProductCatDataImport.py > out.log 2>&1 &
 ```

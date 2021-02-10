@@ -2,8 +2,10 @@
 title: 部署Flask应用到Docker
 author: ChangzeYan
 date: 2020-12-16 13:04:27
-tags: Flask
-categories: Python
+tags: 
+ - Flask
+ - Python
+categories: Docker
 cover:
 ---
 
@@ -86,7 +88,7 @@ docker -H IP:2375 build -t org_struct_pre:latest .
 
 运行容器：
 ```bash
-docker run -d -p 5001:5001 --name org_struct_pre（容器名） org_struct_pre(镜像名)
+docker run -itd -p 5001:5001 --name org_struct_pre（容器名） org_struct_pre(镜像名)
 ```
 进入容器：
 ```bash

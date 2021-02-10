@@ -1,5 +1,5 @@
 ---
-title: latex-table
+title: Latex-table
 author: ChangzeYan
 date: 2021-01-06 11:37:01
 tags: Latex-table
