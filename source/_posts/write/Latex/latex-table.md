@@ -26,6 +26,7 @@ cover:
 
 ## 设置表格列宽
 参考：[Latex设定表格列宽](https://blog.csdn.net/sptoor/article/details/21493777)
+
 固定列宽可以使用 array 宏包的 p{2cm} 系列命令，如果需要指定水平对齐方式，可以使用下面的形式 >{\centering}p{2cm} 实现，但如果使用这种方式，缺省情况下不能使用 \\ 换行，需要使用\tabularnewline 代替。为了仍然使用 \\ 换行，需要在导言区加上下面的代码：
 ```
 \usepackage{array}

@@ -97,8 +97,8 @@ type=master,stage=zhongqi,campus=harbin]{hithesis}
 ```
 
 # 样式
-## 列表
 
+## 列表
 ### 更改标号样式
 ```bash
 # 使用方括号阿拉伯数字标号
@@ -119,3 +119,14 @@ type=master,stage=zhongqi,campus=harbin]{hithesis}
 在\begin{enumerate}[label={[\arabic*]}]后面跟\setlength{\itemsep}{0pt}可以设置当前列表环境里item条目之间的间距。
 
 \arabic可以替换为\roman、\Roman、\Alph 或 \alph来表示小写罗马数字、大写罗马数字、大写字母编号 或 小写字母编号。
+
+
+## 目录
+### 设置三级目录
+默认的目录只显示两级，在main.tex中设置显示三级目录，在\document{}后添加\setcounter{tocdepth}{3}：
+```
+\documentclass[newtxmath=true,newgeometry=two,capcenterlast=true,subcapcenterlast=true,openright=false,absupper=true,type=master,stage=zhongqi,campus=harbin]{hithesis}
+
+% 设置三级目录
+\setcounter{tocdepth}{3}
+```
