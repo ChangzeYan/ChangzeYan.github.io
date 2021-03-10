@@ -95,3 +95,27 @@ type=master,stage=zhongqi,campus=harbin]{hithesis}
 ```bash
 \inlinecite{key}
 ```
+
+# 样式
+## 列表
+
+### 更改标号样式
+```bash
+# 使用方括号阿拉伯数字标号
+\begin{enumerate}[label={[\arabic*]}] 
+    \item xxxxx   %[1] xxxxx
+    \item yyyyyy  %[2] yyyyyy
+    \item zzzzz   %[3] zzzzz
+\end{enumerate}
+
+# 使用圆括号阿拉伯数字标号
+\begin{enumerate}[label={(\arabic*)}] 
+    \item xxxxx   %[1] xxxxx
+    \item yyyyyy  %[2] yyyyyy
+    \item zzzzz   %[3] zzzzz
+\end{enumerate}
+```
+
+在\begin{enumerate}[label={[\arabic*]}]后面跟\setlength{\itemsep}{0pt}可以设置当前列表环境里item条目之间的间距。
+
+\arabic可以替换为\roman、\Roman、\Alph 或 \alph来表示小写罗马数字、大写罗马数字、大写字母编号 或 小写字母编号。
