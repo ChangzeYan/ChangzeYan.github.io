@@ -115,7 +115,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(56)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(57)</small></div></li>
     
         
             
@@ -215,7 +215,7 @@
     
         
             
-            <li><div data-rel="Python">Python<small>(12)</small></div>
+            <li><div data-rel="Python">Python<small>(13)</small></div>
                 
             </li>
             
@@ -255,8 +255,8 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="56">
-<input type="hidden" id="yelog_site_word_count" value="26.9k">
+<input type="hidden" id="yelog_site_posts_number" value="57">
+<input type="hidden" id="yelog_site_word_count" value="28.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -461,6 +461,14 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 Python "
+           href="/2021/03/09/python/nlp/keras/"
+           data-tag="NLP"
+           data-author="" >
+            <span class="post-title" title="Keras">Keras</span>
+            <span class="post-date" title="2021-03-09 19:27:36">2021/03/09</span>
+        </a>
         
         <a  class="全部文章 Python "
            href="/2021/02/10/python/python-yu-fa/pip/"
@@ -904,7 +912,7 @@
         
         <a  class="全部文章 Leetcode "
            href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
-           data-tag="simple,Leetcode"
+           data-tag="Leetcode,simple"
            data-author="" >
             <span class="post-title" title="Z字形变换">Z字形变换</span>
             <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
@@ -954,12 +962,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-27 10:02:56'>2021-01-06 11:37</time>
+            发布时间 : <time class="date" title='最后更新: 2021-03-10 22:10:57'>2021-01-06 11:37</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:59</span>
+        <span>字数:344</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -978,7 +986,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#三线表"><span class="toc-text">三线表</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#三线表"><span class="toc-text">三线表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置表格列宽"><span class="toc-text">设置表格列宽</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1005,6 +1013,27 @@
         “冠军” &amp; -6.9077 &amp; -6.9077 &amp; 0.6931\\
         \bottomrule
     \end{tabular}
+\end{table}</code></pre><h2 id="设置表格列宽"><a href="#设置表格列宽" class="headerlink" title="设置表格列宽"></a>设置表格列宽</h2><p>参考：<a href="https://blog.csdn.net/sptoor/article/details/21493777" target="_blank" rel="noopener">Latex设定表格列宽</a></p>
+<p>固定列宽可以使用 array 宏包的 p{2cm} 系列命令，如果需要指定水平对齐方式，可以使用下面的形式 &gt;{\centering}p{2cm} 实现，但如果使用这种方式，缺省情况下不能使用 \ 换行，需要使用\tabularnewline 代替。为了仍然使用 \ 换行，需要在导言区加上下面的代码：</p>
+<pre><code>\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{&gt;{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{&gt;{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{&gt;{\PreserveBackslash\raggedright}p{#1}}</code></pre><p>使用 C{3cm} 命令即可指定该列宽度为 3cm，并且文字居中对齐，左对齐和右对齐命令分别是 L{2cm} 和R{2cm}。</p>
+<pre><code>\begin{table}[htbp]
+  \centering\caption{\label{tab:test}2000 和~2004 年中国制造业产品的出口份额}
+  \begin{tabular}{L{2cm}C{2cm}R{2cm}}
+    \toprule
+    &amp; 2000 &amp; 2004 \\
+    \midrule
+    钢铁 &amp; 3.1 &amp; 5.2 \\
+    化学制品 &amp; 2.1 &amp; 2.7 \\
+    办公设备及电信设备 &amp; 4.5 &amp; 15.2 \\
+    汽车产品 &amp; 0.3 &amp; 0.7 \\
+    纺织品 &amp; 10.4 &amp; 17.2 \\
+    服装 &amp; 18.3 &amp; 24\\
+    \bottomrule
+  \end{tabular}
 \end{table}</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 changzeyan@foxmail.com </span>

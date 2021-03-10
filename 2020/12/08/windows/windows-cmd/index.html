@@ -115,7 +115,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(56)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(57)</small></div></li>
     
         
             
@@ -215,7 +215,7 @@
     
         
             
-            <li><div data-rel="Python">Python<small>(12)</small></div>
+            <li><div data-rel="Python">Python<small>(13)</small></div>
                 
             </li>
             
@@ -255,8 +255,8 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="56">
-<input type="hidden" id="yelog_site_word_count" value="26.9k">
+<input type="hidden" id="yelog_site_posts_number" value="57">
+<input type="hidden" id="yelog_site_word_count" value="28.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -461,6 +461,14 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 Python "
+           href="/2021/03/09/python/nlp/keras/"
+           data-tag="NLP"
+           data-author="" >
+            <span class="post-title" title="Keras">Keras</span>
+            <span class="post-date" title="2021-03-09 19:27:36">2021/03/09</span>
+        </a>
         
         <a  class="全部文章 Python "
            href="/2021/02/10/python/python-yu-fa/pip/"
@@ -904,7 +912,7 @@
         
         <a  class="全部文章 Leetcode "
            href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
-           data-tag="simple,Leetcode"
+           data-tag="Leetcode,simple"
            data-author="" >
             <span class="post-title" title="Z字形变换">Z字形变换</span>
             <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
@@ -954,12 +962,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-01-04 18:27:07'>2020-12-08 22:31</time>
+            发布时间 : <time class="date" title='最后更新: 2021-03-07 22:13:59'>2020-12-08 22:31</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:106</span>
+        <span>字数:186</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -978,7 +986,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看并解除端口占用"><span class="toc-text">查看并解除端口占用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打开防火墙端口"><span class="toc-text">打开防火墙端口</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看并解除端口占用"><span class="toc-text">查看并解除端口占用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打开防火墙端口"><span class="toc-text">打开防火墙端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无法访问github"><span class="toc-text">无法访问github</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1001,6 +1009,16 @@
 <p>如果出现：“无法终止 PID 为 xxx 的进程”，用管理员方式打开cmd，再次终止进程。</p>
 <h2 id="打开防火墙端口"><a href="#打开防火墙端口" class="headerlink" title="打开防火墙端口"></a>打开防火墙端口</h2><p>在管理员模式下，打开2375端口，支持远程访问：</p>
 <pre class=" language-bash"><code class="language-bash">netsh advfirewall firewall add rule name<span class="token operator">=</span><span class="token string">"docker_daemon"</span> dir<span class="token operator">=</span>in action<span class="token operator">=</span>allow protocol<span class="token operator">=</span>TCP localport<span class="token operator">=</span>2375</code></pre>
+<h2 id="无法访问github"><a href="#无法访问github" class="headerlink" title="无法访问github"></a>无法访问github</h2><p>能正常访问其他网站，却访问不了GitHub，怀疑是本地DNS解析出现问题。<br>访问：<a href="https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo" target="_blank" rel="noopener">fastly.net.ipaddress.com</a></p>
+<p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/fastly.net.ip.png" alt="github.global.ssl.fastly.net 的ip"></p>
+<p>访问：<a href="https://github.com.ipaddress.com/#ipinfo" target="_blank" rel="noopener">github 的ip</a></p>
+<p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/github.ip.png" alt="github 的ip"></p>
+<p>打开C:\Windows\System32\drivers\etc\hosts，添加：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#github</span>
+140.82.112.3  github.com
+199.232.69.194 github.global.ssl.fastly.net   </code></pre>
+<p>然后在cmd中运行（可选）：</p>
+<pre class=" language-bash"><code class="language-bash">ipconfig /flushdns </code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 changzeyan@foxmail.com </span>
