@@ -3,7 +3,7 @@ title: Python-操作mongo
 author: ChangzeYan
 date: 2020-12-16 22:10:04
 tags: Python-Mongo
-categories: Linux
+categories: Python
 cover:
 ---
 
@@ -40,4 +40,19 @@ for document in collection.find().limit(3):
 ```python
 json_dict = json.loads(json_str)  //将json字符串转成字典
 mongo_collection.insert_one(json_dict)
+```
+
+
+# 加载mongo数据到pandas
+```python
+from pymongo import *
+import json
+import pandas as pd
+
+mongo_client = MongoClient(host='xxx', port=xxx)
+db = mongo_client.db_name
+db.authenticate('username', 'pwd')
+collection = db.student
+data = pd.DataFrame(list(collection.find()))
+print(data)
 ```

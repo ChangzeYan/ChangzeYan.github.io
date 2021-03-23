@@ -2,7 +2,7 @@
 title: Hithesis 工大论文模板
 author: ChangzeYan
 date: 2020-12-14 19:58:50
-tags:
+tags: Hithesis
 categories: Latex
 cover:
 ---
