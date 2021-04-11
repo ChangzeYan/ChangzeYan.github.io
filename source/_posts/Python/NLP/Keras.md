@@ -39,10 +39,8 @@ from keras.models import Sequential
 from keras.layers.core import Dense, Activation
 from keras.optimizers import SGD
 from keras.utils import np_utils
- 
 # 随机数种子，重复性设置
 np.random.seed(1671)
- 
 # 网络结构和训练的参数
 NB_EPOCH = 20
 BATCH_SIZE = 128
@@ -96,6 +94,7 @@ print('Test accuracy:', score[1])
 model.save('my_model.h5')
 
 ```
+
 加载：
 ```python
 from keras.models import load_model
