@@ -47,3 +47,16 @@ netsh advfirewall firewall add rule name="docker_daemon" dir=in action=allow pro
 ```bash
 ipconfig /flushdns 
 ```
+
+## 将文本中的unicode 编码转换称中文
+参考：[一条指令将文件中的unicode编码转为中文](https://blog.csdn.net/qq_36260974/article/details/106822180)
+
+下图是文本中所含的Unicode码：
+![文本中含有Unicode码](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/unicodeTxt.png)
+在文件所在目录cmd执行：
+```bash
+native2ascii -reverse -encoding UTF-8 htmls1.json  htmls2.json
+```
+
+转换后的结果：
+![将Unicode码转成中文](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/unicodeTxt2Chinese.png) 

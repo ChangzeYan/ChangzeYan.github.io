@@ -39,9 +39,9 @@ from keras.models import Sequential
 from keras.layers.core import Dense, Activation
 from keras.optimizers import SGD
 from keras.utils import np_utils
-# 随机数种子，重复性设置
+#随机数种子，重复性设置
 np.random.seed(1671)
-# 网络结构和训练的参数
+#网络结构和训练的参数
 NB_EPOCH = 20
 BATCH_SIZE = 128
 VERBOSE = 1
@@ -50,7 +50,7 @@ OPTIMIZER = SGD()
 N_HIDDEN = 128
 VALIDATION_SPLIT = 0.2
 RESHAPED = 784
-# 加载数据
+#加载数据
 def load_data(path="mnist.npz"):
     f = np.load(path)
     x_train, y_train = f['x_train'], f['y_train']
@@ -58,20 +58,20 @@ def load_data(path="mnist.npz"):
     f.close()
     return (x_train, y_train), (x_test, y_test)
  
-# 调用函数加载数据
+#调用函数加载数据
 (x_train, y_train), (x_test, y_test) = load_data()
-# 数据预处理
+#数据预处理
 (x_train, y_train), (x_test, y_test) = load_data()
-# 数据变形、类型转换及归一化
+#数据变形、类型转换及归一化
 x_train = x_train.reshape(60000, 784).astype('float32') / 255
 x_test = x_test.reshape(10000, 784).astype('float32') / 255
-# 打印消息
+#打印消息
 print('Training samples:', x_train.shape)
 print('Testing samples:', x_test.shape)
-# 将类别转换为one-hot编码
+#将类别转换为one-hot编码
 y_train = np_utils.to_categorical(y_train, NB_CLASSES)
 y_test = np_utils.to_categorical(y_test, NB_CLASSES)
- # 定义网络结构
+#定义网络结构
 model = Sequential()
 model.add(Dense(N_HIDDEN, input_shape=(RESHAPED, )))
 model.add(Activation('relu'))
@@ -79,14 +79,14 @@ model.add(Dense(N_HIDDEN))
 model.add(Activation('relu'))
 model.add(Dense(NB_CLASSES))
 model.add(Activation('softmax'))
-# 打印模型概述信息
+#打印模型概述信息
 model.summary()
- # 编译模型
+ #编译模型
 model.compile(loss='categorical_crossentropy', optimizer=OPTIMIZER, metrics=['accuracy'])
-# 训练模型
+#训练模型
 history = model.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=NB_EPOCH, verbose=VERBOSE,
 					validation_split=VALIDATION_SPLIT)
-# 评估模型
+#评估模型
 score = model.evaluate(x_test, y_test, verbose=VERBOSE)
 print('Test score:', score[0])
 print('Test accuracy:', score[1])
@@ -99,14 +99,14 @@ model.save('my_model.h5')
 ```python
 from keras.models import load_model
 
-# 加载整个模型
+#加载整个模型
 model = load_model('my_model.h5')
  
-# 训练模型
+#训练模型
 history = model.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=NB_EPOCH, verbose=VERBOSE,
 					validation_split=VALIDATION_SPLIT)
  
-# 评估模型
+#评估模型
 score = model.evaluate(x_test, y_test, verbose=VERBOSE)
 ```
 

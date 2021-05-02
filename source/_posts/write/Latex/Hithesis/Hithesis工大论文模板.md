@@ -130,3 +130,14 @@ type=master,stage=zhongqi,campus=harbin]{hithesis}
 % 设置三级目录
 \setcounter{tocdepth}{3}
 ```
+
+### 去掉目录中摘要和第一章之间的空行
+参考：[issues-目录格式问题](https://github.com/dustincys/hithesis/issues/65)
+
+在主文件中中设置：
+```
+\documentclass[fontset=fandol,type=master,campus=harbin,tocblank=false]{hithesisbook}
+
+% tocblank=true|false
+%   含义：目录中第一章之前，是否加一行空白。缺省值为true。
+```
