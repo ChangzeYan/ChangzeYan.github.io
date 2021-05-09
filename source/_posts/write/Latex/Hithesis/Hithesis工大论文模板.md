@@ -90,13 +90,25 @@ type=master,stage=zhongqi,campus=harbin]{hithesis}
 ```
 
 
-# Hithesis中的格式
+
+# 样式
+以下命令打开官方文档：
+```bash
+texdoc hithesis
+```
+## 参考文献
 将“文献[x]”中的\[x\]表示为正常的文本，而不是引用格式上标：
 ```bash
 \inlinecite{key}
 ```
+直接用vscode 编译时有时不会产生参考文献，用下面命令编译一遍即可：
+```bash
+xelatex -shell-escape thesis.tex
+bibtex thesis
+xelatex -shell-escape thesis.tex
+xelatex -shell-escape thesis.tex
+```
 
-# 样式
 
 ## 列表
 ### 更改标号样式
