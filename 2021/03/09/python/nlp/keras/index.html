@@ -115,7 +115,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(60)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(61)</small></div></li>
     
         
             
@@ -159,7 +159,7 @@
     
         
             
-            <li><div data-rel="Latex">Latex<small>(5)</small></div>
+            <li><div data-rel="Latex">Latex<small>(6)</small></div>
                 
             </li>
             
@@ -263,8 +263,8 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="60">
-<input type="hidden" id="yelog_site_word_count" value="29k">
+<input type="hidden" id="yelog_site_posts_number" value="61">
+<input type="hidden" id="yelog_site_word_count" value="30.1k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -481,6 +481,14 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 Latex "
+           href="/2021/05/09/write/latex/latex-can-kao-wen-xian/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Latex-参考文献">Latex-参考文献</span>
+            <span class="post-date" title="2021-05-09 19:22:34">2021/05/09</span>
+        </a>
         
         <a  class="全部文章 Python "
            href="/2021/03/13/python/pandas/"
@@ -844,7 +852,7 @@
         
         <a  class="全部文章 Leetcode "
            href="/2019/07/19/leetcode/simple-without-algorithm/liang-shu-zhi-he/"
-           data-tag="simple,leetcode"
+           data-tag="leetcode,simple"
            data-author="" >
             <span class="post-title" title="两数之和">两数之和</span>
             <span class="post-date" title="2019-07-19 15:01:42">2019/07/19</span>
@@ -892,7 +900,7 @@
         
         <a  class="全部文章 Leetcode "
            href="/2019/06/19/leetcode/string/hui-wen-shu/"
-           data-tag="simple,leetcode,string"
+           data-tag="leetcode,simple,string"
            data-author="" >
             <span class="post-title" title="回文数">回文数</span>
             <span class="post-date" title="2019-06-19 18:57:00">2019/06/19</span>
@@ -947,18 +955,18 @@
         </a>
         
         <a  class="全部文章 Leetcode "
-           href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
-           data-tag="Leetcode,simple"
-           data-author="" >
-            <span class="post-title" title="Z字形变换">Z字形变换</span>
-            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
-        </a>
-        
-        <a  class="全部文章 Leetcode "
            href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
            data-tag="leetcode,cpp_stl"
            data-author="" >
             <span class="post-title" title="整数反转">整数反转</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
+           data-tag="simple,Leetcode"
+           data-author="" >
+            <span class="post-title" title="Z字形变换">Z字形变换</span>
             <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
         </a>
         
@@ -1006,7 +1014,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-04-11 21:38:57'>2021-03-09 19:27</time>
+            发布时间 : <time class="date" title='最后更新: 2021-04-13 15:35:37'>2021-03-09 19:27</time>
         
     </div>
     <div class="article-meta">
@@ -1070,9 +1078,9 @@ TensorFlow 1.11.0 + Keras 2.2.4 on Python 2.</code></pre><h2 id="保存和加载
 <span class="token keyword">from</span> keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>core <span class="token keyword">import</span> Dense<span class="token punctuation">,</span> Activation
 <span class="token keyword">from</span> keras<span class="token punctuation">.</span>optimizers <span class="token keyword">import</span> SGD
 <span class="token keyword">from</span> keras<span class="token punctuation">.</span>utils <span class="token keyword">import</span> np_utils
-<span class="token comment" spellcheck="true"># 随机数种子，重复性设置</span>
+<span class="token comment" spellcheck="true">#随机数种子，重复性设置</span>
 np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span><span class="token number">1671</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 网络结构和训练的参数</span>
+<span class="token comment" spellcheck="true">#网络结构和训练的参数</span>
 NB_EPOCH <span class="token operator">=</span> <span class="token number">20</span>
 BATCH_SIZE <span class="token operator">=</span> <span class="token number">128</span>
 VERBOSE <span class="token operator">=</span> <span class="token number">1</span>
@@ -1081,7 +1089,7 @@ OPTIMIZER <span class="token operator">=</span> SGD<span class="token punctuatio
 N_HIDDEN <span class="token operator">=</span> <span class="token number">128</span>
 VALIDATION_SPLIT <span class="token operator">=</span> <span class="token number">0.2</span>
 RESHAPED <span class="token operator">=</span> <span class="token number">784</span>
-<span class="token comment" spellcheck="true"># 加载数据</span>
+<span class="token comment" spellcheck="true">#加载数据</span>
 <span class="token keyword">def</span> <span class="token function">load_data</span><span class="token punctuation">(</span>path<span class="token operator">=</span><span class="token string">"mnist.npz"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     f <span class="token operator">=</span> np<span class="token punctuation">.</span>load<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
     x_train<span class="token punctuation">,</span> y_train <span class="token operator">=</span> f<span class="token punctuation">[</span><span class="token string">'x_train'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span><span class="token string">'y_train'</span><span class="token punctuation">]</span>
@@ -1089,20 +1097,20 @@ RESHAPED <span class="token operator">=</span> <span class="token number">784</s
     f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x_test<span class="token punctuation">,</span> y_test<span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true"># 调用函数加载数据</span>
+<span class="token comment" spellcheck="true">#调用函数加载数据</span>
 <span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x_test<span class="token punctuation">,</span> y_test<span class="token punctuation">)</span> <span class="token operator">=</span> load_data<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 数据预处理</span>
+<span class="token comment" spellcheck="true">#数据预处理</span>
 <span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x_test<span class="token punctuation">,</span> y_test<span class="token punctuation">)</span> <span class="token operator">=</span> load_data<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 数据变形、类型转换及归一化</span>
+<span class="token comment" spellcheck="true">#数据变形、类型转换及归一化</span>
 x_train <span class="token operator">=</span> x_train<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">60000</span><span class="token punctuation">,</span> <span class="token number">784</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'float32'</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">255</span>
 x_test <span class="token operator">=</span> x_test<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">,</span> <span class="token number">784</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'float32'</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">255</span>
-<span class="token comment" spellcheck="true"># 打印消息</span>
+<span class="token comment" spellcheck="true">#打印消息</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Training samples:'</span><span class="token punctuation">,</span> x_train<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Testing samples:'</span><span class="token punctuation">,</span> x_test<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 将类别转换为one-hot编码</span>
+<span class="token comment" spellcheck="true">#将类别转换为one-hot编码</span>
 y_train <span class="token operator">=</span> np_utils<span class="token punctuation">.</span>to_categorical<span class="token punctuation">(</span>y_train<span class="token punctuation">,</span> NB_CLASSES<span class="token punctuation">)</span>
 y_test <span class="token operator">=</span> np_utils<span class="token punctuation">.</span>to_categorical<span class="token punctuation">(</span>y_test<span class="token punctuation">,</span> NB_CLASSES<span class="token punctuation">)</span>
- <span class="token comment" spellcheck="true"># 定义网络结构</span>
+<span class="token comment" spellcheck="true">#定义网络结构</span>
 model <span class="token operator">=</span> Sequential<span class="token punctuation">(</span><span class="token punctuation">)</span>
 model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Dense<span class="token punctuation">(</span>N_HIDDEN<span class="token punctuation">,</span> input_shape<span class="token operator">=</span><span class="token punctuation">(</span>RESHAPED<span class="token punctuation">,</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Activation<span class="token punctuation">(</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -1110,14 +1118,14 @@ model<span class="token punctuation">.</span>add<span class="token punctuation">
 model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Activation<span class="token punctuation">(</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Dense<span class="token punctuation">(</span>NB_CLASSES<span class="token punctuation">)</span><span class="token punctuation">)</span>
 model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Activation<span class="token punctuation">(</span><span class="token string">'softmax'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 打印模型概述信息</span>
+<span class="token comment" spellcheck="true">#打印模型概述信息</span>
 model<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span>
- <span class="token comment" spellcheck="true"># 编译模型</span>
+ <span class="token comment" spellcheck="true">#编译模型</span>
 model<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>loss<span class="token operator">=</span><span class="token string">'categorical_crossentropy'</span><span class="token punctuation">,</span> optimizer<span class="token operator">=</span>OPTIMIZER<span class="token punctuation">,</span> metrics<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'accuracy'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 训练模型</span>
+<span class="token comment" spellcheck="true">#训练模型</span>
 history <span class="token operator">=</span> model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> batch_size<span class="token operator">=</span>BATCH_SIZE<span class="token punctuation">,</span> epochs<span class="token operator">=</span>NB_EPOCH<span class="token punctuation">,</span> verbose<span class="token operator">=</span>VERBOSE<span class="token punctuation">,</span>
                     validation_split<span class="token operator">=</span>VALIDATION_SPLIT<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 评估模型</span>
+<span class="token comment" spellcheck="true">#评估模型</span>
 score <span class="token operator">=</span> model<span class="token punctuation">.</span>evaluate<span class="token punctuation">(</span>x_test<span class="token punctuation">,</span> y_test<span class="token punctuation">,</span> verbose<span class="token operator">=</span>VERBOSE<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Test score:'</span><span class="token punctuation">,</span> score<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Test accuracy:'</span><span class="token punctuation">,</span> score<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -1127,14 +1135,14 @@ model<span class="token punctuation">.</span>save<span class="token punctuation"
 <p>加载：</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> keras<span class="token punctuation">.</span>models <span class="token keyword">import</span> load_model
 
-<span class="token comment" spellcheck="true"># 加载整个模型</span>
+<span class="token comment" spellcheck="true">#加载整个模型</span>
 model <span class="token operator">=</span> load_model<span class="token punctuation">(</span><span class="token string">'my_model.h5'</span><span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true"># 训练模型</span>
+<span class="token comment" spellcheck="true">#训练模型</span>
 history <span class="token operator">=</span> model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>x_train<span class="token punctuation">,</span> y_train<span class="token punctuation">,</span> batch_size<span class="token operator">=</span>BATCH_SIZE<span class="token punctuation">,</span> epochs<span class="token operator">=</span>NB_EPOCH<span class="token punctuation">,</span> verbose<span class="token operator">=</span>VERBOSE<span class="token punctuation">,</span>
                     validation_split<span class="token operator">=</span>VALIDATION_SPLIT<span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true"># 评估模型</span>
+<span class="token comment" spellcheck="true">#评估模型</span>
 score <span class="token operator">=</span> model<span class="token punctuation">.</span>evaluate<span class="token punctuation">(</span>x_test<span class="token punctuation">,</span> y_test<span class="token punctuation">,</span> verbose<span class="token operator">=</span>VERBOSE<span class="token punctuation">)</span></code></pre>
 <ol start="2">
 <li>保存模型结构和权重<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> __future__ <span class="token keyword">import</span> print_function
