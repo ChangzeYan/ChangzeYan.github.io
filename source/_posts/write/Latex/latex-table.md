@@ -8,7 +8,7 @@ cover:
 ---
 
 ## 三线表
-
+\vspace{-0.5em}用于设置与表标题之间的距离
 ```
 \begin{table}[!ht]
     \bicaption{八种DNA编码规则}{Eight kinds of DNA coding rules.}

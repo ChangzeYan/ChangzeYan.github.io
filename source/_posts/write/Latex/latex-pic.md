@@ -22,6 +22,8 @@ isNumberDFA是图片名，不用加扩展名：
 ```
 \begin{figure}[htb]
     \centering
+    % 调整图片与标题之间的距离
+    \setlength{\abovecaptionskip}{0.5em}
     \includegraphics[width=1\textwidth]{isNumberDFA}
     \caption{DFA状态转移图}
     \label{isNumberDFA}
@@ -133,5 +135,47 @@ isNumberDFA是图片名，不用加扩展名：
     \caption{程序运行结果}
     \label{runresult}
     
+\end{figure}
+```
+
+# 图标题
+```
+\vspace{-0.8cm}  %调整图片与上文的垂直距离
+\setlength{\abovecaptionskip}{-0.2cm}   %调整图片标题与图距离
+\setlength{\belowcaptionskip}{-1cm}   %调整图片标题与下文距离
+```
+
+# 子标题与子图的距离
+参考：[subfigure命令插入多行多列图片修改子图与子图、子标题的距离](https://www.pianshen.com/article/8282354102/)
+\subfigcapskip=-5pt %设置子图与子标题之间的距离
+
+```
+\usepackage{graphicx}  %插入图片的宏包
+\usepackage{float}  %设置图片浮动位置的宏包
+\usepackage{subfigure}  %插入多图时用子图显示的宏包
+ 
+\begin{figure}[H] %这里使用的是强制位置，除非真的放不下，不然就是写在哪里图就放在哪里，不会乱动
+	\centering  %图片全局居中
+	\vspace{-0.35cm} %设置与上面正文的距离
+	\subfigtopskip=2pt %设置子图与上面正文或别的内容的距离
+	\subfigbottomskip=2pt %设置第二行子图与第一行子图的距离，即下面的头与上面的脚的距离
+	\subfigcapskip=-5pt %设置子图与子标题之间的距离
+	\subfigure[original]{
+		\label{level.sub.1}
+		\includegraphics[width=0.32\linewidth]{./figure/original.png}}
+	\quad %默认情况下两个子图之间空的较少，使用这个命令加大宽度
+	\subfigure[level=9]{
+		\label{level.sub.2}
+		\includegraphics[width=0.32\linewidth]{./figure/level9.png}}
+	  %这里是空了一行，能够实现强制将四张图分成两行两列显示，而不是放不下图了再换行，使用\\也行。
+	\subfigure[level=8]{
+		\label{level.sub.3}
+		\includegraphics[width=0.32\linewidth]{./figure/level8.png}}
+	\quad
+	\subfigure[level=7]{
+		\label{level.sub.4}
+		\includegraphics[width=0.32\linewidth]{./figure/level7.png}}
+	\caption{不同level的渲染效果}
+	\label{level}
 \end{figure}
 ```

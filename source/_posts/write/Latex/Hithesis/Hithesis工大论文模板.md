@@ -122,9 +122,9 @@ xelatex -shell-escape thesis.tex
 
 # 使用圆括号阿拉伯数字标号
 \begin{enumerate}[label={(\arabic*)}] 
-    \item xxxxx   %[1] xxxxx
-    \item yyyyyy  %[2] yyyyyy
-    \item zzzzz   %[3] zzzzz
+    \item xxxxx   %(1) xxxxx
+    \item yyyyyy  %(2) yyyyyy
+    \item zzzzz   %(3) zzzzz
 \end{enumerate}
 ```
 
@@ -152,4 +152,16 @@ xelatex -shell-escape thesis.tex
 
 % tocblank=true|false
 %   含义：目录中第一章之前，是否加一行空白。缺省值为true。
+```
+
+## 去掉图表标题中的冒号
+当增加了一些自定义设置后，原来的图表标题可能会发生变化，可以按照下面修改：
+```
+\usepackage{caption}
+% 设置表格
+\captionsetup[table]{labelsep=space}
+% 设置图片，skip表示图片和标题之间距离
+\captionsetup[figure]{font=small,skip=0pt}
+% 全部设置
+\captionsetup{font={small},labelsep=space}
 ```

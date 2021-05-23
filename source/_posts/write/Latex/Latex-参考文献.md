@@ -218,3 +218,14 @@ xelatex -shell-escape thesis.tex
   },
   ],
   ```
+
+  这样就可以了通过一次单纯的ctrl+s自动顺序完成全部4次编译！而且也不必保证.bib文件名必须与.tex一致。缺点是每次都会编译4次。（pdflatex可以换为xelatex或latexmk，pdflatex比xelatex快，latexmk最慢）。
+
+  # 反向搜索和正向搜索
+  ## 反向搜索
+  默认在pdf中ctrl+鼠标左键就能定位到源文件位置
+
+  ## 正向搜索
+  在源文件中定位到pdf与之对应位置
+ 点击这个SyncTex from cursor，pdf就能滚动到当前鼠标所在源文件对应位置：
+  ![vscode中配置文件位置](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/vscode-latex-setting_search.png)

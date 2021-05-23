@@ -28,6 +28,7 @@ basicstyle=\small\ttfamily,
 numbers=left,
 numbersep=5pt,
 xleftmargin=20pt,
+showstringspaces=false, %去掉空格时产生的下划的空格标志, 设置为true则出现
 frame=tb,
 framexleftmargin=20pt
 }
