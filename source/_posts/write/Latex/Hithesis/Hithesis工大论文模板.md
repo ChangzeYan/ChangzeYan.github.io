@@ -58,6 +58,35 @@ xelatex -shell-escape report.tex
 ![hithesis生成的样式-本部硕士中期](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/hithesis-中期样式.png)
 因此换用hithesis-alpha。
 
+## windows下使用docker
+```
+第一步，下载tinytex-hithesis镜像，
+
+  docker pull dustincys/tinytex-hithesis:latest
+第二步，在hithesis根目录下执行抽取格式
+
+  docker run --rm -i  -v $(pwd):/home/runner dustincys/tinytex-hithesis:latest latex hithesis.ins
+
+  Windows下改为：
+  docker run --rm -i  -v D:\Document\Hit\HitThesis\Thesis\hithesis-newVersion-master\hithesis:/home/runner dustincys/tinytex-hithesis:latest latex hithesis.ins
+
+  -v 冒号前面是本地项目路径，后面是容器内路径
+
+第三步，在hithesis毕业论文文件夹hitbook或报告文件夹report下执行以下命令进行编译
+
+  docker run --rm -i  -v $(pwd):/home/runner dustincys/tinytex-hithesis:latest make thesis
+
+    Windows下改为：
+  docker run --rm -i  -v D:\Document\Hit\HitThesis\Thesis\hithesis-newVersion-master\hithesis\examples\hitbook\chinese:/home/runner dustincys/tinytex-hithesis:latest make thesis
+
+
+
+  docker run --rm -i  -v $(pwd):/home/runner dustincys/tinytex-hithesis:latest make report
+或者编译文档
+
+  docker run --rm -i  -v $(pwd):/home/runner dustincys/tinytex-hithesis:latest make doc
+```
+
 ## hithesis-alpha
 下载地址：[hithesis-alpha](https://github.com/Regulust/hithesis-alpha#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
 
@@ -165,3 +194,44 @@ xelatex -shell-escape thesis.tex
 % 全部设置
 \captionsetup{font={small},labelsep=space}
 ```
+
+## 算法
+
+### 修改输入输出样式
+中文latex模式下，更改Input为输入，更改Output为输出的方法：**在算法内部插入**：
+```
+\SetKwInOut{KIN}{输入}
+\SetKwInOut{KOUT}{输出}
+```
+例如：
+```
+\begin{algorithm}[!ht]
+    \SetKwInOut{KIN}{输入}
+    \SetKwInOut{KOUT}{输出}
+    \caption{xxxx方法}
+    \label{department_fun}
+    
+    \KIN{data,s,dic}
+    \KOUT{vec}
+    \lIf{s 为空串}{直接返回}
+    len$\gets$ s.length()\;
+    ss$\gets$s.toCharArray() \;
+    dp$\gets$ new boolean[len][len] \;
+    ans$\gets$ ""+ss[0] \;
+    maxLen$\gets$1 \;
+    \For{i from 0 To len}{
+        dp[i][i]$\gets$true \;
+    }
+\end{algorithm}
+```
+### 基本语法
+| 代码       | 含义           |
+|-------------|-----------------------|
+| \\;        | 在行末添加分号，并自动换行   |
+| \\caption{}     | 插入标题                |
+| \\KwData{输入信息}  | 效果：“Data:输入信息” |
+| \\KwIn{输入信息}       | 效果：“Input:输入信息” |
+| \\KwOut{输出信息}       | 效果：“Output:输出信息” |
+| \\KwResult{输出信息}       | 效果：“Result:输出信息” |
+| \\tcc{注释}  | 效果：/* 注释*/ |
+| \\tcp{注释}  | 效果：// 注释 |
