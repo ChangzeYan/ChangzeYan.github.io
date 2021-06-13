@@ -43,6 +43,13 @@ OPTIONS说明：
 --rm：--rm选项不能与-d同时使用，在容器退出后，自动执行docker rm -v
 ```
 
+查看正在运行的容器：
+```bash
+docker ps
+已停止但仍存在的容器
+docker ps -a
+```
+
 进入容器：
 ```bash
 docker exec -it 容器id /bin/bash

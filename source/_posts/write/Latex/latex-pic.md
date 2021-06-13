@@ -145,6 +145,12 @@ isNumberDFA是图片名，不用加扩展名：
 \setlength{\belowcaptionskip}{-1cm}   %调整图片标题与下文距离
 ```
 
+**图片超过宽度**会导致图片标题与下文之间间隔变大。
+减少宽度即可：设置为行宽的90%
+```
+\includegraphics[width = 0.9\textwidth]{picname}
+```
+
 # 子标题与子图的距离
 参考：[subfigure命令插入多行多列图片修改子图与子图、子标题的距离](https://www.pianshen.com/article/8282354102/)
 \subfigcapskip=-5pt %设置子图与子标题之间的距离
