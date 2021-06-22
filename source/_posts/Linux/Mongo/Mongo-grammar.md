@@ -38,3 +38,8 @@ db.userInfo.find({age:{gte:23,$lte:26}});
 ```bash
 db.getCollection("student").find({"name":"zs","id":"02"})
 ```
+
+## 查询集合中指定字段的所有不同值
+```
+db.目标集合.distinct("指定字段")
+```
