@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>修改证件照背景</title>
+      <link href="2021/07/14/photoshop/xiu-gai-zheng-jian-zhao-bei-jing/"/>
+      <url>2021/07/14/photoshop/xiu-gai-zheng-jian-zhao-bei-jing/</url>
+      
+        <content type="html"><![CDATA[<h1 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h1><p>ps2021</p><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><ol><li><p>使用<strong>对象选择工具</strong> 框住人物</p></li><li><p>点击遮住并覆盖<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/ps_del_bg1.png" alt="对象选择工具"></p></li><li><p>在输出颜色中选中净化颜色，确定 （抠图）<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/ps_del_bg2.png" alt="净化颜色"></p></li><li><p>新建图层 ，右下角加号<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/ps_del_bg3.png" alt="新建图层"></p></li><li><p>设置新图层背景色，这里修改为白色<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/ps_del_bg4.png" alt="设置新图层背景色"></p></li><li><p>ctrl+delete 删除人像<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/ps_del_bg5.png" alt="删除人像"></p></li><li><p>将人像图层拖动到背景图层前<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/ps_del_bg6.png" alt="拖动图层"></p></li></ol><p>这样背景就换成白色了，如果想换成红色：</p><ol><li>新建图层，设置图层背景色为红色，#FF0000 ，然后ctrl+delete删除人像</li><li>将人物图层拖动到背景前<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/ps_del_bg7.png" alt="拖动图层"></li></ol><h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><ol><li>右下角选择色相/饱和度，右下角<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/ps_del_bg8.png" alt="选择色相饱和度"></li><li>点击手形按钮，然后点击背景色，滑动调整色相、饱和度等<br><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/ps_del_bg9.png" alt="选择色相饱和度"></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> PS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PPT</title>
       <link href="2021/06/18/write/ppt/ppt/"/>
       <url>2021/06/18/write/ppt/ppt/</url>
@@ -1540,9 +1559,9 @@
       
         <tags>
             
-            <tag> Leetcode </tag>
-            
             <tag> simple </tag>
+            
+            <tag> Leetcode </tag>
             
         </tags>
       
