@@ -229,3 +229,67 @@ xelatex -shell-escape thesis.tex
   在源文件中定位到pdf与之对应位置
  点击这个SyncTex from cursor，pdf就能滚动到当前鼠标所在源文件对应位置：
   ![vscode中配置文件位置](https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/vscode-latex-setting_search.png)
+
+
+# 各参考文献格式
+```
+@article
+期刊杂志的论文
+必要域: author, title, journal, year.
+可选域: volume, number, pages, month, note.
+@book
+公开出版的图书
+必要域: author/editor, title, publisher, year.
+可选域: volume/number, series, address, edition, month, note.
+@booklet
+无出版商或作者的图书
+必要域: title.
+可选域: author, howpublished, address, month, year, note.
+@conference
+等价于 inproceedings
+必要域: author, title, booktitle, year.
+可选域: editor, volume/number, series, pages, address, month, organization, publisher, note.
+@inbook
+书籍的一部分章节
+必要域: author/editor, title, chapter and/or pages, publisher, year.
+可选域: volume/number, series, type, address, edition, month, note.
+
+@incollection
+书籍中带独立标题的章节
+必要域: author, title, booktitle, publisher, year.
+可选域: editor, volume/number, series, type, chapter, pages, address, edition, month, note.
+**publisher和address如果没有的话可能会有缺失[S.I.]**
+
+@inproceedings
+会议论文集中的一篇
+必要域: author, title, booktitle, year.
+可选域: editor, volume/number, series, pages, address, month, organization, publisher, note.
+@manual
+技术文档
+必要域: title.
+可选域: author, organization, address, edition, month, year, note.
+@mastersthesis
+硕士论文
+必要域: author, title, school, year.
+可选域: type, address, month, note.
+@misc
+其他
+必要域: none
+可选域: author, title, howpublished, month, year, note.
+@phdthesis
+博士论文
+必要域: author, title, year, school.
+可选域: address, month, keywords, note.
+@proceedings
+会议论文集
+必要域: title, year.
+可选域: editor, volume/number, series, address, month, organization, publisher, note.
+@techreport
+教育，商业机构的技术报告
+必要域: author, title, institution, year.
+可选域: type, number, address, month, note.
+@unpublished
+未出版的论文，图书
+必要域: author, title, note.
+可选域: month, year.
+```
