@@ -7,6 +7,28 @@ categories: Python
 cover:
 ---
 
+# DataFrame
+创建dataframe
+```
+df = pd.DataFrame(columns=['a','b'])
+```
+给dataframe增加行：
+```
+for i in range(5):
+    df.loc[i]=[1,2,3]
+```
+## 排序
+对行排序：
+```
+按照'阅读'列将行降序排列
+sort_res=df.sort_index(axis=0, by='阅读', ascending=False)
+```
+## 保存
+保存到excel中：
+```
+df.to_excel('test.xls')
+```
+
 # 统计某列值出现的次数
 ```python
 import pandas as pd

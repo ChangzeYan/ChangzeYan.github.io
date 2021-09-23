@@ -45,7 +45,8 @@ conda info --envs
 
 
 
-# 创建python环境
+创建python环境:
+
 先在conda中创建一个名为python2的环境，并下载对应版本python2.7
 ```bash
 conda create --name python27 python=2.7
@@ -55,7 +56,14 @@ conda create -n python36 python=3.6.6
 conda create -n yourenvname python=x.x anaconda (还会创建与python版本有关的anaconda打包库)
 ```
 
-# 删除虚拟环境
+激活（切换）python环境
+```
+activate yourenvname
+```
+退出虚拟环境：
+deactivate myenv 
+
+删除虚拟环境
 
 ```
 conda remove -n yourenvname --all
