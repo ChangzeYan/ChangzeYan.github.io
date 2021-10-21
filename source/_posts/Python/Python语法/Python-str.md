@@ -27,3 +27,8 @@ print(str_1 + str_2)
 print(str_1)
 >>>Hello world！
 ```
+
+字符串增长：
+```
+str += 's'
+```
