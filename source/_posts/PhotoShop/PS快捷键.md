@@ -5,6 +5,7 @@ date: 2021-08-30 16:16:45
 tags:
 categories: PS
 cover:
+description: 学习PS的关键在于知道里面的按钮是干什么的
 ---
 
 # PS 快捷键
