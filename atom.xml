@@ -6,7 +6,7 @@
   <link href="https://changzeyan.github.io/atom.xml" rel="self"/>
   
   <link href="https://changzeyan.github.io/"/>
-  <updated>2021-11-19T20:45:37.593Z</updated>
+  <updated>2021-12-16T12:56:12.104Z</updated>
   <id>https://changzeyan.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springboot</title>
+    <link href="https://changzeyan.github.io/2021/12/16/java/springboot/springboot/"/>
+    <id>https://changzeyan.github.io/2021/12/16/java/springboot/springboot/</id>
+    <published>2021-12-16T12:48:22.000Z</published>
+    <updated>2021-12-16T12:56:12.104Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><h2 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h2><p>@Controller：用于定义控制器类，在spring项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层），一般这个注解在类中，通常方法需要配合注解@RequestMapping。</p><pre><code>@Controllerpublic class Configurecontroller &#123;    &#125;</code></pre><p>@RestController：用于标注控制层组件(如struts中的action)，@ResponseBody和@Controller的合集。<br>@RequestMapping：提供路由信息，负责URL到Controller中的具体函数的映射。</p>]]></content>
+    
+    
+    <summary type="html">springboot基础知识</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>媒体视频作品集合</title>
@@ -425,33 +442,6 @@
     
     
     <category term="Mongo" scheme="https://changzeyan.github.io/tags/Mongo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux安装Python3.6</title>
-    <link href="https://changzeyan.github.io/2021/01/27/linux/ming-ling/install-python3-6/"/>
-    <id>https://changzeyan.github.io/2021/01/27/linux/ming-ling/install-python3-6/</id>
-    <published>2021-01-27T11:26:20.000Z</published>
-    <updated>2021-01-27T11:50:44.419Z</updated>
-    
-    <content type="html"><![CDATA[<p>参考: <a href="https://www.cnblogs.com/yangzhaon/p/11203395.html">Centos7安装python3.6.5</a></p><p>安装python3.6.5,原来的python2.7并存</p><h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel <span class="token function">wget</span></code></pre><p>下载安装包:</p><pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz</code></pre><p>解压文件:</p><pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf Python-3.6.5.tgz</code></pre><p>进入 解压后的目录,指定编译后文件的目录:</p><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> Python-3.6.5.tgz./configure --prefix<span class="token operator">=</span>/usr/local/python3</code></pre><p>编译:</p><pre class=" language-bash"><code class="language-bash"><span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span></code></pre><p>如果出现zipimport.ZipImportError: can’t decompress data; zlib not avaliable,则安装:</p><pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> -y zlib*</code></pre><p>然后重新执行make</p><h1 id="设置软链"><a href="#设置软链" class="headerlink" title="设置软链"></a>设置软链</h1><p>查看 /usr/bin下是否有pip3和python3,如果没有设置下面的软链:</p><pre class=" language-bash"><code class="language-bash"><span class="token function">ln</span> -s /usr/local/python3/bin/python3 /usr/bin/python3<span class="token function">ln</span> -s /usr/local/python3/bin/pip3 /usr/bin/pip3</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;参考: &lt;a href=&quot;https://www.cnblogs.com/yangzhaon/p/11203395.html&quot;&gt;Centos7安装python3.6.5
-&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;安装python3.6.5,原来的python2.7并存&lt;/p&gt;
-&lt;h1 id=</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="https://changzeyan.github.io/categories/Linux/"/>
-    
-    
-    <category term="Install" scheme="https://changzeyan.github.io/tags/Install/"/>
     
   </entry>
   

@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>springboot</title>
+      <link href="2021/12/16/java/springboot/springboot/"/>
+      <url>2021/12/16/java/springboot/springboot/</url>
+      
+        <content type="html"><![CDATA[<h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><h2 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h2><p>@Controller：用于定义控制器类，在spring项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层），一般这个注解在类中，通常方法需要配合注解@RequestMapping。</p><pre><code>@Controllerpublic class Configurecontroller &#123;    &#125;</code></pre><p>@RestController：用于标注控制层组件(如struts中的action)，@ResponseBody和@Controller的合集。<br>@RequestMapping：提供路由信息，负责URL到Controller中的具体函数的映射。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>媒体视频作品集合</title>
       <link href="2021/11/20/wen-shi-zhe/hcworkshow/"/>
       <url>2021/11/20/wen-shi-zhe/hcworkshow/</url>

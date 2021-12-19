@@ -1,210 +1,1187 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"changzeyan.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="代码块的语言   Shell bash,shell    C# c-sharp,csharp   CSS css   SASS&amp;SCSS sass,scss   Erlang erl,erlang   Java java   JavaScript js,jscript,javascript   PHP php   Python py,python   Ruby ruby,rails,rb">
-<meta property="og:type" content="article">
-<meta property="og:title" content="markdown语法">
-<meta property="og:url" content="https://changzeyan.github.io/2020/11/23/write/markdown/markdown-yu-fa/index.html">
+  <meta charset="utf-8">
+  <title>markdown语法 | YCZ</title>
+  <meta name="keywords" content=" 语法 ">
+  <meta name="description" content="markdown语法 | YCZ">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="https://changzeyan.github.io/about/index.html">
 <meta property="og:site_name" content="YCZ">
-<meta property="og:description" content="代码块的语言   Shell bash,shell    C# c-sharp,csharp   CSS css   SASS&amp;SCSS sass,scss   Erlang erl,erlang   Java java   JavaScript js,jscript,javascript   PHP php   Python py,python   Ruby ruby,rails,rb">
+<meta property="og:description" content="天空中没有留下翅膀的痕迹，但我已飞过">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-23T03:15:30.000Z">
-<meta property="article:modified_time" content="2020-12-11T04:42:54.642Z">
+<meta property="article:published_time" content="2019-06-13T06:56:14.000Z">
+<meta property="article:modified_time" content="2020-11-10T05:24:57.460Z">
 <meta property="article:author" content="ChangzeYan">
-<meta property="article:tag" content="语法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://changzeyan.github.io/2020/11/23/write/markdown/markdown-yu-fa/">
 
+<link rel="icon" href="/img/avatar.jpg">
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
 </script>
 
-  <title>markdown语法 | YCZ</title>
-  
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
 
 
 
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
 
+<script src="/js/iconfont.js?v=1.1.0" ></script>
 
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="YCZ" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="YCZ" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">YCZ</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">走向内心，寻求超越</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
 </div>
 
 
 
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>ChangzeYan</span>
 </div>
-    </header>
 
+<div class="icon">
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
+        
+        <a title="rss" href="/atom.xml" target="_blank">
             
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(72)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Docker">Docker<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Excel">Excel<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Git">Git<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Graphql">Graphql<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Java">Java<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Kafka">Kafka<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Latex">Latex<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Leetcode">Leetcode<small>(14)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Linux">Linux<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Liunx">Liunx<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Markdown">Markdown<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Npm">Npm<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Origin">Origin<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Paper">Paper<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="PS">PS<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Python">Python<small>(15)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="SoftwareTest">SoftwareTest<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Webdriver">Webdriver<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Windows">Windows<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工作流">工作流<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="文史哲">文史哲<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="计算机网络">计算机网络<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="72">
+<input type="hidden" id="yelog_site_word_count" value="35.5k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>activiti</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cmd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Collection</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Conda</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cpp_stl</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataStructure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DoublePointer</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Flask</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Heap</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hithesis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Install</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>IO</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java-Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>KDD</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Latex-pic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Latex-table</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Latex-字体</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>leetcode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Leetcode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Lst</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Mongo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>NLP</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pandas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>paper</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>PGM</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pip</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python-Mongo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>simple</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>string</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>String</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tree</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Tree</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>命令</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>概述</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>语法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>部署</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>镜像</a>
+            </li>
+        
+    </div>
+
+</div>
 
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changzeyan.github.io/2020/11/23/write/markdown/markdown-yu-fa/">
+    <div id="local-search-result">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ChangzeYan">
-      <meta itemprop="description" content="天空中没有留下翅膀的痕迹，但我已飞过">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YCZ">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          markdown语法
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-11-23 11:15:30" itemprop="dateCreated datePublished" datetime="2020-11-23T11:15:30+08:00">2020-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-11 12:42:54" itemprop="dateModified" datetime="2020-12-11T12:42:54+08:00">2020-12-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
-                </span>
-            </span>
-
-          
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 "
+           href="/2021/12/16/java/springboot/springboot/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="springboot">springboot</span>
+            <span class="post-date" title="2021-12-16 20:48:22">2021/12/16</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2021/11/20/wen-shi-zhe/hcworkshow/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="媒体视频作品集合">媒体视频作品集合</span>
+            <span class="post-date" title="2021-11-20 04:41:44">2021/11/20</span>
+        </a>
+        
+        <a  class="全部文章 文史哲 "
+           href="/2021/10/21/wen-shi-zhe/poetry/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="杂文">杂文</span>
+            <span class="post-date" title="2021-10-21 20:22:58">2021/10/21</span>
+        </a>
+        
+        <a  class="全部文章 Excel "
+           href="/2021/09/16/write/excel/excel/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Excel">Excel</span>
+            <span class="post-date" title="2021-09-16 18:58:22">2021/09/16</span>
+        </a>
+        
+        <a  class="全部文章 Webdriver "
+           href="/2021/09/03/python/webdriver/webdriverer-basic/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webdriverer命令">webdriverer命令</span>
+            <span class="post-date" title="2021-09-03 11:43:31">2021/09/03</span>
+        </a>
+        
+        <a  class="全部文章 PS "
+           href="/2021/08/30/photoshop/ps-kuai-jie-jian/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PS快捷键">PS快捷键</span>
+            <span class="post-date" title="2021-08-30 16:16:45">2021/08/30</span>
+        </a>
+        
+        <a  class="全部文章 文史哲 "
+           href="/2021/08/19/wen-shi-zhe/zhong-guo-gu-dai-tu-di-zhi-du-yan-bian-ji-suo-you-quan-gui-shu/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中国古代土地制度演变及所有权归属">中国古代土地制度演变及所有权归属</span>
+            <span class="post-date" title="2021-08-19 15:33:40">2021/08/19</span>
+        </a>
+        
+        <a  class="全部文章 PS "
+           href="/2021/07/18/photoshop/xiu-gai-tu-pian-da-xiao/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="修改图片大小">修改图片大小</span>
+            <span class="post-date" title="2021-07-18 13:11:48">2021/07/18</span>
+        </a>
+        
+        <a  class="全部文章 PS "
+           href="/2021/07/14/photoshop/xiu-gai-zheng-jian-zhao-bei-jing/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="修改证件照背景">修改证件照背景</span>
+            <span class="post-date" title="2021-07-14 10:47:19">2021/07/14</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2021/06/18/write/ppt/ppt/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PPT">PPT</span>
+            <span class="post-date" title="2021-06-18 19:56:49">2021/06/18</span>
+        </a>
+        
+        <a  class="全部文章 SoftwareTest "
+           href="/2021/06/05/softwaretest/jmeter/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jmeter">jmeter</span>
+            <span class="post-date" title="2021-06-05 20:03:46">2021/06/05</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2021/05/09/write/latex/latex-can-kao-wen-xian/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Latex-参考文献">Latex-参考文献</span>
+            <span class="post-date" title="2021-05-09 19:22:34">2021/05/09</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2021/03/13/python/pandas/"
+           data-tag="pandas"
+           data-author="" >
+            <span class="post-title" title="Pandas">Pandas</span>
+            <span class="post-date" title="2021-03-13 19:51:15">2021/03/13</span>
+        </a>
+        
+        <a  class="全部文章 Origin "
+           href="/2021/03/13/write/origin/origin/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="origin">origin</span>
+            <span class="post-date" title="2021-03-13 15:53:11">2021/03/13</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2021/03/11/write/latex/latex-lst/"
+           data-tag="Lst"
+           data-author="" >
+            <span class="post-title" title="代码和算法">代码和算法</span>
+            <span class="post-date" title="2021-03-11 21:21:26">2021/03/11</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2021/03/09/python/nlp/keras/"
+           data-tag="NLP"
+           data-author="" >
+            <span class="post-title" title="Keras">Keras</span>
+            <span class="post-date" title="2021-03-09 19:27:36">2021/03/09</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2021/02/10/python/python-yu-fa/pip/"
+           data-tag="Pip"
+           data-author="" >
+            <span class="post-title" title="Pip">Pip</span>
+            <span class="post-date" title="2021-02-10 10:32:04">2021/02/10</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2021/02/10/python/nlp/shi-ti-shi-bie/"
+           data-tag="NLP"
+           data-author="" >
+            <span class="post-title" title="实体识别">实体识别</span>
+            <span class="post-date" title="2021-02-10 09:59:13">2021/02/10</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2021/01/28/python/python-yu-fa/python-str/"
+           data-tag="String"
+           data-author="" >
+            <span class="post-title" title="Python-str">Python-str</span>
+            <span class="post-date" title="2021-01-28 16:05:26">2021/01/28</span>
+        </a>
+        
+        <a  class="全部文章 Liunx "
+           href="/2021/01/28/linux/mongo/mongo-grammar/"
+           data-tag="Mongo"
+           data-author="" >
+            <span class="post-title" title="Mongo语法">Mongo语法</span>
+            <span class="post-date" title="2021-01-28 15:54:30">2021/01/28</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2021/01/27/linux/ming-ling/install-python3-6/"
+           data-tag="Install"
+           data-author="" >
+            <span class="post-title" title="Linux安装Python3.6">Linux安装Python3.6</span>
+            <span class="post-date" title="2021-01-27 19:26:20">2021/01/27</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2021/01/27/linux/ming-ling/update-centos-core/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="更新Centos内核">更新Centos内核</span>
+            <span class="post-date" title="2021-01-27 18:51:13">2021/01/27</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2021/01/26/python/python-yu-fa/python-heap/"
+           data-tag="Heap"
+           data-author="" >
+            <span class="post-title" title="Python-堆">Python-堆</span>
+            <span class="post-date" title="2021-01-26 12:05:51">2021/01/26</span>
+        </a>
+        
+        <a  class="全部文章 Kafka "
+           href="/2021/01/07/linux/kafka/java-connectkafka/"
+           data-tag="Java-Kafka"
+           data-author="" >
+            <span class="post-title" title="Java-ConnectKafka">Java-ConnectKafka</span>
+            <span class="post-date" title="2021-01-07 09:58:00">2021/01/07</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2021/01/06/write/latex/latex-table/"
+           data-tag="Latex-table"
+           data-author="" >
+            <span class="post-title" title="Latex-table">Latex-table</span>
+            <span class="post-date" title="2021-01-06 11:37:01">2021/01/06</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2021/01/06/write/latex/latex-pic/"
+           data-tag="Latex-pic"
+           data-author="" >
+            <span class="post-title" title="Latex-pic">Latex-pic</span>
+            <span class="post-date" title="2021-01-06 10:06:37">2021/01/06</span>
+        </a>
+        
+        <a  class="全部文章 Java "
+           href="/2021/01/05/java/java-io/"
+           data-tag="IO"
+           data-author="" >
+            <span class="post-title" title="Java-IO">Java-IO</span>
+            <span class="post-date" title="2021-01-05 22:40:25">2021/01/05</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2021/01/05/write/latex/latex-zi-ti/"
+           data-tag="Latex-字体"
+           data-author="" >
+            <span class="post-title" title="Latex-字体">Latex-字体</span>
+            <span class="post-date" title="2021-01-05 19:02:25">2021/01/05</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2021/01/05/linux/kafka/da-jian-kafka-ji-qun/"
+           data-tag="Kafka"
+           data-author="" >
+            <span class="post-title" title="搭建kafka集群">搭建kafka集群</span>
+            <span class="post-date" title="2021-01-05 10:27:18">2021/01/05</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/2021/01/04/docker/an-zhuang-jing-xiang/"
+           data-tag="镜像"
+           data-author="" >
+            <span class="post-title" title="安装镜像">安装镜像</span>
+            <span class="post-date" title="2021-01-04 18:35:42">2021/01/04</span>
+        </a>
+        
+        <a  class="全部文章 Npm "
+           href="/2021/01/01/npm/npm/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="Hexo 命令">Hexo 命令</span>
+            <span class="post-date" title="2021-01-01 20:48:33">2021/01/01</span>
+        </a>
+        
+        <a  class="全部文章 Java "
+           href="/2020/12/19/java/java-ji-he-kuang-jia/java-ji-he-kuang-jia/"
+           data-tag="Collection"
+           data-author="" >
+            <span class="post-title" title="Java集合框架">Java集合框架</span>
+            <span class="post-date" title="2020-12-19 20:24:04">2020/12/19</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/17/python/python-yu-fa/python-import/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title="Python-import">Python-import</span>
+            <span class="post-date" title="2020-12-17 21:45:46">2020/12/17</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2020/12/17/leetcode/tree/zi-dian-shu/"
+           data-tag="Tree"
+           data-author="" >
+            <span class="post-title" title="字典树">字典树</span>
+            <span class="post-date" title="2020-12-17 21:04:44">2020/12/17</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/17/python/nlp/wen-ben-xiang-si-du/"
+           data-tag="NLP"
+           data-author="" >
+            <span class="post-title" title="文本相似度">文本相似度</span>
+            <span class="post-date" title="2020-12-17 20:30:46">2020/12/17</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/16/python/python-yu-fa/python-cao-zuo-mongo/"
+           data-tag="Python-Mongo"
+           data-author="" >
+            <span class="post-title" title="Python-操作mongo">Python-操作mongo</span>
+            <span class="post-date" title="2020-12-16 22:10:04">2020/12/16</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/2020/12/16/docker/docker-ming-ling/"
+           data-tag="命令"
+           data-author="" >
+            <span class="post-title" title="Docker命令">Docker命令</span>
+            <span class="post-date" title="2020-12-16 21:02:03">2020/12/16</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/12/16/linux/ming-ling/linux-ming-ling/"
+           data-tag="命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令">Linux命令</span>
+            <span class="post-date" title="2020-12-16 20:06:32">2020/12/16</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/2020/12/16/docker/bu-shu-flask-ying-yong-dao-docker/"
+           data-tag="Flask,Python"
+           data-author="" >
+            <span class="post-title" title="部署Flask应用到Docker">部署Flask应用到Docker</span>
+            <span class="post-date" title="2020-12-16 13:04:27">2020/12/16</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/16/python/python-yu-fa/han-shu/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title="Python-函数">Python-函数</span>
+            <span class="post-date" title="2020-12-16 10:46:54">2020/12/16</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/15/python/web-ying-yong-flask/flask-graphql-de-shi-yong/"
+           data-tag="Flask"
+           data-author="" >
+            <span class="post-title" title="Flask-GraphQL的使用">Flask-GraphQL的使用</span>
+            <span class="post-date" title="2020-12-15 22:21:25">2020/12/15</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/15/python/python-yu-fa/rong-qi/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title="Python-容器">Python-容器</span>
+            <span class="post-date" title="2020-12-15 21:01:14">2020/12/15</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/15/python/python-yu-fa/wen-jian/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title="Python-文件操作">Python-文件操作</span>
+            <span class="post-date" title="2020-12-15 20:50:20">2020/12/15</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/15/python/nlp/nlp-ying-wen-chu-li-gong-ju-nltk/"
+           data-tag="NLP"
+           data-author="" >
+            <span class="post-title" title="nlp-nltk使用">nlp-nltk使用</span>
+            <span class="post-date" title="2020-12-15 19:17:58">2020/12/15</span>
+        </a>
+        
+        <a  class="全部文章 Python "
+           href="/2020/12/15/python/conda/conda-ming-ling/"
+           data-tag="Conda"
+           data-author="" >
+            <span class="post-title" title="Conda 命令">Conda 命令</span>
+            <span class="post-date" title="2020-12-15 13:24:09">2020/12/15</span>
+        </a>
+        
+        <a  class="全部文章 Latex "
+           href="/2020/12/14/write/latex/hithesis/hithesis-gong-da-lun-wen-mo-ban/"
+           data-tag="Hithesis"
+           data-author="" >
+            <span class="post-title" title="Hithesis 工大论文模板">Hithesis 工大论文模板</span>
+            <span class="post-date" title="2020-12-14 19:58:50">2020/12/14</span>
+        </a>
+        
+        <a  class="全部文章 Graphql "
+           href="/2020/12/10/graphql/graphql-de-shi-yong/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Graphql的使用">Graphql的使用</span>
+            <span class="post-date" title="2020-12-10 20:20:08">2020/12/10</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/2020/12/10/docker/bu-shu-springboot-xiang-mu-dao-docker/"
+           data-tag="部署"
+           data-author="" >
+            <span class="post-title" title="部署springboot项目到docker">部署springboot项目到docker</span>
+            <span class="post-date" title="2020-12-10 18:22:44">2020/12/10</span>
+        </a>
+        
+        <a  class="全部文章 Windows "
+           href="/2020/12/08/windows/windows-cmd/"
+           data-tag="cmd"
+           data-author="" >
+            <span class="post-title" title="windows cmd">windows cmd</span>
+            <span class="post-date" title="2020-12-08 22:31:00">2020/12/08</span>
+        </a>
+        
+        <a  class="全部文章 计算机网络 "
+           href="/2020/12/08/ji-suan-ji-wang-luo/chuan-shu-ceng/tcp-he-udp-xie-yi/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="TCP和UDP协议">TCP和UDP协议</span>
+            <span class="post-date" title="2020-12-08 22:01:43">2020/12/08</span>
+        </a>
+        
+        <a  class="全部文章 计算机网络 "
+           href="/2020/12/08/ji-suan-ji-wang-luo/osi-qi-ceng-xie-yi/"
+           data-tag="概述"
+           data-author="" >
+            <span class="post-title" title="OSI七层协议">OSI七层协议</span>
+            <span class="post-date" title="2020-12-08 21:16:05">2020/12/08</span>
+        </a>
+        
+        <a  class="全部文章 Git "
+           href="/2020/12/03/git/git-ming-ling/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git命令">Git命令</span>
+            <span class="post-date" title="2020-12-03 10:51:18">2020/12/03</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/2020/12/02/docker/an-zhuang-docker/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker安装与配置">Docker安装与配置</span>
+            <span class="post-date" title="2020-12-02 15:32:43">2020/12/02</span>
+        </a>
+        
+        <a  class="全部文章 Git "
+           href="/2020/11/30/git/git-ignore-wen-jian/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git ignore 文件">Git ignore 文件</span>
+            <span class="post-date" title="2020-11-30 11:14:45">2020/11/30</span>
+        </a>
+        
+        <a  class="全部文章 Markdown "
+           href="/2020/11/23/write/markdown/markdown-yu-fa/"
+           data-tag="语法"
+           data-author="" >
+            <span class="post-title" title="markdown语法">markdown语法</span>
+            <span class="post-date" title="2020-11-23 11:15:30">2020/11/23</span>
+        </a>
+        
+        <a  class="全部文章 工作流 "
+           href="/2020/11/10/others/activiti/gong-zuo-liu-activiti/"
+           data-tag="activiti"
+           data-author="" >
+            <span class="post-title" title="工作流">工作流</span>
+            <span class="post-date" title="2020-11-10 14:22:22">2020/11/10</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/08/26/leetcode/string/kmp/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="KMP">KMP</span>
+            <span class="post-date" title="2019-08-26 16:49:56">2019/08/26</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/07/19/leetcode/simple-without-algorithm/liang-shu-zhi-he/"
+           data-tag="leetcode,simple"
+           data-author="" >
+            <span class="post-title" title="两数之和">两数之和</span>
+            <span class="post-date" title="2019-07-19 15:01:42">2019/07/19</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/23/leetcode/string/zui-chang-gong-gong-qian-zhui/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="最长公共前缀">最长公共前缀</span>
+            <span class="post-date" title="2019-06-23 13:59:58">2019/06/23</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/22/leetcode/simple-without-algorithm/luo-ma-shu-zi-zhuan-zheng-shu/"
+           data-tag="leetcode,DataStructure"
+           data-author="" >
+            <span class="post-title" title="罗马数字转整数">罗马数字转整数</span>
+            <span class="post-date" title="2019-06-22 17:11:34">2019/06/22</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/21/leetcode/simple-without-algorithm/zheng-shu-zhuan-luo-ma-shu-zi/"
+           data-tag="leetcode,DataStructure"
+           data-author="" >
+            <span class="post-title" title="整数转罗马数字">整数转罗马数字</span>
+            <span class="post-date" title="2019-06-21 15:51:02">2019/06/21</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/20/leetcode/simple-without-algorithm/sheng-zui-duo-shui-de-rong-qi/"
+           data-tag="leetcode,DoublePointer"
+           data-author="" >
+            <span class="post-title" title="盛最多水的容器">盛最多水的容器</span>
+            <span class="post-date" title="2019-06-20 19:43:41">2019/06/20</span>
+        </a>
+        
+        <a  class="全部文章 Paper "
+           href="/2019/06/20/paper/kddcup2012-track2/"
+           data-tag="paper,KDD"
+           data-author="" >
+            <span class="post-title" title="KDD-Cup2012-Track2">KDD-Cup2012-Track2</span>
+            <span class="post-date" title="2019-06-20 14:02:44">2019/06/20</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/19/leetcode/string/hui-wen-shu/"
+           data-tag="leetcode,simple,string"
+           data-author="" >
+            <span class="post-title" title="回文数">回文数</span>
+            <span class="post-date" title="2019-06-19 18:57:00">2019/06/19</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/18/leetcode/string/zi-fu-chuan-zhuan-huan-zheng-shu-atoi/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="字符串转换整数 (atoi)">字符串转换整数 (atoi)</span>
+            <span class="post-date" title="2019-06-18 19:34:38">2019/06/18</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/16/leetcode/string/wu-chong-fu-zi-fu-zui-chang-zi-chuan/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="无重复字符最长子串">无重复字符最长子串</span>
+            <span class="post-date" title="2019-06-16 15:43:53">2019/06/16</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/16/leetcode/string/zui-chang-hui-wen-zi-chuan/"
+           data-tag="leetcode,string"
+           data-author="" >
+            <span class="post-title" title="最长回文子串">最长回文子串</span>
+            <span class="post-date" title="2019-06-16 13:35:44">2019/06/16</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/15/leetcode/tree/liang-shu-zhi-he-shu-ru-bst/"
+           data-tag="leetcode,tree"
+           data-author="" >
+            <span class="post-title" title="两数之和-输入BST">两数之和-输入BST</span>
+            <span class="post-date" title="2019-06-15 21:24:40">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 Paper "
+           href="/2019/06/15/paper/pgm/concept/conceptbayesiannetwork/"
+           data-tag="paper,PGM,BN"
+           data-author="" >
+            <span class="post-title" title="贝叶斯">贝叶斯</span>
+            <span class="post-date" title="2019-06-15 14:45:32">2019/06/15</span>
+        </a>
+        
+        <a  class="全部文章 Paper "
+           href="/2019/06/14/paper/pgm/ji-yu-gai-lu-tu-mo-xing-de-hu-lian-wang-guang-gao-dian-ji-lu-yu-ce/"
+           data-tag="paper,PGM"
+           data-author="" >
+            <span class="post-title" title="阅读：基于概率图模型的互联网广告点击率预测">阅读：基于概率图模型的互联网广告点击率预测</span>
+            <span class="post-date" title="2019-06-14 20:17:42">2019/06/14</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/13/leetcode/cpp-stl/reverse-integer/"
+           data-tag="leetcode,cpp_stl"
+           data-author="" >
+            <span class="post-title" title="整数反转">整数反转</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <a  class="全部文章 Leetcode "
+           href="/2019/06/13/leetcode/simple-without-algorithm/zigzag-conversion/"
+           data-tag="Leetcode,simple"
+           data-author="" >
+            <span class="post-title" title="Z字形变换">Z字形变换</span>
+            <span class="post-date" title="2019-06-13 14:54:42">2019/06/13</span>
+        </a>
+        
+        <div id="no-item-tips">
 
         </div>
-      </header>
-
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-write/markdown/markdown语法" class="article article-type-post" itemscope itemprop="blogPost">
     
+        <h1 class="article-title">markdown语法</h1>
     
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Markdown">Markdown</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">语法</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-12-11 12:42:54'>2020-11-23 11:15</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:352</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
     
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="toc-text">代码块的语言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%B5%8C%E5%A5%97"><span class="toc-text">列表嵌套</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AE%B5%E8%90%BD%E7%BC%A9%E8%BF%9B"><span class="toc-text">段落缩进</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="代码块的语言"><a href="#代码块的语言" class="headerlink" title="代码块的语言"></a>代码块的语言</h1><table>
 <thead>
@@ -313,199 +1290,244 @@
 <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">text-indent</span><span class="token punctuation">:</span><span class="token number">2</span>em</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>xxxx<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
 </code></pre>
 
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 changzeyan@foxmail.com </span>
     </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
 
     
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E8%AF%AD%E6%B3%95/" rel="tag"># 语法</a>
-          </div>
-
-        
 
 
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/11/10/others/activiti/gong-zuo-liu-activiti/" rel="prev" title="工作流">
-      <i class="fa fa-chevron-left"></i> 工作流
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/11/30/git/git-ignore-wen-jian/" rel="next" title="Git ignore 文件">
-      Git ignore 文件 <i class="fa fa-chevron-right"></i>
-    </a></div>
+
+
     </div>
-      </footer>
-    
-  </article>
-  
-  
-  
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2017 ChangzeYan
+</p>
+<!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
 
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
 
+    </div>
+</div>
 
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">代码块的语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number">2.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number">2.2.</span> <span class="nav-text">有序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E5%B5%8C%E5%A5%97"><span class="nav-number">2.3.</span> <span class="nav-text">列表嵌套</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD%E7%BC%A9%E8%BF%9B"><span class="nav-number">3.</span> <span class="nav-text">段落缩进</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">ChangzeYan</p>
-  <div class="site-description" itemprop="description">天空中没有留下翅膀的痕迹，但我已飞过</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">71</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-        <span class="site-state-item-count">22</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">41</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
-
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ChangzeYan</span>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+<div id="musicMouseDrag" style="position:fixed; z-index: 9999; bottom: 0; right: 0;">
+    <div id="musicDragArea" style="position: absolute; top: 0; left: 0; width: 100%;height: 10px;cursor: move; z-index: 10;"></div>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=402070928&auto=1&height=66"></iframe>
+</div>
 </html>
