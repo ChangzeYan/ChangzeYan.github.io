@@ -74,8 +74,8 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: hexo-theme-matery
-# theme: 3-hexo
-theme: next
+theme: 3-hexo
+# theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
