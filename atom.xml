@@ -6,7 +6,7 @@
   <link href="https://changzeyan.github.io/atom.xml" rel="self"/>
   
   <link href="https://changzeyan.github.io/"/>
-  <updated>2021-12-16T12:56:12.104Z</updated>
+  <updated>2022-01-16T02:33:54.798Z</updated>
   <id>https://changzeyan.github.io/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jsp-basic</title>
+    <link href="https://changzeyan.github.io/2022/01/16/java/jsp/jsp-basic/"/>
+    <id>https://changzeyan.github.io/2022/01/16/java/jsp/jsp-basic/</id>
+    <published>2022-01-16T02:00:51.000Z</published>
+    <updated>2022-01-16T02:33:54.798Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Jsp引入bootstrap样式"><a href="#Jsp引入bootstrap样式" class="headerlink" title="Jsp引入bootstrap样式"></a>Jsp引入bootstrap样式</h1><p>参考：<a href="https://blog.csdn.net/qq_43254488/article/details/85099244">https://blog.csdn.net/qq_43254488/article/details/85099244</a></p><p>下载：<a href="https://www.bootcss.com/">https://www.bootcss.com/</a></p><p>点某个版本中文文档：<a href="https://v3.bootcss.com/">https://v3.bootcss.com/</a><br>进入下载页</p><p>下载用于生产环境的bootstrap</p><p>将下载的压缩包解压，在jsp项目webapp目录下新建static文件夹，将解压的文件夹放到static目录下：</p><p><img src="https://github.com/ChangzeYan/ChangzeYan.github.io/raw/hexo/source/pic/jsp_bootstrap.png" alt="bootstrap文件位置"></p><p>在jsp页面中引用：<br>方式1：用basepath</p><pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot; %&gt;&lt;%    String path=request.getContextPath();    String bathPath=request.getScheme()+&quot;://&quot;+request.getServerName()+&quot;:&quot;+request.getServerPort()+path+&quot;/&quot;;%&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&lt;%=bathPath%&gt;/static/bootstrap-3.4.1-dist/css/bootstrap.min.css&quot;&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=bathPath%&gt;/static/bootstrap-3.4.1-dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</code></pre><p>方式2：直接引用<br>head:</p><pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;static/bootstrap-3.4.1-dist/css/bootstrap.min.css&quot;&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;static/bootstrap-3.4.1-dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</code></pre><p>body:</p><pre><code>&lt;nav aria-label=&quot;Page navigation&quot;&gt;    &lt;ul class=&quot;pagination&quot;&gt;        &lt;li&gt;            &lt;a href=&quot;#&quot; aria-label=&quot;Previous&quot;&gt;                &lt;span aria-hidden=&quot;true&quot;&gt;&amp;laquo;&lt;/span&gt;            &lt;/a&gt;        &lt;/li&gt;        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt; &lt;/li&gt;        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt; &lt;/li&gt;        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt; &lt;/li&gt;        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt; &lt;/li&gt;    &lt;/ul&gt;&lt;/nav&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;默认样式&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;首选项&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;成功&lt;/button&gt;</code></pre>]]></content>
+    
+    
+    <summary type="html">Jsp 基础知识</summary>
+    
+    
+    
+    <category term="Jsp" scheme="https://changzeyan.github.io/categories/Jsp/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>tomcat</title>
+    <link href="https://changzeyan.github.io/2022/01/12/java/tomcat/tomcat/"/>
+    <id>https://changzeyan.github.io/2022/01/12/java/tomcat/tomcat/</id>
+    <published>2022-01-12T10:03:57.000Z</published>
+    <updated>2022-01-12T10:43:37.152Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>下载地址：<a href="https://tomcat.apache.org/download-80.cgi">https://tomcat.apache.org/download-80.cgi</a><br>下载core版本，64-bit Windows zip (pgp, sha512)</p><p>解压后新建环境变量<br>CATALINA_BASE ，值为根目录：D:\Environment\Tomcat\apache-tomcat-8.5.59</p><p>CATALINA_HOME ，值为根目录：D:\Environment\Tomcat\apache-tomcat-8.5.59</p><p>打开path，在后面添加：<br>;%CATALINA_HOME%\lib;%CATALINA_HOME%\bin;</p><p>验证：<br>cmd中输入：startup</p><h1 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h1><p>1、找到apache-tomcat-7.0.92/conf/logging.properties<br>2、将java.util.logging.ConsoleHandler.encoding 从utf-8改为GBK</p><p>重启</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h1&gt;&lt;p&gt;下载地址：&lt;a href=&quot;https://tomcat.apache.org/download-80.cgi&quot;&gt;https://tomca</summary>
+      
+    
+    
+    
+    <category term="tomcat" scheme="https://changzeyan.github.io/categories/tomcat/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>springboot</title>
@@ -393,55 +434,6 @@
     
     
     <category term="NLP" scheme="https://changzeyan.github.io/tags/NLP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python-str</title>
-    <link href="https://changzeyan.github.io/2021/01/28/python/python-yu-fa/python-str/"/>
-    <id>https://changzeyan.github.io/2021/01/28/python/python-yu-fa/python-str/</id>
-    <published>2021-01-28T08:05:26.000Z</published>
-    <updated>2021-09-26T09:19:06.396Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h1><p>多个字符串拼接可以用join:</p><pre class=" language-python"><code class="language-python">str_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Hello'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">]</span>str_join1 <span class="token operator">=</span> <span class="token string">' '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>str_list<span class="token punctuation">)</span>str_join2 <span class="token operator">=</span> <span class="token string">'-'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>str_list<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>str_join1<span class="token punctuation">)</span> <span class="token operator">>></span><span class="token operator">></span>Hello world<span class="token keyword">print</span><span class="token punctuation">(</span>str_join2<span class="token punctuation">)</span> <span class="token operator">>></span><span class="token operator">></span>Hello<span class="token operator">-</span>world</code></pre><p>加号拼接:</p><pre class=" language-python"><code class="language-python">str_1 <span class="token operator">=</span> <span class="token string">'Hello world！ '</span>str_2 <span class="token operator">=</span> <span class="token string">'My name is Python猫.'</span><span class="token keyword">print</span><span class="token punctuation">(</span>str_1 <span class="token operator">+</span> str_2<span class="token punctuation">)</span><span class="token operator">>></span><span class="token operator">></span>Hello world！ My name <span class="token keyword">is</span> Python猫<span class="token punctuation">.</span><span class="token keyword">print</span><span class="token punctuation">(</span>str_1<span class="token punctuation">)</span><span class="token operator">>></span><span class="token operator">></span>Hello world！</code></pre><p>字符串增长：</p><pre><code>str += &#39;s&#39;</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;字符串拼接&quot;&gt;&lt;a href=&quot;#字符串拼接&quot; class=&quot;headerlink&quot; title=&quot;字符串拼接&quot;&gt;&lt;/a&gt;字符串拼接&lt;/h1&gt;&lt;p&gt;多个字符串拼接可以用join:&lt;/p&gt;
-&lt;pre class=&quot; language-python&quot;&gt;&lt;code cl</summary>
-      
-    
-    
-    
-    <category term="Python" scheme="https://changzeyan.github.io/categories/Python/"/>
-    
-    
-    <category term="String" scheme="https://changzeyan.github.io/tags/String/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mongo语法</title>
-    <link href="https://changzeyan.github.io/2021/01/28/linux/mongo/mongo-grammar/"/>
-    <id>https://changzeyan.github.io/2021/01/28/linux/mongo/mongo-grammar/</id>
-    <published>2021-01-28T07:54:30.000Z</published>
-    <updated>2021-06-17T01:23:42.260Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><h2 id="查询所有"><a href="#查询所有" class="headerlink" title="查询所有"></a>查询所有</h2><pre class=" language-bash"><code class="language-bash">db.collection.find<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><h2 id="获取数据条数"><a href="#获取数据条数" class="headerlink" title="获取数据条数"></a>获取数据条数</h2><pre class=" language-bash"><code class="language-bash">db.collection.find<span class="token punctuation">(</span><span class="token punctuation">)</span>.count<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><h2 id="范围查询"><a href="#范围查询" class="headerlink" title="范围查询"></a>范围查询</h2><pre class=" language-bash"><code class="language-bash">查询age<span class="token operator">></span>22的记录db.userInfo.find<span class="token punctuation">((</span>age:<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;$gt:22&amp;#125;&amp;#125;);</span>查询age<span class="token operator">&lt;</span>22的记录db.userInfo.find<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;age:&amp;#123;$lt:22&amp;#125;&amp;#125;);</span>查询age<span class="token operator">>=</span>25的记录db.userInfo.find<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;age:&amp;#123;$gte:25&amp;#125;&amp;#125;);</span>查询age<span class="token operator">&lt;=</span>25的记录db.userInfo.find<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;age:&amp;#123;$lte:25&amp;#125;&amp;#125;);</span>查询age<span class="token operator">></span>23并且age<span class="token operator">&lt;=</span>26db.userInfo.find<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;age:&amp;#123;gte:23,$lte:26&amp;#125;&amp;#125;);</span></code></pre><h2 id="and"><a href="#and" class="headerlink" title="and"></a>and</h2><p>查询student 集合中名字为zs且id为02的项:</p><pre class=" language-bash"><code class="language-bash">db.getCollection<span class="token punctuation">(</span><span class="token string">"student"</span><span class="token punctuation">)</span>.find<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"name":"zs","id":"02"&amp;#125;)</span></code></pre><h2 id="查询集合中指定字段的所有不同值"><a href="#查询集合中指定字段的所有不同值" class="headerlink" title="查询集合中指定字段的所有不同值"></a>查询集合中指定字段的所有不同值</h2><pre><code>db.目标集合.distinct(&quot;指定字段&quot;)</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;查询&quot;&gt;&lt;a href=&quot;#查询&quot; class=&quot;headerlink&quot; title=&quot;查询&quot;&gt;&lt;/a&gt;查询&lt;/h1&gt;&lt;h2 id=&quot;查询所有&quot;&gt;&lt;a href=&quot;#查询所有&quot; class=&quot;headerlink&quot; title=&quot;查询所有&quot;&gt;&lt;/a&gt;查询所有&lt;/h</summary>
-      
-    
-    
-    
-    <category term="Liunx" scheme="https://changzeyan.github.io/categories/Liunx/"/>
-    
-    
-    <category term="Mongo" scheme="https://changzeyan.github.io/tags/Mongo/"/>
     
   </entry>
   
