@@ -606,14 +606,14 @@
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/tags/cmd/</loc>
+    <loc>https://changzeyan.github.io/tags/pandas/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/tags/pandas/</loc>
+    <loc>https://changzeyan.github.io/tags/cmd/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -641,13 +641,6 @@
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/tags/Kafka/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://changzeyan.github.io/tags/Collection/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
@@ -656,6 +649,20 @@
   
   <url>
     <loc>https://changzeyan.github.io/tags/Java-Kafka/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://changzeyan.github.io/tags/Mongo/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://changzeyan.github.io/tags/Kafka/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -676,21 +683,7 @@
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/tags/Mongo/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://changzeyan.github.io/tags/NLP/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://changzeyan.github.io/tags/Python-Mongo/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -711,6 +704,13 @@
   </url>
   
   <url>
+    <loc>https://changzeyan.github.io/tags/Python-Mongo/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://changzeyan.github.io/tags/Pip/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
@@ -725,35 +725,7 @@
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/tags/Leetcode/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://changzeyan.github.io/tags/simple/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://changzeyan.github.io/tags/leetcode/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://changzeyan.github.io/tags/DataStructure/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://changzeyan.github.io/tags/DoublePointer/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -774,14 +746,14 @@
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/tags/tree/</loc>
+    <loc>https://changzeyan.github.io/tags/simple/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/tags/PGM/</loc>
+    <loc>https://changzeyan.github.io/tags/tree/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -802,6 +774,34 @@
   </url>
   
   <url>
+    <loc>https://changzeyan.github.io/tags/Leetcode/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://changzeyan.github.io/tags/DataStructure/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://changzeyan.github.io/tags/DoublePointer/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://changzeyan.github.io/tags/PGM/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://changzeyan.github.io/tags/Lst/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
@@ -816,14 +816,14 @@
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/tags/Latex-pic/</loc>
+    <loc>https://changzeyan.github.io/tags/Latex-table/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/tags/Latex-table/</loc>
+    <loc>https://changzeyan.github.io/tags/Latex-pic/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -874,6 +874,13 @@
   </url>
   
   <url>
+    <loc>https://changzeyan.github.io/categories/Npm/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://changzeyan.github.io/categories/PS/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
@@ -881,7 +888,7 @@
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/categories/Npm/</loc>
+    <loc>https://changzeyan.github.io/categories/Python/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -902,21 +909,7 @@
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/categories/Python/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://changzeyan.github.io/categories/Paper/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://changzeyan.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -930,21 +923,14 @@
   </url>
   
   <url>
+    <loc>https://changzeyan.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://changzeyan.github.io/categories/Jsp/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://changzeyan.github.io/categories/Linux/</loc>
-    <lastmod>2022-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://changzeyan.github.io/categories/Kafka/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -958,7 +944,21 @@
   </url>
   
   <url>
+    <loc>https://changzeyan.github.io/categories/Kafka/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://changzeyan.github.io/categories/Liunx/</loc>
+    <lastmod>2022-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://changzeyan.github.io/categories/Linux/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -979,14 +979,14 @@
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/categories/Excel/</loc>
+    <loc>https://changzeyan.github.io/categories/%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://changzeyan.github.io/categories/%E5%B7%A5%E4%BD%9C%E6%B5%81/</loc>
+    <loc>https://changzeyan.github.io/categories/Excel/</loc>
     <lastmod>2022-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
