@@ -63,3 +63,21 @@ body:
 <button type="button" class="btn btn-success">成功</button>
 
 ```
+
+# 添加json依赖
+引入以下jar包：
+commons-lang-2.5.jar
+commons-collections-3.1.jar
+commons-beanutils-1.7.0.jar
+json-lib-2.4-jdk15.jar
+ezmorph-1.0.3.jar
+commons-logging-1.1.1.jar
+
+在tomcat 的lib目录下也要放置
+
+
+
+# Bootstrap开关按钮
+bootstrap4-toggle：
+https://gitbrent.github.io/bootstrap4-toggle/
+
